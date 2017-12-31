@@ -1,0 +1,41 @@
+.perks {
+    max-width: 799px;
+    margin: 0px auto 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.levels {
+    max-width: 500px;
+    margin: 0px auto;
+}
+.levels > div {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.levels > div:last-child {
+    margin-bottom: 0px;
+}
+.levels li {
+    list-style: disc outside !important;
+}
+
+.joinNow {
+    width: 110px;
+    margin: 60px auto;
+    text-align: center;
+}
+.joinNow span {
+    margin: 0px auto;
+}
+
+.disclaimers {
+    font-size: 10px;
+    max-width: 500px;
+    margin: 48px auto 24px;
+}
+.disclaimers div {
+    padding-bottom: 1em;
+}

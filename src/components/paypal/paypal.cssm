@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+}
+.container:hover > div:first-child {
+    cursor: pointer;
+    background: #234473;
+    color: white;
+}
+
+.container.invalid > div:first-child {
+    border-color: #B3302C;
+    color: #B3302C;
+}
+.container.invalid:hover > div:first-child {
+    cursor: not-allowed !important;
+    background: white;
+}
+.container > div:first-child {
+    margin: 0px;
+}
+.container > div:nth-child(2) {
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    width: 90px;
+}

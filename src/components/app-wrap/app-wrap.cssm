@@ -1,0 +1,21 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.scrollContainer {
+    margin-top: 90px;
+    height: 100%;
+}
+
+
+/* Join Tab Special Styling */
+.joinTab {
+    border: 3px solid #234473 !important;
+    transition: all 0.2s linear;
+}
+.joinTab:not(:hover) {
+    background-color: #234473;
+    color: #FFFFFF;
+}

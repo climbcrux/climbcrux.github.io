@@ -1,0 +1,39 @@
+.container {
+    position: relative;
+    /*margin-top: -90px;*/
+}
+.container img {
+    object-fit: cover;
+    object-position: bottom;
+    height: 100vh;
+    width: 100%;
+}
+
+.progressTracker {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.bubble {
+    border: 2px solid #BDBDBD;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    margin: 0px 4px;
+    transition: border 0.2s linear;
+    z-index: 2;
+}
+.bubble:hover {
+    cursor: pointer;
+}
+.bubble.active {
+    border-color: transparent;
+    background-color: white;
+}
+

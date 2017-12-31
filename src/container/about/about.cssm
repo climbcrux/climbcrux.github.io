@@ -1,0 +1,49 @@
+.columnHeader {
+    margin-top: 2.5em;
+    margin-bottom: -0.5em;
+}
+.columns {
+    display: flex; flex-direction: column;
+}
+.columns .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.row > *:first-child {
+    flex: 0.3;
+    margin-top: 1.5em;
+}
+.row > *:last-child {
+    flex: 0.7;
+    margin-top: 1.5em;
+    padding-top: 0em;
+}
+
+.row h5, 
+.contactForm h5 {
+    color: #315d8f;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+
+.contactForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contactForm h1 {
+    padding-bottom: 0em;
+}
+.contactFrom p:first-child {
+    padding-top: 0em;
+}
+.contactForm > div {
+    width: 50%;
+}
+
+.contactForm .infoField {
+    margin-top: 4em;
+}

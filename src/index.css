@@ -1,0 +1,29 @@
+body {
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.root {
+    width: 100vw;
+    height: 100vh;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.invalid-feedback {
+    display: none;
+}
+
+@media only screen and (max-width: 950px) {
+    .root > div {
+        margin: 0px 20px;
+        width: calc(100% - 40px);
+    }
+}

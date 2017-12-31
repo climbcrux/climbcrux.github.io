@@ -1,0 +1,23 @@
+.container {
+    margin-bottom: 20px;
+    position: relative;
+    background: white;
+    z-index: 1;
+}
+.conatiner:last-child {
+    margin-bottom: 0px;
+}
+
+.header span {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+}
+.header:hover {
+    cursor: pointer;
+}
+
+.body p {
+    margin: 0px;
+    padding: 8px 0px;
+}

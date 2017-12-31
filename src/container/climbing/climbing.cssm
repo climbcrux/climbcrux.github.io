@@ -1,0 +1,11 @@
+.events {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.events > div {
+    margin-right: 20px;
+}
+.events > div:last-child {
+    margin-right: 0px;
+}

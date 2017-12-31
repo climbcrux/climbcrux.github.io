@@ -1,0 +1,53 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "CRUX Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "es6-promise": "^4.1.1",
+    "form-for": "^0.3.6",
+    "form-for-bootstrap-components": "^0.1.1",
+    "form-for-component-helpers": "^0.1.1",
+    "form-for-components": "^0.1.1",
+    "html-webpack-plugin": "^2.30.1",
+    "moment": "^2.19.2",
+    "moment-range": "^3.1.0",
+    "postcss-loader": "^2.0.8",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-bootstrap": "^0.31.5",
+    "react-collapse": "^4.0.3",
+    "react-css-transition-replace": "^3.0.2",
+    "react-dom": "^16.1.1",
+    "react-image-gallery": "^0.8.6",
+    "react-motion": "^0.5.2",
+    "react-paypal-express-checkout": "^1.0.3",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scroll": "^1.6.4",
+    "react-springy-parallax": "^1.2.0",
+    "redux-thunk": "^2.2.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.2.16",
+    "@storybook/addon-actions": "^3.2.16",
+    "@storybook/addon-links": "^3.2.16"
+  }
+}

@@ -1,0 +1,14 @@
+.container {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.name {
+    width: 33%;
+    display: inline-block;
+    margin: 7px 0px;
+
+    color: #234473;
+    font-weight: 600;
+    text-align: center;
+}

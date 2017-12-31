@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+    font-family: "Proxima Nova", sans-serif;
+
+    max-width: 900px;
+    margin: 0px auto;
+    padding-top: 50px;
+}

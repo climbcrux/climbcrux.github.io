@@ -1,0 +1,30 @@
+.container {
+    width: inherit;
+    position: relative;
+    padding: 24px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    transition: all 150ms linear;
+}
+.container:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background: #1D4E72;
+    color: white;
+}
+.container:hover .price {
+    color: white;
+}
+
+.name {
+    font-family: "ProximaNova";
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.price {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D4E72;
+}
