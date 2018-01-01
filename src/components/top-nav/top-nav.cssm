@@ -31,7 +31,7 @@
 .subNavContainer {
     display: flex;
     flex-direction: row;
-    font-family: "Proxima Nova";
+    font-family: "Proxima Nova", sans-serif;
 }
 .subNavContainer > div {
     text-transform: uppercase;

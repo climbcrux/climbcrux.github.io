@@ -79,8 +79,11 @@
     background-color: #3A8EE8;
     border-radius: 50%;
     font-weight: bold;
-    padding-top: 4px;
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .dark .day.today > span {
     background-color: #3C2545;
