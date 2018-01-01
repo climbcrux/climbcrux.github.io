@@ -30,9 +30,18 @@ class Home extends Component {
 
     return (
       <div className={styles.container}>
-        <Parallax pages={2} ref="parallax">
+        <Parallax pages={1} ref="parallax">
           <Parallax.Layer offset={0} speed={0}>
-            <Gallery images={IMAGES} />
+
+            <div className={styles.layer}>
+              <div className={styles.quote}>
+                Empowered members of the LGBTQ community to participate rock
+                climbing and other outdoor recreation in the New York
+                metropolitan area and eastern New York.
+              </div>
+              <Gallery className={styles.gallery} images={IMAGES} />
+            </div>
+
           </Parallax.Layer >
         </Parallax>
       </div>

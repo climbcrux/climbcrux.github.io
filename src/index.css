@@ -7,8 +7,8 @@ body {
 }
 
 .root {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 a:hover,
@@ -19,11 +19,4 @@ a:focus {
 
 .invalid-feedback {
     display: none;
-}
-
-@media only screen and (max-width: 950px) {
-    .root > div {
-        margin: 0px 20px;
-        width: calc(100% - 40px);
-    }
 }

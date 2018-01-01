@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 1);
     transition: height 0.2s;
 
     display: flex;
@@ -55,11 +55,16 @@
 /***** Mobile *****/
 @media only screen and (max-width: 900px) {
     .container {
-        margin-left: -20px;
+        padding: 10px 8px;
     }
 }
-@media only screen and (max-width: 600px) {
-    .subNavContainer > div {
-        padding: 11px 8px;
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 120px;
+    }
+    .container .logoContainer {
+        width: 190px;
+        height: 75px;
     }
 }

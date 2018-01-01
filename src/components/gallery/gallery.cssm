@@ -1,23 +1,26 @@
 .container {
     position: relative;
-    margin-top: 70px;
 }
+.container > div:first-child {
+    height: 100%;
+    width: 100%;
+}
+
 .container img {
     object-fit: fill;
-    object-position: center;
-    height: calc(100vh - 70px);
+    object-position: bottom;
+    height: 100%;
     width: 100%;
 }
 
 .progressTracker {
-    position: fixed;
-    bottom: 0px;
+    position: absolute;
+    bottom: 12px;
     width: 100%;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 12px;
 }
 
 .bubble {

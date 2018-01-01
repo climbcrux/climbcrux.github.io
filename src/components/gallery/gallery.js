@@ -13,6 +13,7 @@ class Gallery extends Component {
     images: PropTypes.array,
     switchInterval: PropTypes.number,
     shiftDuration: PropTypes.number,
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -95,7 +96,7 @@ class Gallery extends Component {
     const { imageIdx, activeImage } = this.state;
 
     return (
-      <div className={styles.container}>
+      <div className={classNames(styles.container, this.props.className)}>
         <ReactCSSTransitionReplace
           transitionName="carousel-swap"
           transitionEnterTimeout={shiftDuration}
