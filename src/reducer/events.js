@@ -9,7 +9,7 @@ export default function Events(state=initState, action) {
     case LOAD_SUCCESS:
       return {
         ...state,
-        events: events.map(evnt => castEventbriteEvent(evnt))
+        events: action.payload.map(evnt => castEventbriteEvent(evnt))
       }
     default:
       return state;

@@ -9,3 +9,14 @@
     margin: 0px auto;
     padding-top: 50px;
 }
+
+@media only screen and (max-width: 550px) {
+    .container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .container > div {
+        margin: 5px 0px;
+        min-width: 125px;
+    }
+}

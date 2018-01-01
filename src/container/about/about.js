@@ -64,7 +64,7 @@ class About extends Component {
           well-being, and offer leadership opportunities to LGBTQ individuals, while
           providing education and visibility within the greater climbing community.
         </p>
-        <h4 className={styles.columnHeader}>Our programming features</h4>
+        <h5 className={styles.columnHeader}>Our programming features</h5>
         <div className={styles.columns}>
           <div className={styles.row}>
             <h5>Newbie Nights</h5>
@@ -176,7 +176,7 @@ class About extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <SubNav tabs={['who-we-are', 'leadership', 'supporters', 'contact']} />
         { this.renderWhoWeAre() }
         { this.renderLeadership() }

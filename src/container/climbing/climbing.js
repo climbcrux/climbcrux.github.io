@@ -142,22 +142,23 @@ class Climbing extends Component {
 				<p>
 					Check out our Calendar for more information on upcoming climbing trip.
 					If you have any questions about which trips are most suitable for your
-					ability level feel free to email our outdoor coordinator
-					<a href="mailto:outdoor@climbcrux.org" target="_top">here</a>.
+					ability level feel free to email our outdoor coordinator <a
+          href="mailto:outdoor@climbcrux.org" target="_top">here</a>.
 				</p>
       </Section>
     );
   }
 
   render() {
-    return (<div>
-      <SubNav tabs={['getting-started', 'regular-events', 'outdoor']} />
+    return (
+      <div className={styles.container}>
+        <SubNav tabs={['getting-started', 'regular-events', 'outdoor']} />
 
-      { this.renderGettingStarted() }
-      { this.renderEvents() }
-      { this.renderOutdoor() }
-
-    </div>);
+        { this.renderGettingStarted() }
+        { this.renderEvents() }
+        { this.renderOutdoor() }
+      </div>
+    );
   }
 };
 export default withRouter(Climbing);
