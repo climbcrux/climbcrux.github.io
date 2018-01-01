@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
 import styles from './join.cssm';
+
+
+export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
 
 
 class Join extends Component {
@@ -11,10 +15,19 @@ class Join extends Component {
     super(props);
 
     this.goToMembership = this.goToMembership.bind(this);
+    this.state = {sale: false};
   }
 
-  goToMembership(level) {
-    this.props.history.push(`membership#${level}`);
+  goToMembership(level, price) {
+    this.props.dispatch({
+      type: CHANGE_LEVEL,
+      payload: {
+        level: level,
+        price: price,
+      }
+    });
+
+    this.props.history.push('membership');
   }
 
   render() {
@@ -43,11 +56,16 @@ class Join extends Component {
         <Section name="level">
           <h1>Levels</h1>
           <div className={styles.levels}>
-            <MemberLevel onClick={this.goToMembership} level="hardship" />
-            <MemberLevel onClick={this.goToMembership} level="standard" />
-            <MemberLevel onClick={this.goToMembership} level="silver" />
-            <MemberLevel onClick={this.goToMembership} level="gold" />
-            <MemberLevel onClick={this.goToMembership} level="platinum" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="hardship" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="standard" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="silver" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="gold" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="platinum" />
           </div>
 
           <div className={styles.disclaimers}>
@@ -66,4 +84,4 @@ class Join extends Component {
     );
   }
 }
-export default withRouter(Join);
+export default withRouter(connect(null, null)(Join));

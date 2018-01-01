@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form, Field, field } from 'form-for';
 import { bindBootstrapFieldComponents } from "form-for-bootstrap-components";
 
-import PayPalButton from '../../components/paypal/paypal';
 import { writeMembership } from '../../actions/record-membership';
-
-import styles from './membershipForm.cssm';
+import PayPalButton from '../../components/paypal/paypal';
 import { STATES } from './states';
+import styles from './membershipForm.cssm';
 
+const queryString = require('query-string');
 bindBootstrapFieldComponents();
 
 
 class MembershipForm extends Component {
+  static propTypes = {
+    level: PropTypes.string,
+    price: PropTypes.string,
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      price: this.props.location.hash.slice(1),
       member: new Member(),
       valid: false,
     };
 
     this.submitForm = this.submitForm.bind(this);
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   formIsValid() {
@@ -33,7 +42,8 @@ class MembershipForm extends Component {
   submitForm(payment) {
     this.props.writeMembership({
       ...this.fillNullValues(this.state.member),
-      level: this.state.price,
+      level: this.props.level,
+      price: this.props.price,
       paymentID: payment ? payment.paymentID: undefined,
     });
   }
@@ -88,7 +98,7 @@ class MembershipForm extends Component {
         </div>
 
         <div className={styles.button}>
-          <PayPalButton price={0.01}
+          <PayPalButton price={Number(this.props.price.slice(1))}
                         valid={this.state.valid}
                         onSuccess={this.submitForm} />
         </div>
@@ -116,6 +126,7 @@ class Member {
 }
 
 export default connect(state => ({
+  ...state.Membership,
 }), {
   writeMembership,
 })(MembershipForm);
