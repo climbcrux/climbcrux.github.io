@@ -15,7 +15,7 @@
 
 .progressTracker {
     position: absolute;
-    bottom: 12px;
+    bottom: 18px;
     width: 100%;
 
     display: flex;
@@ -26,9 +26,9 @@
 .bubble {
     border: 2px solid #BDBDBD;
     border-radius: 50%;
-    height: 6px;
-    width: 6px;
-    margin: 0px 4px;
+    height: 8px;
+    width: 8px;
+    margin: 0px 6px;
     transition: border 0.2s linear;
     z-index: 2;
 }

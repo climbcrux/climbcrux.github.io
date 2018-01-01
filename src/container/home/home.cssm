@@ -18,7 +18,7 @@
     flex: 1;
 }
 .quote {
-    max-width: 570px;
+    max-width: 680px;
     text-align: center;
     font-family: "Alegreya", serif;
     font-size: 23px;
@@ -26,7 +26,7 @@
     font-weight: 600;
     font-style: italic;
     color: #5E396B;
-    margin: 24px 0px 32px;
+    margin: 32px 0px;
     padding: 0px 32px;
 }
 
