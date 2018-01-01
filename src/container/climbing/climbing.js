@@ -18,9 +18,11 @@ class Climbing extends Component {
     scrollSpy.update();
 
     this.DOMLoaded = this.DOMLoaded.bind(this);
+    this.goTo = this.goTo.bind(this);
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     window.addEventListener('load', this.DOMLoaded);
   }
 
@@ -38,9 +40,12 @@ class Climbing extends Component {
   }
 
   scrollToElem(name) {
-    console.log(`Scrolling to .section[name=${name}]`);
     var elem = document.querySelector(`.section[name=${name}]`);
     elem.scrollIntoView({behavior: 'smooth'});
+  }
+
+  goTo(name) {
+    this.props.history.push(name);
   }
 
   renderGettingStarted = () => {
@@ -69,7 +74,8 @@ class Climbing extends Component {
 						To learn more about CRUX, our events, and the sport of rock climbing,
             read our <Link to="faq" smooth={true} offset={-90}
             duration={100}>first-timer FAQ</Link>, check out our <a
-            href="/events">Events Calendar</a>, or Contact Us directly with
+            onClick={() => this.goTo('/events')} className={styles.link}>Events
+            Calendar</a>, or Contact Us directly with
             questions, concerns, or to just say hi!
 				</p>
 

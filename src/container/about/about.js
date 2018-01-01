@@ -17,6 +17,10 @@ class About extends Component {
     sendEmail: PropTypes.func,
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   renderWhoWeAre() {
     return (
       <Section name="who-we-are">

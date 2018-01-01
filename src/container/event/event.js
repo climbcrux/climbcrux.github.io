@@ -28,6 +28,10 @@ class Events extends Component {
     this.prevMonth = this.prevMonth.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   componentWillMount() {
     this.props.getEvents();
   }
