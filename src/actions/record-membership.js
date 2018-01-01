@@ -1,11 +1,10 @@
 import React from 'react';
 import es6PromisePolyfill from 'es6-promise';
+import { encodeData } from './utils';
+import { MEMBERSHIP_API } from '../credentials';
 
 
 es6PromisePolyfill.polyfill();
-
-
-const GAPI_URL = 'https://script.google.com/a/climbcrux.org/macros/s/AKfycbzhTwPAhCcXeTz00yqUQsQPYU4_DEd8nXtRwA-B7PJQIZSTYOpn/exec';
 
 
 export const WRITE_SUCCESS = 'MEMBERHSHIP_WRITE_SUCCESS';
@@ -22,7 +21,7 @@ const writeFailure = () => {
 
 export const writeMembership = (data) => {
 	return (dispatch) => {
-    var url = `${GAPI_URL}?${encodeData(data)}`;
+    var url = `${MEMBERSHIP_API}?${encodeData(data)}`;
 
     return fetch(url, {method: 'GET'}).then(response => {
       if (response.status > 400) {
@@ -35,9 +34,3 @@ export const writeMembership = (data) => {
     });
 	}
 };
-
-function encodeData(data) {
-  return Object.keys(data).map(function(k) {
-    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-  }).join('&')
-}

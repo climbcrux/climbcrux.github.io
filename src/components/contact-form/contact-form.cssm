@@ -3,10 +3,10 @@
     flex-direction: column;
     box-sizing: border-box;
 }
-.container > div {
+.container form > div {
     margin: 12px 0px;
 }
-.container > div:last-child {
+.container form > div:last-child {
     margin: 0px;
     max-width: 100px;
     height: 40px;

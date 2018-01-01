@@ -8,7 +8,6 @@ import styles from './contact-form.cssm';
 
 class ContactForm extends Component {
   static propTypes = {
-    sendTo: PropTypes.string.isRequired,
     style: PropTypes.object,
     className: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
@@ -18,10 +17,10 @@ class ContactForm extends Component {
     super(props);
 
     this.state = {
-      first: undefined,
-      last: undefined,
-      email: undefined,
-      message: undefined,
+      first: '',
+      last: '',
+      email: '',
+      message: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,9 +35,9 @@ class ContactForm extends Component {
 
   handleSubmit() {
     this.props.onSubmit({
-      to_email: this.props.sendTo,
-      from_email: this.state.email,
-      subject: `Contact Form - ${this.state.first} ${this.state.last}`,
+      name: `${this.state.first} ${this.state.last}`,
+      from: this.state.email,
+      subject: `CRUX Website Contact - ${this.state.first} ${this.state.last}`,
       message: this.state.message
     });
   }
@@ -47,42 +46,44 @@ class ContactForm extends Component {
     return (
       <div className={classNames(styles.container, this.props.className)}
            style={this.props.style}>
-        <div>
-          <div className={styles.header}>Name<span>*</span></div>
-          <div className={styles.inputRow}>
-            <div>
-              <input type="text" name="first"
-                     value={this.state.first}
-                     onChange={this.handleChange}/>
-              <span>First</span>
+        <form>
+          <div>
+            <div className={styles.header}>Name<span>*</span></div>
+            <div className={styles.inputRow}>
+              <div>
+                <input type="text" name="first"
+                       value={this.state.first}
+                       onChange={this.handleChange}/>
+                <span>First</span>
+              </div>
+              <div>
+                <input name="last" type="text"
+                       value={this.state.last}
+                       onChange={this.handleChange}
+                />
+                <span>Last</span>
+              </div>
             </div>
-            <div>
-              <input name="last" type="text"
-                     value={this.state.last}
-                     onChange={this.handleChange}
-              />
-              <span>Last</span>
+          </div>
+          <div>
+            <div className={styles.header}>Email<span>*</span></div>
+            <div className={styles.inputRow}>
+              <input type="email" name="email"
+                     value={this.state.email}
+                     onChange={this.handleChange} />
             </div>
           </div>
-        </div>
-        <div>
-          <div className={styles.header}>Email<span>*</span></div>
-          <div className={styles.inputRow}>
-            <input type="email" name="email"
-                   value={this.state.email}
-                   onChange={this.handleChange} />
+          <div>
+            <div className={styles.header}>Message<span>*</span></div>
+            <div className={styles.inputRow}>
+              <textarea name="message" value={this.state.message}
+                        onChange={this.handleChange} />
+            </div>
           </div>
-        </div>
-        <div>
-          <div className={styles.header}>Message<span>*</span></div>
-          <div className={styles.inputRow}>
-            <textarea name="message" value={this.state.message}
-                      onChange={this.handleChange} />
+          <div>
+            <Button onClick={this.handleSubmit}>Submit</Button>
           </div>
-        </div>
-        <div>
-          <Button onClick={this.handleSubmit}>Submit</Button>
-        </div>
+        </form>
       </div>
     );
   }

@@ -7,7 +7,9 @@ import SubNav from '../../components/sub-nav/sub-nav';
 import Section from '../../components/section/section';
 import ContactForm from '../../components/contact-form/contact-form';
 import SupportersList from '../../components/supporters/supporters';
+import Modal from '../../components/modal/modal';
 import { sendEmail } from '../../actions/send-email';
+import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 
 import styles from './about.cssm';
 
@@ -15,10 +17,37 @@ import styles from './about.cssm';
 class About extends Component {
   static propTypes = {
     sendEmail: PropTypes.func,
+    writeSuccess: PropTypes.bool,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      modalContent: null
+    };
+
+    this.closeModal = this.closeModal.bind(this);
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    if (nextProps.writeSuccess !== this.props.writeSuccess) {
+      if (nextProps.writeSuccess === true) {
+        this.setState({showModal: true, modalContent: SEND_EMAIL_SUCCESS});
+      } else if (nextProps.writeSuccess === false) {
+        this.setState({showModal: true, modalContent: SEND_EMAIL_FAILURE});
+      } else {
+        this.setState({showModal: false, modalContent: null});
+      }
+    }
+  }
+
+  closeModal() {
+    this.setState({showModal: false, modalContent: false});
   }
 
   renderWhoWeAre() {
@@ -137,7 +166,6 @@ class About extends Component {
             </div>
           </div>
           <ContactForm
-            sendTo='kris@climbcrux.org'
             onSubmit={this.props.sendEmail}
             className={styles.form}
           />
@@ -154,12 +182,19 @@ class About extends Component {
         { this.renderLeadership() }
         { this.renderSupporters() }
         { this.renderContact()}
+        
+        <Modal visible={this.state.showModal}
+               onClose={this.closeModal}
+               size={'small'}>
+          {this.state.modalContent}
+        </Modal>
       </div>
     );
   }
 };
 
 export default connect((state) => ({
+  ...state.Email
 }), {
   sendEmail,
 })(About);

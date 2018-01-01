@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { Form, Field, field } from 'form-for';
 import { bindBootstrapFieldComponents } from "form-for-bootstrap-components";
-import SVG from 'react-inlinesvg';
 
 import { writeMembership } from '../../actions/record-membership';
 import PayPalButton from '../../components/paypal/paypal';
+import Modal from '../../components/modal/modal';
 import { STATES } from './states';
 import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
 import styles from './membershipForm.cssm';
@@ -176,14 +176,11 @@ class MembershipForm extends Component {
         </div>
       </Form>
 
-      <div className={classNames(styles.modal, !this.state.showModal && styles.closed)}>
-        <div className={styles[this.state.modalType]}>
-          <div className={styles.close} onClick={this.closeModal}>
-            <SVG src={require('../../media/x-close.svg')} />
-          </div>
+      <Modal visible={this.state.showModal}
+             onClose={this.closeModal}
+             size={this.state.modalType}>
           {this.state.modalContent}
-        </div>
-      </div>
+      </Modal>
 
       </div>
     );

@@ -18,6 +18,10 @@ class Join extends Component {
     this.state = {sale: false};
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   goToMembership(level, price) {
     this.props.dispatch({
       type: CHANGE_LEVEL,

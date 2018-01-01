@@ -1,0 +1,63 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 78, 114, 0.8);
+    z-index: 3;
+    transition: opacity 200ms linear;
+    opacity: 1;
+}
+.container.closed {
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 200ms linear, z-index 50ms linear 250ms;
+}
+
+.container > div {
+    width: 75%;
+    height: 85%;
+    padding: 12px 72px;
+    background: white;
+    margin: auto;
+    border-radius: 4px;
+    position: relative;
+    overflow: scroll;
+}
+.container > div.small {
+    width: 420px;
+    height: 200px;
+    padding: 12px 24px;
+}
+
+.close {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    height: 24px;
+    width: 24px;
+}
+.close:hover {
+    cursor: pointer;
+}
+.close svg > g > g {
+    fill: #CCCCCC;
+    stroke-width: 2px;
+    transition: fill 100ms linear;
+}
+.close:hover svg > g > g {
+    fill: #666666;
+    cursor: pointer;
+}
+
+.container > div h3 {
+    font-size: 18px;
+    color: #1D4E72;
+    margin: 12px 0px;
+}
+.container > div p {
+    margin: 20px 0px;
+    font-size: 13px;
+}

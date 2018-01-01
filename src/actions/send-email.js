@@ -1,32 +1,39 @@
-import es6PromisePolyfill from 'es6-promise';
 import 'isomorphic-fetch';
+import es6PromisePolyfill from 'es6-promise';
+import { encodeData } from './utils';
+import { EMAIL_API } from '../credentials';
 
 es6PromisePolyfill.polyfill();
 
-const SEND_EMAIL_API = "http://localhost:8000/email";
 
-
+export const WRITE_FAILURE = 'EMAIL_WRITE_FAILURE';
 const fetchFailure = () => {
+  return {
+    type: WRITE_FAILURE,
+  };
 };
 
 
+export const WRITE_SUCCESS = 'EMAIL_WRITE_SUCCESS';
 const fetchSuccess = (data) => {
+  return {
+    type: WRITE_SUCCESS,
+  };
 };
 
 
 export const sendEmail = (data) => {
   return (dispatch) => {
-		var url = `${SEND_EMAIL_API}?${Object.keys(data).map(key =>
-			`${key}=${data[key]}`).join('&')}`;
+		var url = `${EMAIL_API}?${encodeData(data)}`;
 
-    return fetch(url).then(response => {
+    return fetch(url, {method: 'GET'}).then(response => {
 			if (response.status >= 400) {
-				dispatch(fetchFailure());
+				return dispatch(fetchFailure());
 			} else {
-				return response.json();
+				return dispatch(fetchSuccess());
 			}
-		}).catch(() => {
-			dispatch(fetchFailure());
+		}).catch(error => {
+			return dispatch(fetchFailure());
 		});
 	}
 };
