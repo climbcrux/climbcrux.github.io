@@ -23,16 +23,15 @@ const writeFailure = () => {
 export const writeMembership = (data) => {
 	return (dispatch) => {
     var url = `${GAPI_URL}?${encodeData(data)}`;
-    console.log(url);
 
     return fetch(url, {method: 'GET'}).then(response => {
       if (response.status > 400) {
-        dispatch(writeFailure);
+        dispatch(writeFailure());
       } else {
-        dispatch(writeSuccess);
+        dispatch(writeSuccess());
       }
     }).catch(error => {
-      dispatch(writeFailure);
+      dispatch(writeFailure());
     });
 	}
 };

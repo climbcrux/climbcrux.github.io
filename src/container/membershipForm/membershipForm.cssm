@@ -1,6 +1,5 @@
 .container {
-    width: 80%;
-    margin: 0px auto;
+    margin: 0px 120px;
 }
 .container .header {
     font-size: 16px;
@@ -89,8 +88,31 @@
     box-shadow: none;
 }
 
+.waiver {
+    margin-top: 24px;
+    display: flex;
+}
+.waiver label,
+.waiver input {
+    height: unset;
+    line-height: unset;
+}
+.waiver label {
+    margin-right: 24px;
+}
+.waiver label,
+.waiver input {
+    border-bottom: 0px;
+}
+.waiver label span {
+    display: none;
+}
+.waiver a:hover {
+    cursor: pointer;
+}
+
 .container .button {
-	margin: 20px 0px 50px;
+	margin: 48px 0px;
 	width: 100%;
 	display: flex;
     flex-direction: row;
@@ -98,15 +120,76 @@
     align-items: center;
 }
 
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 78, 114, 0.8);
+    z-index: 3;
+    transition: opacity 200ms linear;
+    opacity: 1;
+}
+.modal.closed {
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 200ms linear, z-index 50ms linear 250ms;
+}
+.modal > div {
+    width: 75%;
+    height: 85%;
+    padding: 12px 72px;
+    background: white;
+    margin: auto;
+    border-radius: 4px;
+    position: relative;
+    overflow: scroll;
+}
+.modal > div.small {
+    width: 420px;
+    height: 200px;
+    padding: 12px 24px;
+}
+.modal > div .close {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    height: 24px;
+    width: 24px;
+}
+.modal > div .close:hover {
+    cursor: pointer;
+}
+.modal > div .close svg > g > g {
+    fill: #CCCCCC;
+    stroke-width: 2px;
+    transition: fill 100ms linear;
+}
+.modal > div .close:hover svg > g > g {
+    fill: #666666;
+    cursor: pointer;
+}
+
+.modal > div h3 {
+    font-size: 18px;
+    color: #1D4E72;
+    margin: 12px 0px;
+}
+.modal > div p {
+    margin: 20px 0px;
+    font-size: 13px;
+}
 
 /**** Mobile *****/
 @media only screen and (max-width: 425px) {
     .container {
-        width: 100%;
+        margin: 0px 20px;
     }
 }
 @media only screen and (max-width: 768px) {
     .container .section .fieldGroup > div {
-        width: 100%;
+        margin: 0px;
     }
 }
