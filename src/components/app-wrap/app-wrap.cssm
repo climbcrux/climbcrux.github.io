@@ -5,6 +5,7 @@
 }
 
 .scrollContainer {
+    height: 100%;
 }
 
 
@@ -18,6 +19,8 @@
     color: #FFFFFF;
 }
 
+
+/* Mobile */
 @media only screen and (max-width: 768px) {
     .container {
         margin-top: 125px;
