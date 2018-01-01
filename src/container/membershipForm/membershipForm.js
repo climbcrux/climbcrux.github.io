@@ -51,7 +51,7 @@ class MembershipForm extends Component {
   fillNullValues(data) {
     var member = new Object();
     Object.keys(data.schema).forEach(key => {
-      member[key] = data[key];
+      member[key] = data[key] || '';
     });
     return member;
   }
@@ -65,6 +65,7 @@ class MembershipForm extends Component {
     return (
       <div className={styles.container}>
       <Form for={this.state.member}
+            id="membership-form"
             onChange={this.handleChange}>
 
         <div className={styles.section}>

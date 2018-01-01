@@ -5,13 +5,11 @@ import es6PromisePolyfill from 'es6-promise';
 es6PromisePolyfill.polyfill();
 
 
-const GAPI_URL = 'https://script.google.com/macros/u/2/s/AKfycbwCm9PANiPyd6x5GSytcMPSb9JtaLzbbqTQDmHMYj4kvC_KdwM/exec?callback=?';
+const GAPI_URL = 'https://script.google.com/a/climbcrux.org/macros/s/AKfycbzhTwPAhCcXeTz00yqUQsQPYU4_DEd8nXtRwA-B7PJQIZSTYOpn/exec';
 
 
 export const WRITE_SUCCESS = 'GAPI_WRITE_SUCCESS';
 const writeSuccess = (data) => {
-  debugger;
-
   return {
     type: WRITE_SUCCESS,
     payload: null,
@@ -21,14 +19,23 @@ const writeSuccess = (data) => {
 
 export const writeMembership = (data) => {
 	return (dispatch) => {
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', GAPI_URL);
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var url = `${GAPI_URL}?${encodeData(data)}`;
+    console.log(url);
 
-		// Url encode form data for sending as post data
-		var encoded = Object.keys(data).map(k => {
-				return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-		}).join('&');
-		xhr.send(encoded);
+    return fetch(url, {method: 'GET'}).then(response => {
+      if (response.status > 400) {
+        console.log('That didnt work');
+      } else {
+        dispatch(writeSuccess);
+      }
+    }).catch(error => {
+      console.log(error);
+    });
 	}
 };
+
+function encodeData(data) {
+  return Object.keys(data).map(function(k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+  }).join('&')
+}

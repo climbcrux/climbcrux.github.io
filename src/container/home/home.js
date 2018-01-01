@@ -34,14 +34,6 @@ class Home extends Component {
           <Parallax.Layer offset={0} speed={0}>
             <Gallery images={IMAGES} />
           </Parallax.Layer >
-          <Parallax.Layer offset={1} speed={0} />
-
-          <Parallax.Layer offset={0} speed={0.5} style={style}>
-            Start Text
-          </Parallax.Layer>
-          <Parallax.Layer offset={1} speed={0.5} style={style}>
-            End Text
-          </Parallax.Layer>
         </Parallax>
       </div>
     );

@@ -21,7 +21,7 @@ const PayPalButton = ({price,
 
   return (
     <div className={classNames(styles.container, !valid && styles.invalid)}>
-      <Button onClick={onSuccess} >Submit</Button>
+      <Button onClick={nullClick}>Submit</Button>
       { valid &&
         <PaypalExpressBtn
           currency={currency}
