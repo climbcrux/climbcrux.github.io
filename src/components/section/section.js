@@ -7,7 +7,7 @@ import styles from './section.cssm';
 
 const Section = ({name, children, className}) => {
   return (
-    <Element name={name} className={classNames(styles.container, className)}>
+    <Element name={name} className={classNames(styles.container, className, "section")}>
       <div className={styles.inner}>
         {children}
       </div>

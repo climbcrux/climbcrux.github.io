@@ -82,8 +82,9 @@ class About extends Component {
           shape the future of LGBTQ rock climbing in New York? We're always on the
           lookout for the newest CRUX leaders.<br/><br/>
 
-          To about more about positions and how to apply go to our
-          <Link to='/leadership' className={styles.link}>New Leader</Link>page.
+          To learn about more about positions and how to apply go to our <a
+          href="https://goo.gl/forms/kGBuFCBtq8xfap7H3" target="_blank"
+          className={styles.link}>Leadership Questionnaire</a>.
         </p>
       </Section>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Element } from 'react-scroll';
+import { withRouter } from 'react-router';
+import { Link, Element, scrollSpy, scroller } from 'react-scroll';
 
 import SubNav from '../../components/sub-nav/sub-nav';
 import Section from '../../components/section/section';
@@ -12,6 +13,36 @@ import styles from './climbing.cssm';
 
 
 class Climbing extends Component {
+  constructor(props) {
+    super(props);
+    scrollSpy.update();
+
+    this.DOMLoaded = this.DOMLoaded.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('load', this.DOMLoaded);
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    if (this.props.location !== nextProps.location) {
+      this.scrollToElem(nextProps.location.hash.slice(1));
+    }
+  }
+
+  DOMLoaded() {
+    var hash = this.props.location.hash;
+    if (hash) {
+      this.scrollToElem(hash.slice(1));
+    }
+  }
+
+  scrollToElem(name) {
+    console.log(`Scrolling to .section[name=${name}]`);
+    var elem = document.querySelector(`.section[name=${name}]`);
+    elem.scrollIntoView({behavior: 'smooth'});
+  }
+
   renderGettingStarted = () => {
     return (
       <Section name="getting-started">
@@ -36,10 +67,10 @@ class Climbing extends Component {
 				</p>
 				<p>
 						To learn more about CRUX, our events, and the sport of rock climbing,
-						read our
-						<Link to="faq" smooth={true} offset={-90} duration={100}>first-timer FAQ</Link>
-						, check out our Events Calendar, or Contact Us directly with questions,
-						concerns, or to just say hi!
+            read our <Link to="faq" smooth={true} offset={-90}
+            duration={100}>first-timer FAQ</Link>, check out our <a
+            href="/events">Events Calendar</a>, or Contact Us directly with
+            questions, concerns, or to just say hi!
 				</p>
 
 				<Element name="faq">
@@ -123,4 +154,4 @@ class Climbing extends Component {
     </div>);
   }
 };
-export default Climbing;
+export default withRouter(Climbing);
