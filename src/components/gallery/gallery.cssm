@@ -1,11 +1,11 @@
 .container {
     position: relative;
-    /*margin-top: -90px;*/
+    margin-top: 70px;
 }
 .container img {
-    object-fit: cover;
+    object-fit: fill;
     object-position: center;
-    height: 100vh;
+    height: calc(100vh - 70px);
     width: 100%;
 }
 

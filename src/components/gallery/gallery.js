@@ -16,7 +16,7 @@ class Gallery extends Component {
   };
 
   static defaultProps = {
-    switchInterval: 6000,
+    switchInterval: 120000,
     shiftDuration: 1000,
   };
 
