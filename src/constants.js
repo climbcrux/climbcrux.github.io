@@ -1,1 +1,1 @@
-export const MEMBERHSHIP_ON_SALE = true;
+export const MEMBERSHIP_ON_SALE = true;
