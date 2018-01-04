@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
+import { MEMBERSHIP_ON_SALE } from '../../constants';
 import styles from './join.cssm';
 
 
@@ -15,7 +16,9 @@ class Join extends Component {
     super(props);
 
     this.goToMembership = this.goToMembership.bind(this);
-    this.state = {sale: false};
+    this.state = {
+      sale: MEMBERSHIP_ON_SALE
+    };
   }
 
   componentDidMount() {
