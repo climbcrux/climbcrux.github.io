@@ -14,6 +14,8 @@
 
 .gallery {
     width: 100%;
+    max-width: 140vh;
+    max-height: 75vw;
     height: 75%;
     flex: 1;
 }

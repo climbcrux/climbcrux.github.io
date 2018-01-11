@@ -26,6 +26,7 @@ const PayPalButton = ({price,
         <PaypalExpressBtn
           currency={currency}
           client={client}
+          env={environment}
           total={Number(price) || 0.01}
           onSuccess={onSuccess}
           onError={onError}
