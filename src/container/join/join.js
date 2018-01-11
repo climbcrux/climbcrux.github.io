@@ -64,8 +64,6 @@ class Join extends Component {
           <h1>Levels</h1>
           <div className={styles.levels}>
             <MemberLevel onClick={this.goToMembership}
-                         sale={this.state.sale} level="hardship" />
-            <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="standard" />
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="silver" />
@@ -73,6 +71,8 @@ class Join extends Component {
                          sale={this.state.sale} level="gold" />
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="platinum" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="hardship" />
           </div>
 
           <div className={styles.disclaimers}>

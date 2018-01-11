@@ -4,14 +4,13 @@ export const LEVELS = {
   hardship: {
     price: "$35",
     sale: "$35",
-    name: "Hardship",
+    name: "Student / Hardship",
+    className: "muted",
     perks: (
       <ul>
-        <li>Exclusive access to CRUX social events and member trips</li>
-        <li>Access to CRUX outdoor classes and trips</li>
-        <li>Discounted day passes during CRUX nights</li>
-        <li>Free belay class at The Cliffs LIC during CRUX nights</li>
-        <li>50% off Sport Lead Basic class at The Cliffs LIC</li>
+        <li>Everything included in <strong>Standard</strong></li>
+        <li>For students, as well as those experiencing financial hardship due
+        to unemployment, disability, etc.</li>
       </ul>
     )
   },
@@ -21,7 +20,12 @@ export const LEVELS = {
     name: "Standard",
     perks: (
       <ul>
-        <li>Everything included in <strong>Hardship Membership</strong></li>
+        <li>Exclusive access to CRUX social outings and member events</li>
+        <li>Access to CRUX outdoor programming, including specially priced
+        outdoor education classes through the EMS School</li>
+        <li>Discounted day passes during CRUX nights</li>
+        <li>Free belay class at The Cliffs LIC during CRUX nights</li>
+        <li>50% off Sport Lead Basic class at The Cliffs LIC</li>
       </ul>
     ),
   },
@@ -57,5 +61,5 @@ export const LEVELS = {
         <li><i>all the above plus</i></li>
       </ul>
     ),
-  }
+  },
 };

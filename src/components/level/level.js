@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { LEVELS } from '../../membership_levels';
 import styles from './level.cssm';
 
@@ -14,8 +15,13 @@ const MemberLevel = ({level, onClick, sale=false}) => {
     );
   }
 
+  const classes = classNames(
+      styles.container,
+      styles[levelContent.className]
+  );
+
   return (
-    <div className={styles.container} onClick={click}>
+    <div className={classes} onClick={click}>
       <div className={styles.name}>{levelContent.name}</div>
       <div className={styles.perks}>{levelContent.perks}</div>
       <div className={styles.price}>{sale ? levelContent.sale : levelContent.price}</div>
