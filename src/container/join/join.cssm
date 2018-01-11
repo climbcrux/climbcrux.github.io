@@ -19,7 +19,7 @@
     margin-bottom: 0px;
 }
 .levels li {
-    list-style: disc outside !important;
+    list-style: circle outside;
 }
 
 .joinNow {

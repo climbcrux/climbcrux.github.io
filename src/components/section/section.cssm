@@ -43,9 +43,8 @@
 }
 .container ul {
     font-size: 14px;
-    list-style: disc inside none;
-    padding-left: 1em;
-    margin-top: 0.5em;
+    list-style: circle outside;
+    margin-top: 10px;
 }
 
 .container a {

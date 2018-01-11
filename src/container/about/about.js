@@ -8,6 +8,7 @@ import Section from '../../components/section/section';
 import ContactForm from '../../components/contact-form/contact-form';
 import SupportersList from '../../components/supporters/supporters';
 import Modal from '../../components/modal/modal';
+import PhotoGrid from '../../components/photo-grid/photo-grid';
 import { sendEmail } from '../../actions/send-email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 
@@ -103,13 +104,14 @@ class About extends Component {
         </p>
         <h4>Together they</h4>
         <ul>
-            <li>Plan and staf CRUX events</li>
-            <li>Develope and maintain relationships with local gyms and other LGBTQ
+            <li>Plan and staff CRUX events</li>
+            <li>Develop and maintain relationships with local gyms and LGBTQ
                 organizations</li>
             <li>Assist gyms in creating inclusive spaces for all</li>
             <li>Provide resources for LGBTQ climbers at non-affiliated gyms</li>
             <li>and more...</li>
         </ul>
+        <PhotoGrid />
         <p>
           Are you a driven and committed member of the CRUX community looking to help
           shape the future of LGBTQ rock climbing in New York? We're always on the
