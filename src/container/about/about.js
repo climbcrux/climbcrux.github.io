@@ -41,13 +41,13 @@ class About extends Component {
       } else if (nextProps.writeSuccess === false) {
         this.setState({showModal: true, modalContent: SEND_EMAIL_FAILURE});
       } else {
-        this.setState({showModal: false, modalContent: null});
+        this.setState({showModal: false});
       }
     }
   }
 
   closeModal() {
-    this.setState({showModal: false, modalContent: false});
+    this.setState({showModal: false});
   }
 
   renderWhoWeAre() {

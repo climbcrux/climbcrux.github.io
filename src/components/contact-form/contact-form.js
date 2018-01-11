@@ -21,6 +21,7 @@ class ContactForm extends Component {
       last: '',
       email: '',
       message: '',
+      department: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,6 +37,7 @@ class ContactForm extends Component {
   handleSubmit() {
     this.props.onSubmit({
       name: `${this.state.first} ${this.state.last}`,
+      department: this.state.department,
       from: this.state.email,
       subject: `CRUX Website Contact - ${this.state.first} ${this.state.last}`,
       message: this.state.message
@@ -71,6 +73,20 @@ class ContactForm extends Component {
               <input type="email" name="email"
                      value={this.state.email}
                      onChange={this.handleChange} />
+            </div>
+          </div>
+          <div>
+            <div className={styles.header}>Contact Regarding<span>*</span></div>
+            <div className={styles.inputRow}>
+              <select name="department" onChange={this.handleChange}>
+                <option value="indoor">Indoor Programming</option>
+                <option value="outdoor">Outdoor Programming</option>
+                <option value="outreach">Outreach</option>
+                <option value="membership">Membership Info</option>
+                <option value="web">Website Issues</option>
+                <option value="treasurer">Donations/Payment</option>
+                <option value="board">Board/Executive Director</option>
+              </select>
             </div>
           </div>
           <div>
