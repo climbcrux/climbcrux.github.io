@@ -10,7 +10,8 @@ const DESCRIPTIONS = {
       <p>Look for the CRUX banner near the couches right of the front desk.</p>
 
       <p style={{fontSize: '10px'}}>
-        *Price includes day pass. Complementary rentals for first time climbers.
+        *Price includes day pass and complementary rentals for first time
+        climbers.
       </p>
     </div>,
   monkey:
@@ -32,7 +33,7 @@ const DESCRIPTIONS = {
 export const EVENTS = [
   <Event name='Newbie Night'
          time='7 - 10PM'
-         price='$37'
+         price='$25'
          gym={{name: 'The Cliffs @ LIC', link: 'https://goo.gl/maps/LiDbcPRDMhk'}}
          freq='monthly'
          description={DESCRIPTIONS.newbieNight}
