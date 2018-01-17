@@ -4,7 +4,7 @@ import { EVENTBRITE_TOKEN, EVENTBRITE_ORG_ID } from '../credentials';
 
 es6PromisePolyfill.polyfill();
 
-const EVENTS_URL = 'https://www.eventbriteapi.com/v3/events/search/?include_all_series_instances=on';
+const EVENTS_URL = 'https://www.eventbriteapi.com/v3/events/search/?include_all_series_instances=on&sort_by=date';
 
 
 export const LOAD_FAILURE = 'EVENT_LOAD_FAILURE';

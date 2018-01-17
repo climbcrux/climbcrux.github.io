@@ -21,17 +21,14 @@ const PayPalButton = ({price,
 
   return (
     <div className={classNames(styles.container, !valid && styles.invalid)}>
-      <Button onClick={nullClick}>Submit</Button>
-      { valid &&
-        <PaypalExpressBtn
-          currency={currency}
-          client={client}
-          env={environment}
-          total={Number(price) || 0.01}
-          onSuccess={onSuccess}
-          onError={onError}
-        />
-      }
+      <PaypalExpressBtn
+        currency={currency}
+        client={client}
+        env={environment}
+        total={Number(price) || 0.01}
+        onSuccess={onSuccess}
+        onError={onError}
+      />
     </div>
   );
 }

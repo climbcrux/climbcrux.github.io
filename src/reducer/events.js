@@ -33,6 +33,6 @@ export function castEventbriteEvent(evnt) {
 };
 
 const EVENT_TYPE_MAP = {
-  '108_9': 'indoor',
-  '109_9': 'outdoor',
+  '108_9': 'indoor', // Topic: Sport & Fitness, Format: Class
+  '109_9': 'outdoor', // Topic: Travel & Outdoors, Format: Class
 };
