@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import TopNav from '../top-nav/top-nav';
+import { MEMBERSHIP_ON_SALE } from '../../constants';
 import styles from './app-wrap.cssm';
 
 
@@ -38,10 +39,15 @@ class AppWrap extends Component {
     );
   };
 
+  renderSaleBanner() {
+    return (<div />);
+  }
+
   render() {
     return (
       <div className={styles.container}>
         { this.renderTopNav() }
+        { MEMBERSHIP_ON_SALE && this.renderSaleBanner()}
 
         <div className={styles.scrollContainer}>
           {this.props.children}

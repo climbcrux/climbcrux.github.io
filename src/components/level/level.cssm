@@ -34,6 +34,10 @@
     font-weight: 600;
     color: #1D4E72;
 }
+.price.sale {
+    color: #DB162F;
+}
+
 .perks {
     line-height: 22px;
 }

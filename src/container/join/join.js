@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import SVG from 'react-inlinesvg';
+
 import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
@@ -62,6 +64,11 @@ class Join extends Component {
         </Section>
         <Section name="level">
           <h1>Levels</h1>
+          {this.state.sale && 
+            <div className={styles.saleBadge}>
+              <SVG src={require('../../media/sale.svg')} />
+            </div>
+          }
           <div className={styles.levels}>
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="standard" />
@@ -72,7 +79,7 @@ class Join extends Component {
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="platinum" />
             <MemberLevel onClick={this.goToMembership}
-                         sale={this.state.sale} level="hardship" />
+                         sale={false} level="hardship" />
           </div>
 
           <div className={styles.disclaimers}>
