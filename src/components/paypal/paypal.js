@@ -12,7 +12,7 @@ const PayPalButton = ({price,
                        onSuccess,
                        valid=false}) => {
 
-  const environment = 'sandbox';
+  const environment = 'production';
   const currency = 'USD';
   const client = {...PAYPAL};
 
