@@ -8,8 +8,7 @@ export const LEADERSHIP = [{
   position: 'Indoor Coordinator',
 }, {
   name: 'Nick Brown',
-  img: require('./media/leaders/NickBrown.jpg'),
-  position: 'Membership'
+  img: require('./media/leaders/NickBrown.jpg'), position: 'Membership'
 }, {
   name: 'Matt Mager',
   img: require('./media/leaders/MattMager.jpg'),
@@ -24,10 +23,14 @@ export const LEADERSHIP = [{
   position: 'Treasurer',
 }, {
   name: 'Lyndon Cudlitz',
-  img: require('./media/leaders/LyndonCudlitz.jpg'),
+  img: require('./media/leaders/LyndonCudlitz2.jpg'),
   position: 'Vice President',
 }, {
   name: 'Seán Linehan',
   img: require('./media/leaders/SeanLinehan.jpg'),
   position: 'President',
+}, {
+  name: 'Traci Lawson',
+  img: require('./media/leaders/TraciLawson.jpg'),
+  position: 'Member At Large',
 }];
