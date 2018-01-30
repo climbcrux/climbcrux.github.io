@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 // Pages
 import AppWrap from './components/app-wrap/app-wrap';
@@ -18,6 +19,8 @@ import MembershipForm from './container/membershipForm/membershipForm';
 import rootReducer from './reducer/root';
 import createStoreMiddleware from './configStore';
 
+// Init GA
+ReactGA.initialize('UA-44939665-2');
 
 const store = createStoreMiddleware(rootReducer);
 ReactDOM.render(

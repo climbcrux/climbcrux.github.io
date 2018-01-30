@@ -7,6 +7,8 @@ import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
 import { MEMBERSHIP_ON_SALE } from '../../constants';
+import { setPage } from '../../virtualPage';
+
 import styles from './join.cssm';
 
 
@@ -21,6 +23,8 @@ class Join extends Component {
     this.state = {
       sale: MEMBERSHIP_ON_SALE
     };
+
+    setPage('/join', 'Join');
   }
 
   componentDidMount() {

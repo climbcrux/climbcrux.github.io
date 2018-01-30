@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Parallax from 'react-springy-parallax';
 
 import Gallery from '../../components/gallery/gallery';
+import { setPage } from '../../virtualPage';
 
 import styles from './home.cssm';
 
@@ -16,6 +17,11 @@ const IMAGES = [
 ];
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    setPage('/', 'Home');
+  }
   
   componentDidMount() {
     window.scrollTo(0, 0);

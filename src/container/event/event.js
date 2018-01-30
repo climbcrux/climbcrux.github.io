@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import { getEvents } from '../../actions/get-events';
+import { setPage } from '../../virtualPage';
 import Calendar from '../../components/calendar/calendar';
 import styles from './event.cssm';
 
@@ -18,6 +19,7 @@ class Events extends Component {
   };
 
   constructor(props) {
+    setPage('/events', 'Event Calendar');
     super(props);
 
     this.state = {

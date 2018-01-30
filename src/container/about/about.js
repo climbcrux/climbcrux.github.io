@@ -11,6 +11,7 @@ import Modal from '../../components/modal/modal';
 import PhotoGrid from '../../components/photo-grid/photo-grid';
 import { sendEmail } from '../../actions/send-email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
+import { setPage } from '../../virtualPage';
 
 import styles from './about.cssm';
 
@@ -29,6 +30,7 @@ class About extends Component {
     };
 
     this.closeModal = this.closeModal.bind(this);
+    setPage('/about', 'About Us');
   }
 
   componentDidMount() {

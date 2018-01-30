@@ -10,6 +10,8 @@ import PayPalButton from '../../components/paypal/paypal';
 import Modal from '../../components/modal/modal';
 import { STATES } from './states';
 import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
+import { setPage } from '../../virtualPage';
+
 import styles from './membershipForm.cssm';
 
 const queryString = require('query-string');
@@ -38,6 +40,8 @@ class MembershipForm extends Component {
     this.showAggrement = this.showAggrement.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.formError = this.formError.bind(this);
+
+    setPage('/membership', 'Membership');
   }
 
   componentDidMount() {

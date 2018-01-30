@@ -6,6 +6,7 @@ import SubNav from '../../components/sub-nav/sub-nav';
 import Section from '../../components/section/section';
 import ToggleList from '../../components/toggle-list/toggle-list';
 import Event from '../../components/event/event';
+import { setPage } from '../../virtualPage';
 
 import { QUESTIONS } from './question-answer';
 import { EVENTS } from './events';
@@ -19,6 +20,8 @@ class Climbing extends Component {
 
     this.DOMLoaded = this.DOMLoaded.bind(this);
     this.goTo = this.goTo.bind(this);
+
+    setPage('/climbing', 'Climbing');
   }
 
   componentDidMount() {
