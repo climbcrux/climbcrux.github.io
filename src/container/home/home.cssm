@@ -23,8 +23,8 @@
     max-width: 680px;
     text-align: center;
     font-family: "Alegreya", serif;
-    font-size: 23px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 24px;
     font-weight: 600;
     font-style: italic;
     color: #5E396B;
@@ -43,10 +43,15 @@
         height: 60%;
     }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 630px) {
     .quote {
-        font-size: 20px;
-        line-height: 24px;
-        margin: 24px 0px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .quote {
+        font-size: 14px;
+        line-height: 18px;
     }
 }
