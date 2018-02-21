@@ -11,7 +11,7 @@ const MemberLevel = ({level, onClick, sale=false}) => {
   function click() {
     onClick(
       level,
-      levelContent[sale ? 'price' : 'sale'],
+      levelContent[sale ? 'sale' : 'price'],
     );
   }
 
