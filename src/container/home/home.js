@@ -37,7 +37,7 @@ class Home extends Component {
 
             <div className={styles.layer}>
               <div className={styles.quote}>
-                Empowered members of the LGBTQ community to participate rock
+                Empowering members of the LGBTQ community to participate in rock
                 climbing and outdoor recreation in the New York metropolitan
                 area and eastern New York.
               </div>
