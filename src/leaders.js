@@ -33,4 +33,8 @@ export const LEADERSHIP = [{
   name: 'Traci Lawson',
   img: require('./media/leaders/TraciLawson.jpg'),
   position: 'Member At Large',
+}, {
+  name: 'Daniel Parker',
+  img: require('./media/leaders/DanielParker.jpg'),
+  position: 'Executive Director',
 }];
