@@ -43,8 +43,10 @@ class Climbing extends Component {
   }
 
   scrollToElem(name) {
-    var elem = document.querySelector(`.section[name=${name}]`);
-    elem.scrollIntoView({behavior: 'smooth'});
+    if (name) {
+      var elem = document.querySelector(`.section[name=${name}]`);
+      elem.scrollIntoView({behavior: 'smooth'});
+    }
   }
 
   goTo(name) {

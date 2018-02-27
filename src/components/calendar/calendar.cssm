@@ -186,7 +186,7 @@
     padding: 2px;
     width: 25px;
     height: 25px;
-    border: 2px solid white;
+    border: 2px solid color;
     border-radius: 100%;
     transition: all 0.2s linear;
     position: relative;
