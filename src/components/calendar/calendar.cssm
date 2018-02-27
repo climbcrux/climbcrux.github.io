@@ -57,6 +57,7 @@
 .day {
     width: calc(100% / 7);
     height: calc(100% - 1px);
+    overflow-y: hidden;
     flex: 1;
 
     display: flex;
@@ -68,7 +69,8 @@
 .day > span {
     margin: 8px 0px 0px 8px;
     /*padding-top: 3px;*/
-    height: 26px;
+    height: 14px;
+    line-height: 14px;
     width: 26px;
     text-align: left;
 }
@@ -81,6 +83,7 @@
     border-radius: 50%;
     font-weight: bold;
     text-align: center;
+    height: 26px;
 
     display: flex;
     align-items: center;
@@ -197,4 +200,8 @@
     cursor: pointer;
     background-color: white;
     color: #3C2545;
+}
+
+/* Single day version for mobile app */
+@media only screen and (max-width: 425px) {
 }
