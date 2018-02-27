@@ -7,7 +7,7 @@ export const SUPPORTERS = [
   'Katherine Dunstel',
   'Kris Harbold',
   'Matthew Kastellec',
-  'Matthew Mager',
+  'Matt Mager',
   'Max Lichtenstein',
   'Michael Collis',
   'Nathan Tableman',
