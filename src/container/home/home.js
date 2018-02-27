@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 import Parallax from 'react-springy-parallax';
 
 import Gallery from '../../components/gallery/gallery';
+import { HOMEPAGE_IMAGES } from '../../homepageGallery';
 import { setPage } from '../../virtualPage';
 
 import styles from './home.cssm';
 
-const IMAGES = [
-  require('../../media/homepage/pride16.jpg'),
-  require('../../media/homepage/anchorbuilding.jpg'),
-  require('../../media/homepage/pride17.jpg'),
-  require('../../media/homepage/dumbobridge.jpg'),
-  require('../../media/homepage/redrock.jpg'),
-  require('../../media/homepage/dumbo.jpg'),
-  require('../../media/homepage/hc.jpg'),
-];
 
 class Home extends Component {
   constructor(props) {
@@ -49,7 +41,7 @@ class Home extends Component {
                 climbing and outdoor recreation in the New York metropolitan
                 area and eastern New York.
               </div>
-              <Gallery className={styles.gallery} images={IMAGES} />
+              <Gallery className={styles.gallery} images={HOMEPAGE_IMAGES} />
             </div>
 
           </Parallax.Layer >

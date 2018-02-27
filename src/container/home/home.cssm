@@ -3,33 +3,29 @@
 }
 .container .layer {
     overflow: hidden;
-    width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
 
     display: flex;
     flex-direction: column;
-    /*justify-content: space-around;*/
+    justify-content: flex-start;
     align-items: center;
 }
 
 .gallery {
-    width: 100%;
+    width: 90%;
     max-width: 120vh;
-    max-height: 60vw;
-    height: 60%;
     flex: 1;
 }
 .quote {
     max-width: 680px;
     text-align: center;
     font-family: "Alegreya", serif;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 24px;
     font-weight: 600;
     font-style: italic;
     color: #5E396B;
-    margin: 32px 0px;
-    padding: 0px 32px;
+    padding: 16px 32px 32px;
 }
 
 
@@ -39,9 +35,8 @@
     .container .layer {
         height: calc(100% - 125px);
     }
-    .gallery {
-        height: 60%;
-    }
+    .quote { font-size: 20px; }
+    .gallery { width: 100%; }
 }
 @media only screen and (max-width: 630px) {
     .quote {

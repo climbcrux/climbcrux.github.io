@@ -2,13 +2,13 @@
     position: relative;
 }
 .container > div:first-child {
-    height: 100%;
+    height: calc(100% - 90px);
     width: 100%;
 }
 
 .container img {
-    object-fit: fill;
-    object-position: bottom;
+    object-fit: contain;
+    object-position: top;
     height: 100%;
     width: 100%;
 }
@@ -24,6 +24,7 @@
 }
 
 .bubble {
+    display: none;
     border: 2px solid #BDBDBD;
     border-radius: 50%;
     height: 8px;
@@ -40,3 +41,8 @@
     background-color: white;
 }
 
+@media only screen and (max-width: 768px) {
+    .container > div:first-child {
+        height: calc(100% - 70px);
+    }
+}
