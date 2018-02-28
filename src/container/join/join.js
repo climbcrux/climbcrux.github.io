@@ -6,7 +6,7 @@ import SVG from 'react-inlinesvg';
 import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
-import { MEMBERSHIP_ON_SALE } from '../../constants';
+import { MEMBERSHIP_ON_SALE } from '../../CONFIG_FILES/membership';
 import { setPage } from '../../virtualPage';
 
 import styles from './join.cssm';

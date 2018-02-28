@@ -1,5 +1,5 @@
 import React from 'react';
-import { LEADERSHIP } from '../../leaders';
+import { LEADERSHIP } from '../../CONFIG_FILES/leaders';
 import styles from './photo-grid.cssm';
 
 const PhotoGrid = ({}) => {

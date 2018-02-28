@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Parallax from 'react-springy-parallax';
 
 import Gallery from '../../components/gallery/gallery';
-import { HOMEPAGE_IMAGES } from '../../homepageGallery';
+import { HOMEPAGE_IMAGES } from '../../CONFIG_FILES/photoGallery';
 import { setPage } from '../../virtualPage';
 
 import styles from './home.cssm';

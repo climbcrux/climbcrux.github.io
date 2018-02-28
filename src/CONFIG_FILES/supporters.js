@@ -1,0 +1,18 @@
+export const SUPPORTERS = [
+  'Alex Chavez',
+  'Brian Leary',
+  'Daniela Hochfellner',
+  'Dannette Mehalik',
+  'Demian Vanderputten',
+  'Katherine Dunstel',
+  'Kris Harbold',
+  'Matthew Kastellec',
+  'Matt Mager',
+  'Max Lichtenstein',
+  'Michael Collis',
+  'Nathan Tableman',
+  'Nicholas Brown',
+  'Robert Mendez',
+  'Sean Hansen',
+  'Victor Manibo',
+];

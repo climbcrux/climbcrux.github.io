@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SUPPORTERS } from '../../supporters-list';
+import { SUPPORTERS } from '../../CONFIG_FILES/supporters';
 import styles from './supporters.cssm';
 
 

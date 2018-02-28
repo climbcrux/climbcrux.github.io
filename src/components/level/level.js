@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { LEVELS } from '../../membership_levels';
+import { LEVELS } from '../../CONFIG_FILES/membership';
 import styles from './level.cssm';
 
 
