@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import es6PromisePolyfill from 'es6-promise';
 import { encodeData } from './utils';
-import { EMAIL_API } from '../credentials';
+import { EMAIL_API } from '../CONFIG_FILES/credentials';
 
 es6PromisePolyfill.polyfill();
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import es6PromisePolyfill from 'es6-promise';
 import { encodeData } from './utils';
-import { MEMBERSHIP_API } from '../credentials';
+import { MEMBERSHIP_API } from '../CONFIG_FILES/credentials';
 
 
 es6PromisePolyfill.polyfill();

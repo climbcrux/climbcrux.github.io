@@ -1,7 +1,8 @@
 node_modules/
-credentials.js
 *.swp
 /nbproject/private/
 nbproject/project.properties
 nbproject/project.xml
 *.DS_Store
+
+credentials.js

@@ -1,6 +1,7 @@
 import 'isomorphic-fetch';
 import es6PromisePolyfill from 'es6-promise';
-import { EVENTBRITE_TOKEN, EVENTBRITE_ORG_ID } from '../credentials';
+
+import { EVENTBRITE_TOKEN, EVENTBRITE_ORG_ID } from '../CONFIG_FILES/credentials';
 
 es6PromisePolyfill.polyfill();
 
