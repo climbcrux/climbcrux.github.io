@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 1px 0 0 #3A8EE8;
+    background-color: #3A8EE8;
+    color: white;
+
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+.container a {
+    color: white;
+    text-decoration: underline;
+}
+.container br {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        font-size: 12px;
+    }
+    .container br {
+        display: unset;
+    }
+}

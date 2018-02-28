@@ -29,12 +29,30 @@ class About extends Component {
       modalContent: null
     };
 
+    this.DOMLoaded = this.DOMLoaded.bind(this);
     this.closeModal = this.closeModal.bind(this);
+
     setPage('/about', 'About Us');
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    window.addEventListener('load', this.DOMLoaded);
+  }
+
+  DOMLoaded() {
+    var hash = this.props.location.hash;
+    if (hash) {
+      this.scrollToElem(hash.slice(1));
+    }
+  }
+
+  scrollToElem(name) {
+    if (name) {
+      var elem = document.querySelector(`.section[name=${name}]`);
+      console.log('Scrolling to ', elem);
+      elem.scrollIntoView({behavior: 'smooth'});
+    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {

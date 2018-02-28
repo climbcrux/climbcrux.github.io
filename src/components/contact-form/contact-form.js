@@ -79,11 +79,11 @@ class ContactForm extends Component {
             <div className={styles.header}>Contact Regarding<span>*</span></div>
             <div className={styles.inputRow}>
               <select name="department" onChange={this.handleChange}>
+                <option value="web">Website Issues</option>
                 <option value="indoor">Indoor Programming</option>
                 <option value="outdoor">Outdoor Programming</option>
                 <option value="outreach">Outreach</option>
                 <option value="membership">Membership Info</option>
-                <option value="web">Website Issues</option>
                 <option value="treasurer">Donations/Payment</option>
                 <option value="board">Board/Executive Director</option>
               </select>
