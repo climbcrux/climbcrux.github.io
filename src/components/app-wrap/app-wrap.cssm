@@ -5,8 +5,8 @@
 }
 
 .container.hasIPM {
-    margin-top: 115px;
-    height: calc(100% - 115px);
+    margin-top: calc(70px + 50px);
+    height: calc(100% - (70px + 50px));
 }
 
 .scrollContainer {
@@ -27,9 +27,19 @@
 
 
 /* Mobile */
+@media only screen and (max-width: 825px) {
+    .container.hasIPM {
+        margin-top: calc(70px + 64px);
+        height: calc(100% - (70px + 64px));
+    }
+}
 @media only screen and (max-width: 768px) {
     .container {
         margin-top: 125px;
         height: calc(100% - 125px);
+    }
+    .container.hasIPM {
+        margin-top: calc(125px + 70px);
+        height: calc(100% - (125px + 70px));
     }
 }

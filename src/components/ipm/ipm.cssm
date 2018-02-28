@@ -4,9 +4,7 @@
 
     box-shadow: 0 1px 0 0 #4B98EA;
     background-color: #4B98EA;
-    color: white;
-
-    text-align: center;
+    color: white; text-align: center;
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
@@ -30,6 +28,7 @@
 @media only screen and (max-width: 768px) {
     .container {
         font-size: 12px;
+        top: 125px;
     }
     .container br {
         display: unset;
