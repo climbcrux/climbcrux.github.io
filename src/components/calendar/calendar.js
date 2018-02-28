@@ -192,7 +192,9 @@ const Event = ({title,
   }
 
   return (
-    <a href={url} target="_blank">
+    <a onClick={() => {
+      recordEvent('Events', 'Go To Eventbrite', {label: classification});
+    }} href={url} target="_blank">
     <div className={classNames(styles.event,
                                styles[classification],
                                firstDay && styles.start,

@@ -10,7 +10,7 @@ import PayPalButton from '../../components/paypal/paypal';
 import Modal from '../../components/modal/modal';
 import { STATES } from './states';
 import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
-import { setPage } from '../../virtualPage';
+import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './membershipForm.cssm';
 
@@ -73,6 +73,11 @@ class MembershipForm extends Component {
   }
 
   submitForm(payment) {
+    recordEvent('Membership', 'New Membership', {
+      label: this.props.level,
+      value: this.props.price,
+    })
+
     this.props.writeMembership({
       ...this.fillNullValues(this.state.member),
       level: this.props.level,

@@ -11,7 +11,7 @@ import Modal from '../../components/modal/modal';
 import PhotoGrid from '../../components/photo-grid/photo-grid';
 import { sendEmail } from '../../actions/send-email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
-import { setPage } from '../../virtualPage';
+import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './about.cssm';
 
@@ -31,6 +31,7 @@ class About extends Component {
 
     this.DOMLoaded = this.DOMLoaded.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.sendEmail = this.sendEmail.bind(this);
 
     setPage('/about', 'About Us');
   }
@@ -50,7 +51,6 @@ class About extends Component {
   scrollToElem(name) {
     if (name) {
       var elem = document.querySelector(`.section[name=${name}]`);
-      console.log('Scrolling to ', elem);
       elem.scrollIntoView({behavior: 'smooth'});
     }
   }
@@ -69,6 +69,11 @@ class About extends Component {
 
   closeModal() {
     this.setState({showModal: false});
+  }
+
+  sendEmail(data) {
+    recordEvent('Contact', 'Send Email', {label: data.department});
+    this.props.sendEmail(data);
   }
 
   renderWhoWeAre() {
@@ -139,7 +144,9 @@ class About extends Component {
 
           To learn about more about positions and how to apply go to our <a
           href="https://goo.gl/forms/kGBuFCBtq8xfap7H3" target="_blank"
-          className={styles.link}>Leadership Questionnaire</a>.
+          onClick={() => {
+            recordEvent('Leadership', 'Go to Leadership Questionnaire');
+          }} className={styles.link}>Leadership Questionnaire</a>.
         </p>
       </Section>
     );
@@ -188,7 +195,7 @@ class About extends Component {
             </div>
           </div>
           <ContactForm
-            onSubmit={this.props.sendEmail}
+            onSubmit={this.sendEmail}
             className={styles.form}
           />
         </div>
