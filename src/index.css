@@ -21,6 +21,10 @@ a:focus {
     display: none;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 
 /* cyrillic-ext */
 @font-face {

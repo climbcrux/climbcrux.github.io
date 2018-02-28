@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -41,15 +42,18 @@ class AppWrap extends Component {
     return <IPM message={Message} />;
   }
 
+  hasIPM() {
+    return !!Message;
+  }
+
   render() {
     return (
-      <div className={styles.container}>
+      <div className={classNames(styles.container, this.hasIPM() && styles.hasIPM)}>
         {this.renderTopNav()}
+        {this.renderLiveIPM()}
         <div className={styles.scrollContainer}>
-          {this.renderLiveIPM()}
           {this.props.children}
         </div>
-
       </div>
     );
   }

@@ -4,6 +4,11 @@
     height: calc(100% - 70px);
 }
 
+.container.hasIPM {
+    margin-top: 115px;
+    height: calc(100% - 115px);
+}
+
 .scrollContainer {
     height: 100%;
 }
