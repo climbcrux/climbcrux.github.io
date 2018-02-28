@@ -5,7 +5,7 @@ import { EVENTBRITE_TOKEN, EVENTBRITE_ORG_ID } from '../CONFIG_FILES/credentials
 
 es6PromisePolyfill.polyfill();
 
-const EVENTS_URL = 'https://www.eventbriteapi.com/v3/events/search/?include_all_series_instances=on&sort_by=date';
+const EVENTS_URL = `https:\/\/www.eventbriteapi.com/v3/organizers/${EVENTBRITE_ORG_ID}/events/?order_by=start_asc&status=live%2Cstarted%2Cended`;
 
 
 export const LOAD_FAILURE = 'EVENT_LOAD_FAILURE';
@@ -26,9 +26,9 @@ const fetchSuccess = (data) => {
 }
 
 
-export const getEvents = () => {
+export const getEvents = (startDate) => {
   return (dispatch) => {
-    var url = `${EVENTS_URL}&token=${EVENTBRITE_TOKEN}&organizer.id=${EVENTBRITE_ORG_ID}`;
+    var url = `${EVENTS_URL}&token=${EVENTBRITE_TOKEN}&start_date.range_start=${startDate}`;
 
     return fetch(url).then(response => {
       if (response.status >= 400) {

@@ -35,7 +35,7 @@ class Events extends Component {
   }
 
   componentWillMount() {
-    this.props.getEvents();
+    this.props.getEvents(this.state.currentMonth.format('YYYY-MM-DDThh:mm:ss'));
   }
 
   nextMonth() {
