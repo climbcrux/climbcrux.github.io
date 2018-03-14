@@ -41,7 +41,7 @@ export const EVENTS = [
          image={require('../../media/events.jpg')}
          key='newbie_night'
   />,
-  <Event name='Monkey Monday'
+  <Event name='Monday Night @ The Cliffs'
          time='7 - 10PM'
          price='$25'
          gym={{name: 'The Cliffs @ LIC', link: 'https://goo.gl/maps/LiDbcPRDMhk'}}
