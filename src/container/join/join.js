@@ -51,7 +51,7 @@ class Join extends Component {
           <div className={styles.perks}>
             <Perk img={require('../../media/perks/rope_red.png')}
                   label="Learn the Ropes"
-                  desc="Free and sicounted classes at The Cliffs" />
+                  desc="Free and discounted classes at The Cliffs" />
             <Perk img={require('../../media/perks/harness_orange.png')}
                   label="Fuel the Addiction"
                   desc="Discounted day passes and membership at partner gyms" />

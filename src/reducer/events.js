@@ -35,4 +35,5 @@ export function castEventbriteEvent(evnt) {
 const EVENT_TYPE_MAP = {
   '108_9': 'indoor', // Topic: Sport & Fitness, Format: Class
   '109_9': 'outdoor', // Topic: Travel & Outdoors, Format: Class
+  '108_10': 'special', // Topic: Sport & Fitness, Format: Meeting
 };

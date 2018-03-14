@@ -1,16 +1,17 @@
 .container {
     width: 100%;
-    margin-top: 70px;
-    height: calc(100% - 70px);
+    height: 100%;
+    padding-top: 70px;
 }
 
 .container.hasIPM {
-    margin-top: calc(70px + 50px);
-    height: calc(100% - (70px + 50px));
+    padding-top: 115px;
 }
 
-.scrollContainer {
+
+.container .scrollContainer {
     height: 100%;
+    position: relative;
 }
 
 
@@ -29,17 +30,14 @@
 /* Mobile */
 @media only screen and (max-width: 825px) {
     .container.hasIPM {
-        margin-top: calc(70px + 64px);
-        height: calc(100% - (70px + 64px));
+        padding-top: 134px;
     }
 }
 @media only screen and (max-width: 768px) {
     .container {
-        margin-top: 125px;
-        height: calc(100% - 125px);
+        padding-top: 125px;
     }
     .container.hasIPM {
-        margin-top: calc(125px + 70px);
-        height: calc(100% - (125px + 70px));
+        padding-top: 195px;
     }
 }

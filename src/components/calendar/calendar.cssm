@@ -182,6 +182,13 @@
 .event.outdoor:not(.fullDay) {
     color: #008148;
 }
+.event.special.fullDay,
+.event.special:not(.fullDay)::before {
+    background: #234473;
+}
+.event.special:not(.fullDay) {
+    color: #234473;
+}
 
 
 /***** Forward/Back Buttons *****/
