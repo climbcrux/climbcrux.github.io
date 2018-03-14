@@ -77,7 +77,7 @@ class Climbing extends Component {
 				</p>
 				<p>
 						To learn more about CRUX, our events, and the sport of rock climbing,
-            read our <Link to="faq" smooth={true} offset={-70}
+            read our <Link to="faq" smooth={true}
             duration={250}>first-timer FAQ</Link>, check out our <a
             onClick={() => this.goTo('/events')} className={styles.link}>Events
             Calendar</a>, or Contact Us directly with

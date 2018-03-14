@@ -28,7 +28,7 @@ class SubNav extends Component {
   }
 
   scrollTo(name) {
-    const scrollOptions = {offset: -70, smooth: true};
+    const scrollOptions = {offset: 0, smooth: true};
     var tab_idx = this.props.tabs.indexOf(name) + 1;
     scroller.scrollTo(name, {...scrollOptions, duration: tab_idx * 200});
   }
