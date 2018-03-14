@@ -5,11 +5,12 @@ import Pin from '../pin/pin';
 import styles from './event.cssm';
 
 
-const Event = ({image, name, gym, description, time, price, freq}) => {
+const Event = ({image, name, gym, description, time, price, freq, className}) => {
   return (
     <div className={classNames(
         styles.container,
         styles[freq],
+        className
       )}>
       <div className={styles.header}>
         <img src={image} />

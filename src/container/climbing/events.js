@@ -1,5 +1,6 @@
 import React from 'react';
 import Event from '../../components/event/event';
+import styles from './climbing.cssm';
 
 const DESCRIPTIONS = {
   newbieNight:
@@ -48,6 +49,7 @@ export const EVENTS = [
          description={DESCRIPTIONS.monkey}
          image={require('../../media/cliffsweekly.jpg')}
          key='monkey'
+         className={styles.centerImage}
   />
          
 ];
