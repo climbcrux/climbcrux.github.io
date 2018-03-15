@@ -193,7 +193,7 @@ const Event = ({title,
 
   return (
     <a onClick={() => {
-      recordEvent('Events', 'Go To Eventbrite', {label: classification});
+      recordOutbound('Outbound', 'Eventbrite', {label: classification});
     }} href={url} target="_blank">
     <div className={classNames(styles.event,
                                styles[classification],

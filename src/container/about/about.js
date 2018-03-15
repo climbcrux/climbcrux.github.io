@@ -11,7 +11,7 @@ import Modal from '../../components/modal/modal';
 import PhotoGrid from '../../components/photo-grid/photo-grid';
 import { sendEmail } from '../../actions/send-email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
-import { setPage, recordEvent } from '../../virtualPage';
+import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 
 import styles from './about.cssm';
 
@@ -72,7 +72,7 @@ class About extends Component {
   }
 
   sendEmail(data) {
-    recordEvent('Contact', 'Send Email', {label: data.department});
+    recordEvent('Contact', 'Email', {label: data.department});
     this.props.sendEmail(data);
   }
 
@@ -145,7 +145,7 @@ class About extends Component {
           To learn about more about positions and how to apply go to our <a
           href="https://goo.gl/forms/kGBuFCBtq8xfap7H3" target="_blank"
           onClick={() => {
-            recordEvent('Leadership', 'Go to Leadership Questionnaire');
+            recordOutbound('Leadership Questionnaire');
           }} className={styles.link}>Leadership Questionnaire</a>.
         </p>
       </Section>

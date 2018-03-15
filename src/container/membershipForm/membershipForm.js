@@ -119,6 +119,7 @@ class MembershipForm extends Component {
   }
 
   showAggrement() {
+    recordEvent('Membership', 'Opened Waiver');
     this.setState({showModal: true, modalType: 'large', modalContent: WAIVER});
   }
 
@@ -127,6 +128,7 @@ class MembershipForm extends Component {
   }
 
   formError() {
+    recordEvent('Membership', 'Signup Failed');
     this.setState({showModel: true, modalContent: REGISTER_FAILURE, modalType: 'small'});
   }
 
