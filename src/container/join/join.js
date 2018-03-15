@@ -7,7 +7,7 @@ import Section from '../../components/section/section';
 import Perk from '../../components/perk/perks';
 import MemberLevel from '../../components/level/level';
 import { MEMBERSHIP_ON_SALE } from '../../CONFIG_FILES/membership';
-import { setPage } from '../../virtualPage';
+import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './join.cssm';
 
@@ -32,6 +32,9 @@ class Join extends Component {
   }
 
   goToMembership(level, price) {
+    recordEvent('Membership', 'Selected Level',
+                {label: level, value: price});
+
     this.props.dispatch({
       type: CHANGE_LEVEL,
       payload: {
@@ -39,7 +42,6 @@ class Join extends Component {
         price: price,
       }
     });
-
     this.props.history.push('membership');
   }
 

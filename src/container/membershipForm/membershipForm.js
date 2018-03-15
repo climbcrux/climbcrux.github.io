@@ -34,6 +34,7 @@ class MembershipForm extends Component {
       showModal: false,
       modalType: 'small',
       modalContent: null,
+      registered: false,
     };
 
     this.submitForm = this.submitForm.bind(this);
@@ -72,8 +73,17 @@ class MembershipForm extends Component {
     }
   }
 
+  componentWillUnmount() {
+    if (!this.state.registered) {
+      recordEvent('Membership', 'Lost', {
+        label: this.props.level,
+        value: this.props.price,
+      });
+    }
+  }
+
   submitForm(payment) {
-    recordEvent('Membership', 'New Membership', {
+    recordEvent('Membership', 'Paid', {
       label: this.props.level,
       value: this.props.price,
     })
@@ -84,6 +94,8 @@ class MembershipForm extends Component {
       price: this.props.price,
       paymentID: payment ? payment.paymentID: undefined,
     });
+
+    this.setState({registered: true});
   }
 
   fillNullValues(data) {
@@ -128,7 +140,7 @@ class MembershipForm extends Component {
   }
 
   formError() {
-    recordEvent('Membership', 'Signup Failed');
+    recordEvent('Membership', 'Payment Failed');
     this.setState({showModel: true, modalContent: REGISTER_FAILURE, modalType: 'small'});
   }
 
