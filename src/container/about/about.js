@@ -33,12 +33,12 @@ class About extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
 
+    window.addEventListener('load', this.DOMLoaded);
     setPage('/about', 'About Us');
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    window.addEventListener('load', this.DOMLoaded);
   }
 
   DOMLoaded() {

@@ -21,12 +21,12 @@ class Climbing extends Component {
     this.DOMLoaded = this.DOMLoaded.bind(this);
     this.goTo = this.goTo.bind(this);
 
+    window.addEventListener('load', this.DOMLoaded);
     setPage('/climbing', 'Climbing');
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    window.addEventListener('load', this.DOMLoaded);
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -44,7 +44,7 @@ class Climbing extends Component {
 
   scrollToElem(name) {
     if (name) {
-      var elem = document.querySelector(`.section[name=${name}]`);
+      var elem = document.querySelector(`[name=${name}]`);
       elem.scrollIntoView({behavior: 'smooth'});
     }
   }

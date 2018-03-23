@@ -3,7 +3,12 @@ require('./index.css');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 // Pages
@@ -28,11 +33,28 @@ ReactDOM.render(
     <BrowserRouter>
       <AppWrap>
         <Route exact path="/" component={Home} />
+
         <Route path="/about" component={About} />
+        <Route path="/contact-us" render={() => {
+          return <Redirect to="/about#contact" />
+        }} />
+
         <Route path="/climb" component={Climbing} />
-        <Route path="/events" component={Events} />
+        <Route path="/crux-regular-events" render={() => {
+          return <Redirect to="/climb#regular-events" />
+        }} />
+        <Route path="/what-is-rock-climbing/beginner-faq" render={() => {
+          return <Redirect to="/climb#faq" />
+        }} />
+
+        <Route exact path="/events" component={Events} />
+        <Route path="/events*" render={() => {
+          return <Redirect to="/events" />
+        }} />
+
         <Route path="/join" component={Join} />
         <Route path="/membership" component={MembershipForm} />
+
       </AppWrap>
     </BrowserRouter>
   </Provider>,
