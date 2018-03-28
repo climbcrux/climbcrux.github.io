@@ -3,7 +3,10 @@ body {
     font-family: "Open Sans", sans-serif;
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
+
+    font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
 }
 
 .root {
