@@ -3,7 +3,10 @@ import classNames from 'classnames';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import Button from '../button/button';
 
-import { PAYPAL } from '../../CONFIG_FILES/credentials';
+import {
+  PAYPAL_ENVIRONMENT,
+  PAYPAL
+} from '../../CONFIG_FILES/credentials';
 import styles from './paypal.cssm';
 
 
@@ -12,7 +15,7 @@ const PayPalButton = ({price,
                        onSuccess,
                        valid=false}) => {
 
-  const environment = 'production';
+  const environment = PAYPAL_ENVIRONMENT;
   const currency = 'USD';
   const client = {...PAYPAL};
 

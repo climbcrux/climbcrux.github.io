@@ -123,7 +123,7 @@ class About extends Component {
       <Section name="leadership">
         <h1>Leadership</h1>
         <p>
-          CRUX is lead, managed, and supported by a dedicated team of volunteers.<br/>
+          CRUX is led, managed, and supported by a dedicated team of volunteers.<br/>
           Leadership is made up of the Board of Directors, Executive Director,
           and rock star coordinators.
         </p>

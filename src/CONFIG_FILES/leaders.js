@@ -41,4 +41,8 @@ export const LEADERSHIP = [{
   name: 'Julian Andrews',
   img: require('../media/leaders/JulianAndrews.jpg'),
   position: 'Member At Large',
+}, {
+  name: 'Nicole Urban',
+  img: require('../media/leaders/NicoleUrban2.jpg'),
+  position: 'Member At Large',
 }];
