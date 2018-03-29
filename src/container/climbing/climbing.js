@@ -68,7 +68,7 @@ class Climbing extends Component {
 						develops problem solving skills, boosts memory and creativity, eases
 						anxiety, and reduces stress. Best yet, rock climbing has something to
 						offer for everyone!  Regardless of age, fitness level, or disability
-						status; if you are healthy enough to pull yourself up a ladder, you can
+						status; if you have the ability to pull yourself up a ladder, you can
 						rock climb!
 				</p>
 				<p>
