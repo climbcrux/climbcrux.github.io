@@ -23,7 +23,7 @@ export default function Events(state=initState, action) {
  */
 export function castEventbriteEvent(evnt) {
   return {
-    title: evnt.name.text,
+    title: cleanTitle(evnt.name.text),
     desc: evnt.description.text,
     start: new Date(evnt.start.local),
     end: new Date(evnt.end.local),
@@ -32,8 +32,18 @@ export function castEventbriteEvent(evnt) {
   }
 };
 
+
+/*****
+ * Remove CRUX LGBTQ Climbing from start of event name
+ */
+function cleanTitle(title) {
+  return title.replace(/(CRUX LGBTQ Climbing - ){1}/ig, '');
+}
+
+
 const EVENT_TYPE_MAP = {
   '108_9': 'indoor', // Topic: Sport & Fitness, Format: Class
   '109_9': 'outdoor', // Topic: Travel & Outdoors, Format: Class
+  '109_5': 'special', // Topic: Travel & Outdoors, Format: Festival
   '108_10': 'special', // Topic: Sport & Fitness, Format: Meeting
 };
