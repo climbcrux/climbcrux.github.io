@@ -35,7 +35,7 @@ class AprilFools extends Component {
 					Our first <b>real</b> official scheduled outdoor trip is next month 
 					and it’s in the city! 5/12 in Highbridge Park. You can sign up today
 					on our Eventbrite <a target="_blank"
-					href="https://www.eventbrite.com/e/crux-lgbtq-climbing-highbridge-rocks-community-festival-tickets-44609202325">by click here</a>.
+					href="https://www.eventbrite.com/e/crux-lgbtq-climbing-highbridge-rocks-community-festival-tickets-44609202325">by clicking here</a>.
 				</p>
 				<p>
 					Are you a 2018 CRUX member? If not, sign up now while Membership
