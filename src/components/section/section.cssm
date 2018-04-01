@@ -38,6 +38,7 @@
 .container span {
     text-align: left;
     font-size: 14px;
+    line-height: 20px;
     font-weight: 300;
     padding-top: 0.5em;
 }
@@ -51,10 +52,10 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    color: #234473;
+    color: #3A8EE8;
     transition: color 0.2s linear;
 }
 .container a:hover {
-    color: #B3302C;
+    color: #DB162F;
     cursor: pointer;
 }

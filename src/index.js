@@ -19,6 +19,7 @@ import Climbing from './container/climbing/climbing';
 import Events from './container/event/event';
 import Join from './container/join/join';
 import MembershipForm from './container/membershipForm/membershipForm';
+import AprilFools from './SINGLE_USE/aprilFools';
 
 // Reducer & Store
 import rootReducer from './reducer/root';
@@ -54,6 +55,8 @@ ReactDOM.render(
 
         <Route path="/join" component={Join} />
         <Route path="/membership" component={MembershipForm} />
+
+        <Route path="/crux_goes_to_MtSunflower" component={AprilFools} />
 
       </AppWrap>
     </BrowserRouter>
