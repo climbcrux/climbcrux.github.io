@@ -52,7 +52,7 @@ class AprilFools extends Component {
 					And, finally, as with previous years, we’ll need some people to help
 					us with one of our biggest initiatives of the year: PRIDE! We need your help.
 					So if you can help us with Pride this year, please fill out the 
-					<a target="_blank" href="https://goo.gl/gNVGUj">Leadership Survey here
+					<a target="_blank" href="https://goo.gl/gNVGUj"> Leadership Survey here
 					</a> and indicate that you’re interested in helping with pride!
 				</p>
 			</Section></div>
