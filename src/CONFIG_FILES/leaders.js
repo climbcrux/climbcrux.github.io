@@ -45,4 +45,8 @@ export const LEADERSHIP = [{
   name: 'Nicole Urban',
   img: require('../media/leaders/NicoleUrban2.jpg'),
   position: 'Member At Large',
+}, {
+  name: 'Patrick Ramsay',
+  img: require('../media/leaders/PatrickRamsay.jpg'),
+  position: 'Member At Large',
 }];
