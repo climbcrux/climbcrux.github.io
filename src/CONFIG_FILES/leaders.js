@@ -1,7 +1,7 @@
 export const LEADERSHIP = [{
   name: 'Will Delorm',
   img: require('../media/leaders/WillDelorm.jpg'),
-  position: 'Indoor Coordinator',
+  position: 'Outdoor Coordinator',
 }, {
   name: 'Victor Manibo',
   img: require('../media/leaders/VictorManibo.jpg'),
