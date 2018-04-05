@@ -1,5 +1,6 @@
 {
   "name": "y",
+  "homepage": "http://cruxclimbing.org",
   "version": "0.0.1",
   "description": "CRUX Website",
   "main": "index.js",
@@ -8,7 +9,9 @@
     "start": "webpack-dev-server --hot",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "webpack --config webpack-config/prod.js"
+    "build": "webpack --config webpack-config/prod.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "author": "",
   "license": "ISC",
@@ -50,8 +53,9 @@
     "webpack-dev-server": "^2.9.4"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.16",
     "@storybook/addon-actions": "^3.2.16",
-    "@storybook/addon-links": "^3.2.16"
+    "@storybook/addon-links": "^3.2.16",
+    "@storybook/react": "^3.2.16",
+    "webpack-static-site-generator": "^1.2.3"
   }
 }

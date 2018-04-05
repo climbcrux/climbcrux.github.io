@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const StaticSiteGenerator = require('webpack-static-site-generator')
 
 // Rules (Loaders)
 const babelConfig = require(path.join(__dirname, 'rules/babel'));
@@ -36,6 +37,24 @@ var config = {
       inject: true,
       template: path.join(__dirname, '../public/index.html'),
     }),
+    //new StaticSiteGenerator(
+    //  // path to the output dir
+    //  path.join(__dirname, '../'), 
+    //  // array of routes to generate
+    //  [
+    //    '/',
+    //    '/about',
+    //    '/about#contact',
+    //    '/climb',
+    //    '/climb#regular-events',
+    //    '/climb#faq',
+    //    '/events',
+    //    '/join',
+    //    '/membership',
+    //    '/crux_goes_to_MtSunflower'
+    //  ],
+    //  '.root'
+    //)
   ]
 };
 
