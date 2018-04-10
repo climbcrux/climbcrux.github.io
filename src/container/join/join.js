@@ -55,7 +55,7 @@ class Join extends Component {
                   label="Learn the Ropes"
                   desc="Free and discounted classes at The Cliffs" />
             <Perk img={require('../../media/perks/harness_orange.png')}
-                  label="Fuel the Addiction"
+                  label="Fuel your Passion"
                   desc="Discounted day passes and membership at partner gyms" />
             <Perk img={require('../../media/perks/helmet_green.png')}
                   label="Get outside"
