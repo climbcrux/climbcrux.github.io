@@ -50,7 +50,7 @@ class About extends Component {
 
   scrollToElem(name) {
     if (name) {
-      var elem = document.querySelector(`.section[name=${name}]`);
+      var elem = document.querySelector(`[name=${name}]`);
       elem.scrollIntoView({behavior: 'smooth'});
     }
   }
@@ -168,6 +168,20 @@ class About extends Component {
     );
   }
 
+  renderPartners() {
+    return (
+      <Section name="partners">
+        <h1>Partners</h1>
+        <div className={styles.grid}>
+          <img src={require('../../media/partners/TheCliffs_black.png')} />
+          <img src={require('../../media/partners/TheNetwork.png')} />
+          <img src={require('../../media/partners/Zapier_orange.png')}
+            style={{height: '60px'}} />
+        </div>
+      </Section>
+    );
+  }
+
   renderContact() {
     return (
       <Section name="contact">
@@ -206,10 +220,17 @@ class About extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <SubNav tabs={['who-we-are', 'leadership', 'supporters', 'contact']} />
+        <SubNav tabs={[
+          'who-we-are',
+          'leadership',
+          'supporters',
+          'partners',
+          'contact'
+        ]} />
         { this.renderWhoWeAre() }
         { this.renderLeadership() }
         { this.renderSupporters() }
+        { this.renderPartners() }
         { this.renderContact()}
         
         <Modal visible={this.state.showModal}

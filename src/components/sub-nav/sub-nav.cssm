@@ -10,7 +10,7 @@
     padding-top: 50px;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 650px) {
     .container {
         flex-wrap: wrap;
         justify-content: space-around;

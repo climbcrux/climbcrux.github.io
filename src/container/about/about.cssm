@@ -22,13 +22,33 @@
     padding-top: 0em;
 }
 
+/* Partner Grid */
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.grid img {
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 24px;
+    width: 50%;
+    height: 120px;
+}
+.grid img:last-child {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
 .row h5, 
 .contactForm h5 {
     color: #315d8f;
     font-weight: 100;
     text-transform: uppercase;
 }
-
 .contactForm {
     display: flex;
     flex-direction: row;
@@ -43,10 +63,10 @@
 .contactForm > div {
     width: 50%;
 }
-
 .contactForm .infoField {
     margin-top: 4em;
 }
+
 
 /* Mobile */
 @media only screen and (max-width: 1000px) {
