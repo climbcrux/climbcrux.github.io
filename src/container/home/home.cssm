@@ -25,7 +25,7 @@
     font-weight: 600;
     font-style: italic;
     color: #5E396B;
-    padding: 16px 32px 32px;
+    padding: 24px 32px;
 }
 
 
