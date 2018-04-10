@@ -123,10 +123,14 @@ const Week = ({date, month, events}) => {
   }
 
   function getDaysEvents(date) {
-    return events.filter(e => (
-      date >= moment(e.start).startOf('day') &&
-      date <= moment(e.end).endOf('day')
-    ));
+    if (events) {
+      return events.filter(e => (
+        date >= moment(e.start).startOf('day') &&
+        date <= moment(e.end).endOf('day')
+      ));
+    } else {
+      return [];
+    }
   }
 
   function startsOnDate(e, date) {

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Form, Field, field } from 'form-for';
 import { bindBootstrapFieldComponents } from "form-for-bootstrap-components";
 
-import { writeMembership } from '../../actions/record-membership';
+import { writeMembership, newsletterSignup } from '../../actions/record-membership';
 import PayPalButton from '../../components/paypal/paypal';
 import Modal from '../../components/modal/modal';
 import { STATES } from './states';
@@ -93,6 +93,14 @@ class MembershipForm extends Component {
       level: this.props.level,
       price: this.props.price,
       paymentID: payment ? payment.paymentID: undefined,
+    });
+
+    // Write name & email to newsletter list
+    var namePart = this.state.member.name.split(' ');
+    this.props.newsletterSignup({
+      first: namePart[0],
+      last: namePart[namePart.length - 1],
+      email: this.state.member.email,
     });
 
     this.setState({registered: true});
@@ -233,4 +241,5 @@ export default connect(state => ({
   ...state.Membership,
 }), {
   writeMembership,
+  newsletterSignup,
 })(MembershipForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import es6PromisePolyfill from 'es6-promise';
 import { encodeData } from './utils';
-import { MEMBERSHIP_API } from '../CONFIG_FILES/credentials';
+import { MEMBERSHIP_API, NEWSLETTER_API } from '../CONFIG_FILES/credentials';
 
 
 es6PromisePolyfill.polyfill();
@@ -31,6 +31,35 @@ export const writeMembership = (data) => {
       }
     }).catch(error => {
       dispatch(writeFailure());
+    });
+	}
+}
+
+
+export const NEWSLETTER_SUCCESS = 'NEWSLETTER_WRITE_SUCCESS';
+const newsletterWriteSuccess = (data) => {
+  return {type: NEWSLETTER_SUCCESS};
+};
+
+
+export const NEWSLETTER_FAILURE = 'NEWSLETTER_WRITE_FAILURE';
+const newsletterWriteFailure = () => {
+  return {type: NEWSLETTER_FAILURE};
+};
+
+
+export const newsletterSignup = (data) => {
+	return (dispatch) => {
+    var url = `${NEWSLETTER_API}?${encodeData(data)}`;
+
+    return fetch(url, {method: 'GET'}).then(response => {
+      if (response.status > 400) {
+        dispatch(newsletterWriteFailure());
+      } else {
+        dispatch(newsletterWriteSuccess());
+      }
+    }).catch(error => {
+      dispatch(newsletterWriteFailure());
     });
 	}
 };

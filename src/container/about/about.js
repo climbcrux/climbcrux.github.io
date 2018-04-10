@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 import SubNav from '../../components/sub-nav/sub-nav';
 import Section from '../../components/section/section';
-import ContactForm from '../../components/contact-form/contact-form';
+import ContactForm from '../../components/forms/contact';
 import SupportersList from '../../components/supporters/supporters';
 import Modal from '../../components/modal/modal';
 import PhotoGrid from '../../components/photo-grid/photo-grid';
-import { sendEmail } from '../../actions/send-email';
+import { sendEmail } from '../../actions/email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 

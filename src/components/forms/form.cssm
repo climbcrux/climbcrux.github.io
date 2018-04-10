@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.container form > div {
+    margin: 12px 0px;
+}
+
+.container form > div:last-child {
+    margin: 0px;
+    max-width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+.header {
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #234473;
+    margin-bottom: 8px;
+}
+.header span {
+    color: #B3302C;
+    padding-left: 0.2em;
+}
+
+.inputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-width: 50px;
+}
+.inputRow > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    position: relative;
+}
+.inputRow > * {
+    flex: 1;
+}
+.inputRow > div:first-child {
+    margin-right: 10px;
+}
+
+.inputRow > div > span {
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-top: 4px;
+}
+
+.inputRow input,
+.inputRow textarea,
+.inputRow select {
+    min-height: 48px;
+    border: 1px solid lightgrey;
+    outline: none;
+    font-size: 20px;
+    padding: 4px 8px;
+    transition: all 0.1s linear;
+    width: 100%;
+    background: white;
+    line-height: 25px;
+    box-sizing: border-box;
+}
+.inputRow select {
+    border-radius: 0px !important;
+    -webkit-appearance: unset;
+    -moz-appearance: unset;
+    position: relative;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+    background-position: calc(100% - 8px) 50%;
+    background-repeat: no-repeat;
+}
+
+.inputRow textarea {
+    padding: 8px;
+    min-width: 100%;
+    min-height: 144px;
+    margin-right: 0px;
+}
+
+.inputRow input:focus,
+.inputRow textarea:focus {
+    border: 2px solid #234473;
+    outline: none;
+}
+.inputRow input:hover,
+.inputRow textarea:hover {
+    cursor: text;
+}
+
+
+/*** Responsive ***/
+@media only screen and (max-width: 480px) {
+    .inputRow > * {
+        width: 100%;
+        margin: 0px 0px 8px 0px;
+    }
+}

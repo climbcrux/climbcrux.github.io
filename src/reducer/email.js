@@ -1,4 +1,4 @@
-import { WRITE_SUCCESS, WRITE_FAILURE } from '../actions/send-email';
+import { WRITE_SUCCESS, WRITE_FAILURE } from '../actions/email';
 
 
 const initState = {

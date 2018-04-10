@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Gallery from './gallery';
-
-import styles from './gallery.story.cssm';
+import styles from './gallery.cssm';
 
 const IMAGES = [
   require('../../media/homepage/dumbo.jpg'),
