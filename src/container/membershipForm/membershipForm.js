@@ -82,16 +82,20 @@ class MembershipForm extends Component {
     }
   }
 
+  getPrice(price) {
+    return Number(price.slice(1));
+  }
+
   submitForm(payment) {
     recordEvent('Membership', 'Paid', {
       label: this.props.level,
-      value: this.props.price,
+      value: this.getPrice(this.props.price),
     })
 
     this.props.writeMembership({
       ...this.fillNullValues(this.state.member),
       level: this.props.level,
-      price: this.props.price,
+      price: this.getPrice(this.props.price),
       paymentID: payment ? payment.paymentID: undefined,
     });
 

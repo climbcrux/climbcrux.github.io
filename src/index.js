@@ -18,6 +18,7 @@ import About from './container/about/about';
 import Climbing from './container/climbing/climbing';
 import Events from './container/event/event';
 import Join from './container/join/join';
+import Benefits from './container/join/benefits';
 import MembershipForm from './container/membershipForm/membershipForm';
 import AprilFools from './SINGLE_USE/aprilFools';
 
@@ -54,6 +55,7 @@ ReactDOM.render(
         }} />
 
         <Route path="/join" component={Join} />
+        <Route path="/benefits" component={Benefits} />
         <Route path="/membership" component={MembershipForm} />
 
         <Route path="/crux_goes_to_MtSunflower" component={AprilFools} />

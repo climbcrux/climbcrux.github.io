@@ -31,9 +31,17 @@ class Join extends Component {
     window.scrollTo(0, 0);
   }
 
+  getPrice(price) {
+    return Number(price.slice(1));
+  }
+
   goToMembership(level, price) {
-    recordEvent('Membership', 'Selected Level',
-                {label: level, value: price});
+    recordEvent(
+      'Membership', 'Selected Level',
+      {
+        label: level,
+        value: this.getPrice(price),
+      });
 
     this.props.dispatch({
       type: CHANGE_LEVEL,
@@ -92,11 +100,11 @@ class Join extends Component {
             <div>* CRUX memberships are for the current calendar year and
             expire December 31st of the year payment is received. Exceptions
             apply. Membership registrations during our annual membership
-            renewal sale in December expire December 31st of the following
+            renewal drive in December expire December 31st of the following
             year.</div>
 
             <div>** Membership fees are tax deductable. The amount you can
-            deduct excludes the monetary value of certain mebership perks,
+            deduct excludes the monetary value of certain membership perks,
             including swag and holiday party tickets.</div>
           </div>
         </Section>
