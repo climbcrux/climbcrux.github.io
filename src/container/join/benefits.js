@@ -31,7 +31,7 @@ class Benefits extends Component {
         <p>
         Supporting CRUX also has its perks! Part of expanding access to rock
         climbing means making it easier and more fun for CRUX members to get out
-        and climb. This is why your membership to CRUX gains you access to
+        and climb. This is why your membership in CRUX gives you access to
         special members only climbing experiences and discounts to local climbing
         and recreational institutions.
         </p>
