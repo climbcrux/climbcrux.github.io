@@ -13,6 +13,7 @@ import { sendEmail } from '../../actions/email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 
+import section from '../../components/section/section.cssm';
 import styles from './about.cssm';
 
 
@@ -90,25 +91,25 @@ class About extends Component {
           well-being, and offer leadership opportunities to LGBTQ individuals, while
           providing education and visibility within the greater climbing community.
         </p>
-        <h5 className={styles.columnHeader}>Our programming features</h5>
-        <div className={styles.columns}>
-          <div className={styles.row}>
+        <h4 className={styles.header}>Our programming features</h4>
+        <div className={section.columns}>
+          <div className={section.row}>
             <h5>Newbie Nights</h5>
             <p>Monthly Newbie Night: designed to introduce new folks to the
               sport or rock climbing</p>
           </div>
-          <div className={styles.row}>
+          <div className={section.row}>
             <h5>Weekly Climbing</h5>
             <p>For experienced climbers to climb together in a supportive
               queered up environment</p>
           </div>
-          <div className={styles.row}>
+          <div className={section.row}>
             <h5>Summer Outdoors</h5>
             <p>Summer full of outdoor climbing trips, including day trips for
                new climbers, multiday trips all over the East Coast for advanced
                climbers, and classes to advance your skills</p>
           </div>
-          <div className={styles.row}>
+          <div className={section.row}>
             <h5>Outreach</h5>
             <p>Share your passion with others by volunteering during outreach events
                with the Ali Forney center</p>

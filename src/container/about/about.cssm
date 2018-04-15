@@ -1,25 +1,6 @@
-.columnHeader {
+.header {
     font-weight: 600;
     margin-top: 2.5em;
-    margin-bottom: -0.5em;
-}
-.columns {
-    display: flex; flex-direction: column;
-}
-.columns .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.row > *:first-child {
-    flex: 0.3;
-    margin-top: 1.5em;
-}
-.row > *:last-child {
-    flex: 0.7;
-    margin-top: 1.5em;
-    padding-top: 0em;
 }
 
 /* Partner Grid */
@@ -82,15 +63,6 @@
 @media only screen and (max-width: 425px) {
     .columnHeader {
         margin-bottom: 0em;
-    }
-    .columns .row {
-        flex-direction: column;
-    }
-    .row > *:first-child {
-        margin-top: 1em;
-    }
-    .row > *:last-child {
-        margin-top: 0.5em;
     }
     .contactForm {
         flex-direction: column;

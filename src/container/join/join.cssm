@@ -1,11 +1,15 @@
 .perks {
     max-width: 799px;
-    margin: 0px auto 50px;
-    display: flex;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%); 
+    text-align: center;
+
+    /*
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    text-align: center;
+    */
 }
 .levels {
     max-width: 500px;
@@ -49,21 +53,15 @@
 
 
 /* Mobile */
-@media only screen and (max-width: 1000px) {
-    .container {
-        margin: 0px 50px;
-    }
-}
 @media only screen and (max-width: 768px) {
     .container {
-        margin: 0px 20px;
+        margin: 0px;
     }
     .perks {
         margin-bottom: 0px;
     }
     .perks > div {
         max-width: 150px;
-        margin: 8px;
     }
     .perks img {
         max-height: 60px;

@@ -20,6 +20,7 @@ class Join extends Component {
     super(props);
 
     this.goToMembership = this.goToMembership.bind(this);
+    this.goToBenefits = this.goToBenefits.bind(this);
     this.state = {
       sale: MEMBERSHIP_ON_SALE
     };
@@ -33,6 +34,10 @@ class Join extends Component {
 
   getPrice(price) {
     return Number(price.slice(1));
+  }
+
+  goToBenefits() {
+    this.props.history.push('benefits');
   }
 
   goToMembership(level, price) {
@@ -53,6 +58,14 @@ class Join extends Component {
     this.props.history.push('membership');
   }
 
+  renderToBenefitButton() {
+    return (
+      <div style={{textAlign: 'center', marginTop: '28px'}}>
+        <a onClick={this.goToBenefits}>Check out our full list of benefits</a>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -68,12 +81,10 @@ class Join extends Component {
             <Perk img={require('../../media/perks/helmet_green.png')}
                   label="Get outside"
                   desc="All levels, sport, and trad trips to The Gunks, Rumney, and more" />
-            <Perk img={require('../../media/perks/gear_blue.png')}
-                  label="Gear Up"
-                  desc="Members only discounts at EMS AND R&W Ropes" />
             <Perk img={require('../../media/perks/anchor_purple.png')}
                   label="Better Together"
-                  desc="Social events including members trip, holiday party, and pride festivities" />
+                  desc="Social events including members trip, holiday party,
+                        and pride festivities" />
           </div>
         </Section>
         <Section name="level">
