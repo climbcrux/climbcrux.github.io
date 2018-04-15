@@ -54,7 +54,7 @@ class Benefits extends Component {
             <h5>Outdoor</h5>
             <ul>
               <li>Access to all CRUX outdoor trips including all-levels,
-              park bouldering series, and sport lead trips</li>
+              park bouldering, and sport lead trips</li>
               <li>Discounted outdoor classes with the EMS School when organized
               through CRUX</li>
             </ul>

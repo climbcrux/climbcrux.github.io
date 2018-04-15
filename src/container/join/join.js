@@ -58,14 +58,6 @@ class Join extends Component {
     this.props.history.push('membership');
   }
 
-  renderToBenefitButton() {
-    return (
-      <div style={{textAlign: 'center', marginTop: '28px'}}>
-        <a onClick={this.goToBenefits}>Check out our full list of benefits</a>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className={styles.container}>
@@ -85,6 +77,11 @@ class Join extends Component {
                   label="Better Together"
                   desc="Social events including members trip, holiday party,
                         and pride festivities" />
+          </div>
+          <div style={{textAlign: 'center', marginTop: '28px', fontSize: '16px'}}>
+            <a onClick={this.goToBenefits}>
+              Check out our full list of benefits here
+            </a>
           </div>
         </Section>
         <Section name="level">
