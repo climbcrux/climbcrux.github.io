@@ -11,6 +11,16 @@ class Benefits extends Component {
   constructor(props) {
     super(props);
     setPage('/benefits', 'Benefits');
+
+    this.goToJoin = this.goToJoin.bind(this);
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  goToJoin() {
+    this.props.history.push('join');
   }
 
   render() {
@@ -75,6 +85,9 @@ class Benefits extends Component {
               <li>More in the works</li>
             </ul>
           </div>
+        </div>
+        <div style={{textAlign: "center", marginTop: "28px", fontSize: "16px"}}>
+          <a onClick={this.goToJoin}>Join Now</a>
         </div>
       </Section>
     </div>);
