@@ -144,6 +144,7 @@
     background: #3A8EE8;
     color: white;
     padding-left: 0px;
+    height: 17px;
 }
 .dark .event.fullDay {
     background: white;
