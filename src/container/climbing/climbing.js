@@ -115,9 +115,10 @@ class Climbing extends Component {
 				<p>
 					Every spring through autumn CRUX spends many weekends out of the city
 					climbing at crags up and down the East Coast. Trips range from single day
-					excursions in and around NYC, to longer week and weekend trips to world
-					renoun East Coast climbing destinations. Trips are open to all CRUX
-					members, pending skill requirements needed to climb at a crag.
+					excursions in and around NYC, to longer week and weekend trips to 
+          world-renowned East Coast climbing destinations. Trips are open to
+          all CRUX members, pending skill requirements needed to climb at a
+          crag.
 				</p>
 				<p>We take care to design trips for climbers of every ability level and
 				climbing interest.</p>
@@ -134,7 +135,7 @@ class Climbing extends Component {
 
 				<p>
 					Our outdoor programing also includes outdoor climbing education courses
-					tought by guids from the EMS School in New Paltz. Course choices are
+					taught by guides from the EMS School in New Paltz. Course choices are
 					dictated by the needs and interests of our members.
 				</p>
 				<h4>Classes previously sponsored include</h4>
