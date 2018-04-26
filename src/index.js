@@ -20,7 +20,9 @@ import Events from './container/event/event';
 import Join from './container/join/join';
 import Benefits from './container/join/benefits';
 import MembershipForm from './container/membershipForm/membershipForm';
+
 import AprilFools from './SINGLE_USE/aprilFools';
+import Outdoor2018 from './SINGLE_USE/outdoor_2018';
 
 // Reducer & Store
 import rootReducer from './reducer/root';
@@ -41,13 +43,14 @@ ReactDOM.render(
           return <Redirect to="/about#contact" />
         }} />
 
-        <Route path="/climb" component={Climbing} />
+        <Route exact path="/climb" component={Climbing} />
         <Route path="/crux-regular-events" render={() => {
           return <Redirect to="/climb#regular-events" />
         }} />
         <Route path="/what-is-rock-climbing/beginner-faq" render={() => {
           return <Redirect to="/climb#faq" />
         }} />
+        <Route path="/climb/outdoor_season" component={Outdoor2018} />
 
         <Route exact path="/events" component={Events} />
         <Route path="/events*" render={() => {
@@ -55,6 +58,9 @@ ReactDOM.render(
         }} />
 
         <Route path="/join" component={Join} />
+        <Route path="/register*" render={() => {
+          return <Redirect to="/join" />
+        }} />
         <Route path="/benefits" component={Benefits} />
         <Route path="/membership" component={MembershipForm} />
 

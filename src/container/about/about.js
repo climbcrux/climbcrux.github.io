@@ -174,10 +174,15 @@ class About extends Component {
       <Section name="partners">
         <h1>Partners</h1>
         <div className={styles.grid}>
-          <img src={require('../../media/partners/TheCliffs_black.png')} />
-          <img src={require('../../media/partners/TheNetwork.png')} />
-          <img src={require('../../media/partners/Zapier_orange.png')}
-            style={{height: '60px'}} />
+          <a href="https://thecliffsclimbing.com/" target="_blank">
+            <img src={require('../../media/partners/TheCliffs_black.png')} />
+          </a>
+          <a href="https://gaycenter.org/thenetwork" target="_blank">
+            <img src={require('../../media/partners/TheNetwork.png')} />
+          </a>
+          <a href="https://zapier.com/" target="_blank" style={{height: '50px'}}>
+            <img src={require('../../media/partners/Zapier_orange.png')} />
+          </a>
         </div>
       </Section>
     );

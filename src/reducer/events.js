@@ -44,8 +44,12 @@ function cleanTitle(title) {
 const EVENT_TYPE_MAP = {
   '108_9': 'indoor', // Topic: Sport & Fitness, Format: Class
   '108_18': 'indoor', // Topic: Sport & Fitness, Format: Trip
+  '108_10': 'special', // Topic: Sport & Fitness, Format: Meeting
+
   '109_9': 'outdoor', // Topic: Travel & Outdoors, Format: Class
   '109_18': 'outdoor', // Topic: Travel & Outdoors, Format: Trip
   '109_5': 'special', // Topic: Travel & Outdoors, Format: Festival
-  '108_10': 'special', // Topic: Sport & Fitness, Format: Meeting
+  
+  '109_100': 'outreach', // Topic: Travel & Outdoors, Format: Other
+  '108_100': 'outreach', // Topic: Sport & Fitness, Format: Other
 };

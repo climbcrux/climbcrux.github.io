@@ -79,7 +79,7 @@ class Climbing extends Component {
 						To learn more about CRUX, our events, and the sport of rock climbing,
             read our <Link to="faq" smooth={true}
             duration={250}>first-timer FAQ</Link>, check out our <a
-            onClick={() => this.goTo('/events')} className={styles.link}>Events
+            onClick={() => this.goTo('events')} className={styles.link}>Events
             Calendar</a>, or Contact Us directly with
             questions, concerns, or to just say hi!
 				</p>
@@ -146,7 +146,7 @@ class Climbing extends Component {
 				</ul>
 
 				<p>
-					Check out our Calendar for more information on upcoming climbing trip.
+					Check out our Calendar for more information on upcoming climbing trips.
 					If you have any questions about which trips are most suitable for your
 					ability level feel free to email our outdoor coordinator <a
           href="mailto:outdoor@climbcrux.org" target="_top">here</a>.

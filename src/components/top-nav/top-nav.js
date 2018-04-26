@@ -26,11 +26,11 @@ class TopNav extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.logoContainer}
-             onClick={() => this.onClick('home')} />
+             onClick={() => this.onClick('/home')} />
         <div className={styles.subNavContainer}>
           {tabs.map(tab => (
             <div key={tab.id} className={tab.className}
-                 onClick={() => this.onClick(tab.id)}
+                 onClick={() => this.onClick(`/${tab.id}`)}
             >{tab.label}</div>
           ))}
         </div>
