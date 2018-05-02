@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const MEMBERSHIP_ON_SALE = true;
+export const MEMBERSHIP_ON_SALE = false;
 
 
 export const LEVELS = {

@@ -22,7 +22,7 @@ import Benefits from './container/join/benefits';
 import MembershipForm from './container/membershipForm/membershipForm';
 
 import AprilFools from './SINGLE_USE/aprilFools';
-import Outdoor2018 from './SINGLE_USE/outdoor_2018';
+//import Outdoor2018 from './SINGLE_USE/outdoor_2018';
 
 // Reducer & Store
 import rootReducer from './reducer/root';
@@ -50,7 +50,6 @@ ReactDOM.render(
         <Route path="/what-is-rock-climbing/beginner-faq" render={() => {
           return <Redirect to="/climb#faq" />
         }} />
-        <Route path="/climb/outdoor_season" component={Outdoor2018} />
 
         <Route exact path="/events" component={Events} />
         <Route path="/events*" render={() => {
