@@ -51,7 +51,7 @@ class AppWrap extends Component {
     return (
       <div className={classNames(styles.container, this.hasIPM() && styles.hasIPM)}>
         {this.renderTopNav()}
-        {this.hasIPM() & this.renderLiveIPM()}
+        {this.hasIPM() && this.renderLiveIPM()}
         <div className={styles.scrollContainer}>
           {this.props.children}
         </div>
