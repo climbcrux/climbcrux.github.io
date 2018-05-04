@@ -37,6 +37,9 @@ ReactDOM.render(
     <BrowserRouter>
       <AppWrap>
         <Route exact path="/" component={Home} />
+        <Route path="/home" render={() => {
+          return <Redirect to="/" />
+        }} />
 
         <Route path="/about" component={About} />
         <Route path="/contact-us" render={() => {

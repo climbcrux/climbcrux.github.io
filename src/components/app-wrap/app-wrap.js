@@ -43,6 +43,7 @@ class AppWrap extends Component {
   }
 
   hasIPM() {
+    console.log(!!Message);
     return !!Message;
   }
 
@@ -50,7 +51,7 @@ class AppWrap extends Component {
     return (
       <div className={classNames(styles.container, this.hasIPM() && styles.hasIPM)}>
         {this.renderTopNav()}
-        {this.renderLiveIPM()}
+        {this.hasIPM() & this.renderLiveIPM()}
         <div className={styles.scrollContainer}>
           {this.props.children}
         </div>
