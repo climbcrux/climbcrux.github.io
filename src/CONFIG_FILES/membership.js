@@ -29,7 +29,7 @@ export const LEVELS = {
         outdoor education classes through the EMS School</li>
         <li>Discounted day passes during CRUX nights</li>
         <li>Free belay class at The Cliffs LIC during CRUX nights</li>
-        <li>50% off Sport Lead Basic class at The Cliffs LIC</li>
+        <li>50% off Sport Lead Basic class at The Cliffs LIC when organized through CRUX</li>
       </ul>
     ),
   },
