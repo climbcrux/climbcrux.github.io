@@ -8,10 +8,13 @@ const PhotoGrid = ({}) => {
       {LEADERSHIP.map((item, i) => {
         return (
           <div className={styles.leader} key={i}>
+            <div className={styles.name}>
+              {item.name}
+            </div>
             <img src={item.img} />
-            <div className={styles.hover}>
-              <div>{item.name}</div>
+            <div className={styles.info}>
               <div>{item.position}</div>
+              <div>{item.pronouns}</div>
             </div>
           </div>
         );
