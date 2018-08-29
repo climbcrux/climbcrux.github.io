@@ -9,19 +9,9 @@ export const LEADERSHIP = [{
   position: 'Indoor Coordinator',
   pronouns: 'he/him/his',
 }, {
-  name: 'Nick Brown',
-  img: require('../media/leaders/NickBrown.jpg'),
-  position: 'Membership',
-  pronouns: 'he/him/his',
-}, {
   name: 'Matt Mager',
   img: require('../media/leaders/MattMager.jpg'),
   position: 'Social Media',
-  pronouns: 'he/him/his',
-}, {
-  name: 'Sean Collishaw',
-  img: require('../media/leaders/SeanCollishaw.jpg'),
-  position: 'Web Master',
   pronouns: 'he/him/his',
 }, {
   name: 'Kris Harbold',
