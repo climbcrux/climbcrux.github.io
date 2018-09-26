@@ -21,7 +21,7 @@ import Join from './container/join/join';
 import Benefits from './container/join/benefits';
 import MembershipForm from './container/membershipForm/membershipForm';
 
-import AprilFools from './SINGLE_USE/aprilFools';
+//import AprilFools from './SINGLE_USE/aprilFools';
 //import Outdoor2018 from './SINGLE_USE/outdoor_2018';
 
 // Reducer & Store
@@ -66,7 +66,9 @@ ReactDOM.render(
         <Route path="/benefits" component={Benefits} />
         <Route path="/membership" component={MembershipForm} />
 
-        <Route path="/crux_goes_to_MtSunflower" component={AprilFools} />
+        <Route path="/crux_goes_to_MtSunflower" render={() => {
+          return <Redirect to="/" />
+        }} />
 
       </AppWrap>
     </BrowserRouter>
