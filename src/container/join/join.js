@@ -11,7 +11,6 @@ import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './join.cssm';
 
-
 export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
 
 

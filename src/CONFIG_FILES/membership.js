@@ -13,7 +13,7 @@ export const LEVELS = {
     perks: (
       <ul>
         <li>Everything included in <strong>Standard</strong></li>
-        <li>For students, as well as those experiencing financial hardship due
+        <li>For students and those experiencing financial hardship due
         to unemployment, disability, etc.</li>
       </ul>
     )
@@ -26,7 +26,7 @@ export const LEVELS = {
       <ul>
         <li>Exclusive access to CRUX social outings and member events</li>
         <li>Access to CRUX outdoor programming, including specially priced
-        outdoor education classes through the EMS School</li>
+        outdoor classes through the EMS School</li>
         <li>Discounted day passes during CRUX nights</li>
         <li>Free belay class at The Cliffs LIC during CRUX nights</li>
         <li>50% off Sport Lead Basic class at The Cliffs LIC when organized through CRUX</li>
@@ -62,7 +62,7 @@ export const LEVELS = {
     name: "Platinum",
     perks: (
       <ul>
-        <li><i>all the above plus</i></li>
+        <li>Everything included in <strong>Gold</strong></li>
       </ul>
     ),
   },

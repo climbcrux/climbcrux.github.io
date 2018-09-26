@@ -8,5 +8,5 @@ export const HOMEPAGE_IMAGES = [
   require('../media/homepage/bouldering.jpg'),
   require('../media/homepage/redrock.jpg'),
   require('../media/homepage/dumbo.jpg'),
-  require('../media/homepage/hc.jpg'),
+  require('../media/homepage/cruxgym-8449.jpg'),
 ];
