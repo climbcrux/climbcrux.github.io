@@ -20,7 +20,7 @@ export const LEADERSHIP = [{
   pronouns: 'he/him/his',
 }, {
   name: 'Lyndon Cudlitz',
-  img: require('../media/leaders/LyndonCudlitz2.jpg'),
+  img: require('../media/leaders/LyndonCudlitz.jpg'),
   position: 'Vice President',
   pronouns: 'he/him OR they/them',
 }, {
@@ -40,7 +40,7 @@ export const LEADERSHIP = [{
   pronouns: 'he/him/his',
 }, {
   name: 'Nicole Urban',
-  img: require('../media/leaders/NicoleUrban2.jpg'),
+  img: require('../media/leaders/NicoleUrban.jpg'),
   position: 'Member At Large',
   pronouns: 'they/them/theirs',
 }, {
@@ -52,5 +52,10 @@ export const LEADERSHIP = [{
   name: 'Chandler Atkinson',
   img: require('../media/leaders/ChandlerAtkinson.jpg'),
   position: 'Director of Development',
+  pronouns: 'she/her/hers',
+}, {
+  name: 'Sarah Wheeler',
+  img: require('../media/leaders/SarahWheeler.jpg'),
+  position: 'Membership Coordinator',
   pronouns: 'she/her/hers',
 }];

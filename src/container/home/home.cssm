@@ -20,8 +20,8 @@
     max-width: 680px;
     text-align: center;
     font-family: "Alegreya", serif;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 22px;
+    line-height: 28px;
     font-weight: 600;
     font-style: italic;
     color: #5E396B;

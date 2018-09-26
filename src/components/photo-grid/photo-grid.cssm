@@ -31,7 +31,7 @@
     opacity: 0;
 
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     font-family: "Proxima Nova", sans-serif;
     line-height: 20px;
@@ -58,8 +58,8 @@
 
 .leader:hover {
     z-index: 50;
-    margin: -45px;
-    padding: 45px;
+    margin: -30px;
+    padding: 35px;
 }
 .leader:hover > div {
     z-index: 51;
@@ -70,6 +70,9 @@
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
+}
+.leader:hover > img {
+    margin-top: -7px;
 }
 
 @media only screen and (max-width: 768px) {
