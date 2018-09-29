@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import SubNav from '../../components/sub-nav/sub-nav';
-import Section from '../../components/section/section';
 import ContactForm from '../../components/forms/contact';
-import SupportersList from '../../components/supporters/supporters';
 import Modal from '../../components/modal/modal';
 import PhotoGrid from '../../components/photo-grid/photo-grid';
+import SubNav from '../../components/sub-nav/sub-nav';
+
+import section from '../../components/section/section.cssm';
+import Section from '../../components/section/section';
+
 import { sendEmail } from '../../actions/email';
-import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 
 // Constants
-import { PARTNERS } from '../../CONFIG_FILES/partners';
 import { LEADERSHIP } from '../../CONFIG_FILES/leaders';
+import { PARTNERS } from '../../CONFIG_FILES/supporters';
 
 // Style Sheets
-import section from '../../components/section/section.cssm';
+import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
+import SupportersList from './supporters';
+
 import styles from './about.cssm';
 
 
@@ -30,35 +32,12 @@ class About extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      showModal: false,
-      modalContent: null
-    };
+    this.state = {showModal: false, modalContent: null};
 
-    this.DOMLoaded = this.DOMLoaded.bind(this);
+    setPage('/about', 'About Us');
+
     this.closeModal = this.closeModal.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
-
-    window.addEventListener('load', this.DOMLoaded);
-    setPage('/about', 'About Us');
-  }
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
-  DOMLoaded() {
-    var hash = this.props.location.hash;
-    if (hash) {
-      this.scrollToElem(hash.slice(1));
-    }
-  }
-
-  scrollToElem(name) {
-    if (name) {
-      var elem = document.querySelector(`[name=${name}]`);
-      elem.scrollIntoView({behavior: 'smooth'});
-    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -73,10 +52,6 @@ class About extends Component {
     }
   }
 
-  closeModal() {
-    this.setState({showModal: false});
-  }
-
   render() {
     return (
       <div className={styles.container}>
@@ -87,6 +62,7 @@ class About extends Component {
           'partners',
           'contact'
         ]} />
+
         { this.renderWhoWeAre() }
         { this.renderLeadership() }
         { this.renderSupporters() }
@@ -254,6 +230,9 @@ class About extends Component {
     this.props.sendEmail(data);
   }
 
+  closeModal() {
+    this.setState({showModal: false});
+  }
 };
 
 export default connect((state) => ({

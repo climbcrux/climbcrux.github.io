@@ -1,8 +1,0 @@
-.join {
-    border: 3px solid #234473 !important;
-    transition: all 0.2s linear;
-}
-.join:not(:hover) {
-    background-color: #234473;
-    color: #FFFFFF;
-}

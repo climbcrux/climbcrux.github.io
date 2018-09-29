@@ -37,6 +37,9 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.contactForm > div:last-child {
+    margin-top: -52px;
+}
 .contactForm h1 {
     padding-bottom: 0em;
 }

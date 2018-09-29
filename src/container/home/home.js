@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Parallax from 'react-springy-parallax';
 
 import Gallery from '../../components/gallery/gallery';
 import { HOMEPAGE_IMAGES } from '../../CONFIG_FILES/photoGallery';
@@ -32,19 +31,13 @@ class Home extends Component {
 
     return (
       <div className={styles.container}>
-        <Parallax pages={1} ref="parallax">
-          <Parallax.Layer offset={0} speed={0}>
-
-            <div className={styles.layer}>
-              <div className={styles.quote}>
-                Empowering members of the LGBTQ community to participate in rock
-                climbing and outdoor recreation in New York.
-              </div>
-              <Gallery className={styles.gallery} images={HOMEPAGE_IMAGES} />
-            </div>
-
-          </Parallax.Layer >
-        </Parallax>
+        <div className={styles.layer} >
+          <div className={styles.quote}>
+            Empowering members of the LGBTQ community to participate in rock
+            climbing and outdoor recreation in New York.
+          </div>
+          <Gallery className={styles.gallery} images={HOMEPAGE_IMAGES} />
+        </div>
       </div>
     );
  }

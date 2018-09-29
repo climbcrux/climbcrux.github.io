@@ -9,10 +9,12 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import ReactGA from 'react-ga';
 
+import AppWrap from './components/common/wrap';
+
 // Pages
-import AppWrap from './components/app-wrap/app-wrap';
 import Home from './container/home/home';
 import About from './container/about/about';
 import Climbing from './container/climbing/climbing';
@@ -20,9 +22,6 @@ import Events from './container/event/event';
 import Join from './container/join/join';
 import Benefits from './container/join/benefits';
 import MembershipForm from './container/membershipForm/membershipForm';
-
-//import AprilFools from './SINGLE_USE/aprilFools';
-//import Outdoor2018 from './SINGLE_USE/outdoor_2018';
 
 // Reducer & Store
 import rootReducer from './reducer/root';
@@ -32,6 +31,9 @@ import createStoreMiddleware from './configStore';
 ReactGA.initialize('UA-44939665-2');
 
 const store = createStoreMiddleware(rootReducer);
+const history = createBrowserHistory();
+
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

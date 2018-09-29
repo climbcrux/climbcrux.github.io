@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom';
 import { Events, scrollSpy, scroller } from 'react-scroll';
 
 import Button from '../button/button';
@@ -13,6 +14,7 @@ class SubNav extends Component {
 
   constructor(props) {
     super(props);
+
     this.scrollTo = this.scrollTo.bind(this);
   }
 
@@ -28,9 +30,11 @@ class SubNav extends Component {
   }
 
   scrollTo(name) {
-    const scrollOptions = {offset: 0, smooth: true};
-    var tab_idx = this.props.tabs.indexOf(name) + 1;
-    scroller.scrollTo(name, {...scrollOptions, duration: tab_idx * 200});
+    this.props.history.push({hash: name});
+
+    //const scrollOptions = {offset: 0, smooth: true};
+    //var tab_idx = this.props.tabs.indexOf(name) + 1;
+    //scroller.scrollTo(name, {...scrollOptions, duration: tab_idx * 200});
   }
 
   render() {
@@ -47,4 +51,4 @@ class SubNav extends Component {
     );
   }
 };
-export default SubNav;
+export default withRouter(SubNav);

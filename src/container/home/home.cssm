@@ -1,9 +1,6 @@
-.container {
-    height: 100%;
-}
-.container .layer {
+.layer {
     overflow: hidden;
-    height: 100%;
+    height: calc(100vh - 52px);
 
     display: flex;
     flex-direction: column;
