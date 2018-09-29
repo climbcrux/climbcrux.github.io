@@ -13,6 +13,11 @@ import { sendEmail } from '../../actions/email';
 import { SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE } from './messages';
 import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 
+// Constants
+import { PARTNERS } from '../../CONFIG_FILES/partners';
+import { LEADERSHIP } from '../../CONFIG_FILES/leaders';
+
+// Style Sheets
 import section from '../../components/section/section.cssm';
 import styles from './about.cssm';
 
@@ -72,9 +77,29 @@ class About extends Component {
     this.setState({showModal: false});
   }
 
-  sendEmail(data) {
-    recordEvent('Contact', 'Email', {label: data.department});
-    this.props.sendEmail(data);
+  render() {
+    return (
+      <div className={styles.container}>
+        <SubNav tabs={[
+          'who-we-are',
+          'leadership',
+          'supporters',
+          'partners',
+          'contact'
+        ]} />
+        { this.renderWhoWeAre() }
+        { this.renderLeadership() }
+        { this.renderSupporters() }
+        { this.renderPartners() }
+        { this.renderContact()}
+        
+        <Modal visible={this.state.showModal}
+               onClose={this.closeModal}
+               size={'small'}>
+          {this.state.modalContent}
+        </Modal>
+      </div>
+    );
   }
 
   renderWhoWeAre() {
@@ -82,14 +107,15 @@ class About extends Component {
       <Section name="who-we-are">
         <h1>Who We Are</h1>
         <p>
-          <b>CRUX Climbing Inc is a 501(c)(3) nonprofit rock climbing organization</b>.
-          We are dedicated to expanding access to the sport of rock climbing and outdoor
-          recreation for LGBTQ communities in the New York metropolitan area and eastern
-          New York.
+          <b>CRUX Climbing Inc is a 501(c)(3) nonprofit rock climbing
+          organization</b>. We are dedicated to expanding access to the sport
+          of rock climbing and outdoor recreation for LGBTQ communities in the
+          New York metropolitan area and eastern New York.
         </p><p>
-          Through climbing, CRUX aims to build community, support physical and emotional
-          well-being, and offer leadership opportunities to LGBTQ individuals, while
-          providing education and visibility within the greater climbing community.
+          Through climbing, CRUX aims to build community, support physical and
+          emotional well-being, and offer leadership opportunities to LGBTQ
+          individuals, while providing education and visibility within the
+          greater climbing community.
         </p>
         <h4 className={styles.header}>Our programming features</h4>
         <div className={section.columns}>
@@ -106,13 +132,13 @@ class About extends Component {
           <div className={section.row}>
             <h5>Summer Outdoors</h5>
             <p>Summer full of outdoor climbing trips, including day trips for
-               new climbers, multiday trips all over the East Coast for advanced
-               climbers, and classes to advance your skills</p>
+            new climbers, multiday trips all over the East Coast for advanced
+            climbers, and classes to advance your skills</p>
           </div>
           <div className={section.row}>
             <h5>Outreach</h5>
-            <p>Share your passion with others by volunteering during outreach events
-               with the Ali Forney center</p>
+            <p>Share your passion with others by volunteering during outreach
+            events with the Ali Forney center</p>
           </div>
         </div>
       </Section>
@@ -124,9 +150,9 @@ class About extends Component {
       <Section name="leadership">
         <h1>Leadership</h1>
         <p>
-          CRUX is led, managed, and supported by a dedicated team of volunteers.<br/>
-          Leadership is made up of the Board of Directors, Executive Director,
-          and rock star coordinators.
+          CRUX is led, managed, and supported by a dedicated team of
+          volunteers.<br/> Leadership is made up of the Board of Directors,
+          Executive Director, and rock star coordinators.
         </p>
         <h4>Together they</h4>
         <ul>
@@ -137,11 +163,11 @@ class About extends Component {
             <li>Provide resources for LGBTQ climbers at non-affiliated gyms</li>
             <li>and more...</li>
         </ul>
-        <PhotoGrid />
+        <PhotoGrid photos={LEADERSHIP}/>
         <p>
-          Are you a driven and committed member of the CRUX community looking to help
-          shape the future of LGBTQ rock climbing in New York? We're always on the
-          lookout for the newest CRUX leaders.<br/><br/>
+          Are you a driven and committed member of the CRUX community looking
+          to help shape the future of LGBTQ rock climbing in New York? We're
+          always on the lookout for the newest CRUX leaders.<br/><br/>
 
           To learn more about positions and how to apply go to our <a
           href="https://goo.gl/forms/kGBuFCBtq8xfap7H3" target="_blank"
@@ -174,17 +200,17 @@ class About extends Component {
       <Section name="partners">
         <h1>Partners</h1>
         <div className={styles.grid}>
-          <a href="https://thecliffsclimbing.com/" target="_blank">
-            <img src={require('../../media/partners/TheCliffs_black.png')} />
-          </a>
-          <a href="https://gaycenter.org/thenetwork" target="_blank">
-            <img src={require('../../media/partners/TheNetwork.png')} />
-          </a>
-          <a href="https://zapier.com/" target="_blank" style={{height: '50px'}}>
-            <img src={require('../../media/partners/Zapier_orange.png')} />
-          </a>
+          {PARTNERS.map(this._partnerRender)}
         </div>
       </Section>
+    );
+  }
+
+  _partnerRender(p) {
+    return (
+      <a key={p.href} href={p.href} target="_blank" style={p.style}>
+        <img src={p.src} />
+      </a>
     );
   }
 
@@ -198,7 +224,7 @@ class About extends Component {
                We love hearing from you!</p>
 
             <p>Just fill out the form to the right.<br/>
-               We make every effort to respond within 48 hours.</p>
+               We make every effort to respond within 72 hours.</p>
 
             <div className={styles.infoField}>
               <h5>EMAIL ADDRESS</h5>
@@ -209,8 +235,8 @@ class About extends Component {
               <h5>MAILING ADDRESS</h5>
               <span>
                  CRUX Climbing, Inc.<br/>
-                 P.O. Box 372<br/>
-                 New York, NY 10108
+                 228 Flatbush Ave Apt 3F<br/>
+                 Brooklyn, NY 11217
               </span>
             </div>
           </div>
@@ -223,30 +249,11 @@ class About extends Component {
     );
   }
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <SubNav tabs={[
-          'who-we-are',
-          'leadership',
-          'supporters',
-          'partners',
-          'contact'
-        ]} />
-        { this.renderWhoWeAre() }
-        { this.renderLeadership() }
-        { this.renderSupporters() }
-        { this.renderPartners() }
-        { this.renderContact()}
-        
-        <Modal visible={this.state.showModal}
-               onClose={this.closeModal}
-               size={'small'}>
-          {this.state.modalContent}
-        </Modal>
-      </div>
-    );
+  sendEmail(data) {
+    recordEvent('Contact', 'Email', {label: data.department});
+    this.props.sendEmail(data);
   }
+
 };
 
 export default connect((state) => ({

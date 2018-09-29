@@ -17,10 +17,7 @@
     width: 50%;
     height: 120px;
     position: relative;
-}
-.grid > *:last-child {
-    margin-top: 10px;
-    margin-bottom: 0px;
+    align-self: center;
 }
 .grid > * img {
     width: 100%;
