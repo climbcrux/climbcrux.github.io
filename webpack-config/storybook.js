@@ -2,20 +2,23 @@
 
 const path = require('path');
 
-// Loader Configurations 
-const css = require('./loader-configurations/css');
-const cssModules = require('./loader-configurations/cssm');
+// Rules (Loaders)
+const babelConfig = require(path.join(__dirname, 'rules/babel'));
+const css = require(path.join(__dirname, 'rules/css'));
+const cssm = require(path.join(__dirname, 'rules/cssm'));
+const image = require(path.join(__dirname, 'rules/image'));
 
-const baseConfig = require('./base');
 
-baseConfig.module.loaders = baseConfig.module.loaders.concat([
-  {
-    test: /\.(js|jsx)$/,
-    loader: 'babel-loader',
-    include: [path.join(__dirname, '../src')]
-  },
-  css,
-  cssModules
-]);
+var config = {
+  module: {
+    rules: [
+      babelConfig,
+      css,
+      cssm,
+      image,
+    ]
+  }
+};
+
 
 module.exports = config;

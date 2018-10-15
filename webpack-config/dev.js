@@ -1,54 +1,43 @@
 'use strict';
 
 const path = require('path');
-const merge = require('lodash.merge');
 const webpack = require('webpack');
-
-// Loader Configurations
-const css = require('./loader-configurations/css');
-const cssModules = require('./loader-configurations/cssm');
-const autoprefixer = require('autoprefixer');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const baseConfig = require('./base');
-const publicPath = '/';
+// Rules (Loaders)
+const babelConfig = require(path.join(__dirname, 'rules/babel'));
+const css = require(path.join(__dirname, 'rules/css'));
+const cssm = require(path.join(__dirname, 'rules/cssm'));
+const image = require(path.join(__dirname, 'rules/image'));
 
 
-var config = merge({
+var config = {
+  entry: path.join(__dirname, '../src/index.js'),
   output: {
-    path: path.join(__dirname, '../'),
+    path: path.join(__dirname, '../dist'),
     filename: 'index.js',
-    publicPath: publicPath,
+    publicPath: '/',
   },
   devServer: {
-    publicPath: publicPath
+    inline: true,
+    port: 8080,
+    historyApiFallback: true,
   },
-  entry: [
-    path.join(__dirname, '../src/index')
-  ], 
-  cache: false,
-  devtool: 'eval'
-}, baseConfig);
-
-// Add additional loaders
-config.module.rules = config.module.rules.concat([
-  {
-    test: /\.(js|jsx)$/,
-    loader: 'babel-loader',
-    include: [path.join(__dirname, '../src')]
+  module: {
+    rules: [
+      babelConfig,
+      css,
+      cssm,
+      image,
+    ]
   },
-  css,
-  cssModules
-]);
-
-// Add additional plugins
-config.plugins = config.plugins.concat([
-  new webpack.HotModuleReplacementPlugin(),
-  new HtmlWebpackPlugin({
-    inject: true,
-    template: path.join(__dirname, '../public/index.html')
-  })
-]);
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.join(__dirname, '../public/index.html'),
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ]
+};
 
 module.exports = config;
