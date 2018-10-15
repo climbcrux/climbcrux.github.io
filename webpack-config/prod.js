@@ -1,61 +1,81 @@
 'use strict';
 
-const path = require('path');
 const webpack = require('webpack');
+
+const path = require('path');
+const merge = require('lodash.merge');
+const args = require('minimist')(process.argv.slice(2));
+
+// Loader Configurations
+const css = require('./loader-configurations/css');
+const cssModules = require('./loader-configurations/cssm');
+const autoprefixer = require('autoprefixer');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const StaticSiteGenerator = require('webpack-static-site-generator')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// Rules (Loaders)
-const babelConfig = require(path.join(__dirname, 'rules/babel'));
-const css = require(path.join(__dirname, 'rules/css'));
-const cssm = require(path.join(__dirname, 'rules/cssm'));
-const image = require(path.join(__dirname, 'rules/image'));
+const baseConfig = require('./base');
+const publicPath = '/';
+
+// Configur Sitemap
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+const sitemap = require('./sitemap');
 
 
-var config = {
-  entry: path.join(__dirname, '../src/index.js'),
+var config = merge({
   output: {
     path: path.join(__dirname, '../'),
     filename: 'index.js',
-    publicPath: '/',
+    publicPath: publicPath,
   },
-  module: {
-    rules: [
-      babelConfig,
-      css,
-      cssm,
-      image,
+  entry: [
+    path.join(__dirname, '../src/index'),
+  ],
+  cache: false
+}, baseConfig);
+
+
+
+// Add additional loaders
+config.module.rules = config.module.rules.concat([
+  {
+    test: /\.(js|jsx)$/,
+    loader: 'babel-loader',
+    include: [path.join(__dirname, '../src')]
+  },
+  {
+    test: /\.css$/,
+    loader: [
+      'style-loader',
+      'css-loader'
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new UglifyJSPlugin(),
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: path.join(__dirname, '../public/index.html'),
-    }),
-    //new StaticSiteGenerator(
-    //  // path to the output dir
-    //  path.join(__dirname, '../'), 
-    //  // array of routes to generate
-    //  [
-    //    '/',
-    //    '/about',
-    //    '/about#contact',
-    //    '/climb',
-    //    '/climb#regular-events',
-    //    '/climb#faq',
-    //    '/events',
-    //    '/join',
-    //    '/membership',
-    //    '/crux_goes_to_MtSunflower'
-    //  ],
-    //  '.root'
-    //)
-  ]
-};
+  {
+    test: /\.cssm$/,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          importLoaders: 1,
+          localIdentName: '[name]__[local]__[hash:base64:5]'
+        }
+      },
+      'postcss-loader'
+    ]
+  },
+]);
+
+// Additional Plugins
+config.plugins = config.plugins.concat([
+  new SitemapPlugin('https://climbcrux.org', sitemap.routes),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"production"'
+  }),
+  new webpack.optimize.UglifyJsPlugin(),
+  new webpack.optimize.AggressiveMergingPlugin()
+]);
 
 module.exports = config;
