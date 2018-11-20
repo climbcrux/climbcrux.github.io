@@ -45,9 +45,8 @@ To run the code locally and see changes in a local browser ::
 Deploying
 ---------
 
-Before deploying code please have it reviewed in a branch.
-
-To build your code change and push it to a branch for review ::
+Before deploying code please have it reviewed in a branch. To build your code
+change and push it to a branch for review ::
 
     >>> git checkout -b NEW_BRANCH_NAME
     >>> npm build
@@ -55,8 +54,5 @@ To build your code change and push it to a branch for review ::
     >>> git commit -am "INSERT APPROPRIATE COMMIT MESSAGE"
     >>> git push origin NEW_BRANCH_NAME
 
-If you make any changes to the site's navigation structure by adding new
-routes, be sure to update `webpack-config/sitemap.js`
-
-Once the code is reviewed we'll merge it into master and it will be
-served to the site within ~ 10 minutes.
+Once the code is reviewed we'll merge it into master and it will be served to
+the site within ~ 10 minutes.

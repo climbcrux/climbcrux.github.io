@@ -11,7 +11,7 @@ import section from '../../components/section/section.cssm';
 import Section from '../../components/section/section';
 
 import { sendEmail } from '../../actions/email';
-import { setPage, recordEvent } from '../../virtualPage';
+import { setPage, recordEvent, recordOutbound } from '../../virtualPage';
 
 // Constants
 import { LEADERSHIP } from '../../CONFIG_FILES/leaders';
@@ -140,6 +140,17 @@ class About extends Component {
             <li>and more...</li>
         </ul>
         <PhotoGrid photos={LEADERSHIP}/>
+        <p>
+          Are you a driven and committed member of the CRUX community looking
+          to help shape the future of LGBTQ rock climbing in New York? We're
+          always on the lookout for the newest CRUX leaders.<br/><br/>
+
+          To learn more about positions and how to apply go to our <a
+          href="https://goo.gl/forms/kGBuFCBtq8xfap7H3" target="_blank"
+          onClick={() => {
+            recordOutbound('Leadership Questionnaire');
+          }} className={styles.link}>Leadership Questionnaire</a>.
+        </p>
       </Section>
     );
   }

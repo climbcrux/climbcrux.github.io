@@ -4,10 +4,9 @@
     padding: 24px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    transition: all 250ms ease;
+    transition: all 100ms ease;
 }
 .container:hover {
-    transition: all 250ms ease;
     cursor: pointer;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.24);
 }

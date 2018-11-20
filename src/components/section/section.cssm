@@ -63,7 +63,7 @@
     transition: color 0.2s linear;
 }
 .container a:hover {
-    color: #3A8EE8;
+    color: #DB162F;
     cursor: pointer;
 }
 

@@ -3,14 +3,10 @@
 }
 .container.invalid > div {
     opacity: 0.3;
-    
 }
 
-.container.invalid div,
-.container.invalid a {
+.container.invalid > div:hover {
     pointer-events: none;
-    cursor: default;
-    text-decoration: none;
 }
 .container:not(.invalid) > div:hover {
     cursor: pointer;

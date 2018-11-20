@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-import Section from '../../../components/section/section';
-import Button from '../../../components/button/button';
-import { setPage } from '../../../virtualPage';
+import Section from '../../components/section/section';
+import { setPage } from '../../virtualPage';
 
-import section from '../../../components/section/section.cssm';
+import section from '../../components/section/section.cssm';
 import styles from './join.cssm';
 
 
@@ -25,19 +24,20 @@ class Benefits extends Component {
         <h1>Member Benefits</h1>
         <p>
         CRUX has been built in service to our mission: <strong>To expand access
-        to rock climbing and outdoor recreation for LGBTQ communities in New
-        York.</strong> But we can’t do this without the support of our members.
-        Your membership helps us expand our reach, bringing climbing to LGBTQ
-        people whouldn’t otherwise get to experience climbing – or who think
-        that they don’t have a place within it. 
+        to rock climbing and outdoor recreation for LGBTQ communities in the New
+        York metro area and eastern New York.</strong> But we can’t do this
+        without the support of our members. Your membership helps us reach more
+        people and expand access to climbing for LGBTQ people who typically
+        cannot access climbing – or who think that they don’t have a place
+        within it. 
         </p>
 
         <p>
         Supporting CRUX also has its perks! Part of expanding access to rock
-        climbing means making it easier and more fun for CRUX members to get
-        out and climb. This is why your membership in CRUX gives you access to
-        special members only climbing experiences as well as discounts to local
-        climbing and recreational institutions.
+        climbing means making it easier and more fun for CRUX members to get out
+        and climb. This is why your membership in CRUX gives you access to
+        special members only climbing experiences and discounts to local climbing
+        and recreational institutions.
         </p>
 
         <h4>Your membership gets you access to</h4>
@@ -80,13 +80,8 @@ class Benefits extends Component {
             </ul>
           </div>
         </div>
-        <div style={{textAlign: "center",
-                     margin: "32px auto",
-                     maxWidth: "113px",
-                     fontSize: "16px"}}>
-          <Button variant={"red"}
-                  onClick={() => {this.props.history.goBack()}}>Join Now
-          </Button>
+        <div style={{textAlign: "center", marginTop: "28px", fontSize: "16px"}}>
+          <a onClick={() => {this.props.history.goBack()}}>Join Now</a>
         </div>
       </Section>
     </div>);

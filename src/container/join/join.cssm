@@ -2,7 +2,7 @@
     max-width: 799px;
     margin: 0px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 25%); 
+    grid-template-columns: repeat(auto-fill, 50%); 
     text-align: center;
 
     /*
@@ -59,7 +59,6 @@
     }
     .perks {
         margin-bottom: 0px;
-        grid-template-columns: repeat(auto-fill, 50%); 
     }
     .perks > div {
         max-width: 150px;

@@ -1,4 +1,4 @@
-import { CHANGE_LEVEL } from '../container/get-involved/join/join';
+import { CHANGE_LEVEL } from '../container/join/join';
 import { WRITE_SUCCESS, WRITE_FAILURE } from '../actions/record-membership';
 
 

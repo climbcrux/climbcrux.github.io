@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Link, Element, scrollSpy } from 'react-scroll';
+import { Link, Element, scrollSpy, scroller } from 'react-scroll';
 
 import Event from '../../components/event/event';
 import Section from '../../components/section/section';

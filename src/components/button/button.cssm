@@ -6,7 +6,6 @@
     font-size: 12px;
     font-weight: 600;
     line-height: 14px;
-    min-height: 36px;
     color: #234473;
 
     text-transform: uppercase;
@@ -18,27 +17,4 @@
     cursor: pointer;
     background: #234473;
     color: white;
-}
-
-.button.dark {
-    border: 3px solid #234473;
-    background: #234473;
-    color: white;
-}
-
-.button.dark:hover {
-    border: 3px solid #234473;
-    color: #234473;
-    background: white;
-}
-
-.button.red {
-    border: 3px solid #B3302C;
-    background: #B3302C;
-    color: white;
-}
-.button.red:hover {
-    border: 3px solid #800000;
-    background: #800000;
-    transition: all 200ms linear;
 }

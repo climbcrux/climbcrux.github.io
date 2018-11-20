@@ -5,14 +5,12 @@ import { connect } from 'react-redux';
 import { Form, Field, field } from 'form-for';
 import { bindBootstrapFieldComponents } from "form-for-bootstrap-components";
 
-import { writeMembership,
-         newsletterSignup } from '../../../actions/record-membership';
-import PayPalButton from '../../../components/paypal/paypal';
-import Modal from '../../../components/modal/modal';
-
+import { writeMembership, newsletterSignup } from '../../actions/record-membership';
+import PayPalButton from '../../components/paypal/paypal';
+import Modal from '../../components/modal/modal';
 import { STATES } from './states';
 import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
-import { setPage, recordEvent } from '../../../virtualPage';
+import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './membershipForm.cssm';
 

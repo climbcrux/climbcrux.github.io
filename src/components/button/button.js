@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import styles from './button.cssm';
 
 
-const Button = ({name, children, variant, className, onClick}) => {
+const Button = ({name, children, className, onClick}) => {
   return (
-    <div className={classNames(className, styles.button, styles[variant])}
+    <div className={classNames(className, styles.button)}
          onClick={() => onClick(name)}>
       {children}
     </div>

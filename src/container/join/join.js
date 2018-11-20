@@ -3,26 +3,15 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import SVG from 'react-inlinesvg';
 
-import Section from '../../../components/section/section';
-import Perk from '../../../components/perk/perks';
-import MemberLevel from '../../../components/level/level';
-import { setPage, recordEvent } from '../../../virtualPage';
-
-
-import { MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
+import Section from '../../components/section/section';
+import Perk from '../../components/perk/perks';
+import MemberLevel from '../../components/level/level';
+import { MEMBERSHIP_ON_SALE } from '../../CONFIG_FILES/membership';
+import { setPage, recordEvent } from '../../virtualPage';
 
 import styles from './join.cssm';
 
 export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
-
-const PERKS = {
-  ropes: require('../../../media/perks/rope_red.png'),
-  harness: require('../../../media/perks/harness_orange.png'),
-  helmet: require('../../../media/perks/helmet_green.png'),
-  anchor: require('../../../media/perks/anchor_purple.png'),
-};
-
-const SALE_ICON = require('../../../media/sale.svg');
 
 
 class Join extends Component {
@@ -74,16 +63,16 @@ class Join extends Component {
         <Section name="perks">
           <h1>Membership Perks</h1>
           <div className={styles.perks}>
-            <Perk img={PERKS.ropes}
+            <Perk img={require('../../media/perks/rope_red.png')}
                   label="Learn the Ropes"
                   desc="Free and discounted classes at The Cliffs" />
-            <Perk img={PERKS.harness}
+            <Perk img={require('../../media/perks/harness_orange.png')}
                   label="Fuel your Passion"
                   desc="Discounted day passes and membership at partner gyms" />
-            <Perk img={PERKS.helmet}
+            <Perk img={require('../../media/perks/helmet_green.png')}
                   label="Get outside"
                   desc="All levels, sport, and trad trips to The Gunks, Rumney, and more" />
-            <Perk img={PERKS.anchor}
+            <Perk img={require('../../media/perks/anchor_purple.png')}
                   label="Better Together"
                   desc="Social events including members trip, holiday party,
                         and pride festivities" />
@@ -98,7 +87,7 @@ class Join extends Component {
           <h1>Levels</h1>
           {this.state.sale && 
             <div className={styles.saleBadge}>
-              <SVG src={SALE_ICON} />
+              <SVG src={require('../../media/sale.svg')} />
             </div>
           }
           <div className={styles.levels}>

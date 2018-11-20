@@ -75,7 +75,7 @@
 /* Event Footer */
 .footer {
     color: white;
-    /*max-height: 43px;*/
+    max-height: 43px;
 
     display: flex;
     flex-direction: row;
@@ -97,13 +97,6 @@
 }
 
 /* Coloring */
-.container .header {
-    border-bottom: 4px solid #234473;
-}
-.container .header > div {
-    text-shadow: -1px 0 #234473, 0 1px #234473, 1px 0 #234473, 0 -1px #234473;
-}
-
 .container.weekly .header {
     border-bottom: 4px solid #3C8038;
 }
