@@ -45,7 +45,7 @@ class Volunteer extends Component {
             Email our <a onClick={() => {
               recordOutbound('Host Signup');
             }} href="mailto:indoor@climbcrux.org">indoor
-            programming team</a> and let them know your interested
+            programming team</a> and let them know you’re interested
           </li>
           <li>
             Receive a quick orientation during any CRUX indoor event
