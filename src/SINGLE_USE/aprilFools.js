@@ -26,7 +26,7 @@ class AprilFools extends Component {
 					point in Kansas, but it is <b>definitely</b> not something
 					you’d need to climb to get there. June 31st doesn’t exist, nor does…
 					SOCK. But as you can see, it’s true: the approach is pretty easy. 
-					More pics and info <a target="_blank" href="http://summitchicks.com/kansas/">
+					More pics and info <a target="_blank" href="https://summitchicks.com/kansas/">
 					click here</a> and <a
 					href="https://en.wikipedia.org/wiki/Mount_Sunflower">here</a>.
 				</p>

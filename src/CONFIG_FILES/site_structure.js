@@ -47,12 +47,25 @@ export const TABS = [{
 }, {
   id: 'events',
   path: {pathname: '/events'},
-  label: 'Events',
+  label: 'Calendar',
 }, {
-  id: 'join',
-  path: {pathname: '/join'},
-  label: 'Join',
+  id: 'get-involved',
+  path: {pathname: '/get-involved'},
+  label: 'Get Involved',
   className: styles['joinTab'],
+  sections: [{
+    id: 'join',
+    path: {pathname: '/join'},
+    label: 'Become A Member'
+  }, {
+    id: 'donate',
+    path: {pathname: '/donate'},
+    label: 'Donate'
+  }, {
+    id: 'volunteer',
+    path: {pathname: '/volunteer'},
+    label: 'Volunteer'
+  }]
 }];
 
 
