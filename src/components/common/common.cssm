@@ -20,6 +20,10 @@
     color: #FFFFFF;
 }
 
+.scrollContainer {
+    min-height: calc(100% - 177px);
+}
+
 
 /* Mobile */
 @media only screen and (max-width: 825px) {

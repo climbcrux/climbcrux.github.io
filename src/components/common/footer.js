@@ -13,8 +13,9 @@ class Footer extends Component {
   };
 
   _restructureTabs(tabs) {
-    var ls = tabs.slice(0, 2);
-    ls.push([tabs.slice(2,4)]);
+    var ls = tabs.slice(0, 1);
+    ls.push([tabs.slice(1,3)]);
+    ls.push(tabs.slice(3,4));
     return ls;
   }
 
@@ -25,9 +26,10 @@ class Footer extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
-          {this.CRUXBlurb()}
           {ls.map((tab, i) => this.addPageStructure(tab, i))}
           {this.addSocial()}
+
+          {this.CRUXBlurb()}
         </div>
       </div>
     );
@@ -58,11 +60,12 @@ class Footer extends Component {
   CRUXBlurb() {
     return (
       <div>
-        <strong>CRUX Climbing is a 501(c)(3)</strong><br/>
-        EIN: 27-3868534<br/><br/>
-        <strong>Email</strong><br/>
-        <a href="mailto:info@climbcrux.org" target="_top">
-          info@climbcrux.org
+        <strong>CRUX Climbing is a 501(c)(3)</strong>
+        <span>EIN: 27-3868534</span>
+
+        <a href="https://www.guidestar.org/profile/27-3868534"
+           target="_blank">
+           <img src="https://widgets.guidestar.org/gximage2?o=9179921&l=v4" />
         </a>
       </div>
     )

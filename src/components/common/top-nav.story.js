@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 
 import TopNav from './top-nav';
-import styles from '../app-wrap/app-wrap.cssm';
+import styles from './common.cssm';
 
 
 const TABS = [{

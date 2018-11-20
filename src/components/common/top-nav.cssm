@@ -87,6 +87,9 @@
     }
 }
 @media only screen and (max-width: 425px) {
+    .container {
+        width: 100vw;
+    }
     .subNavContainer > div {
         font-size: 11px;
         line-height: 11px;
