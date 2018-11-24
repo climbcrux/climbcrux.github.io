@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import Section from '../../components/section/section';
-import section from '../../components/section/section.cssm';
 
 import Event from '../../components/event/event';
 import Button from '../../components/button/button';
@@ -18,7 +16,6 @@ class Contribute extends Component {
 
     setPage('/get-involved', 'Get Involved');
   }
-
 
   goTo(name) {
     this.props.history.push(name);
@@ -49,7 +46,7 @@ class Contribute extends Component {
     return (
       <Event
           name={"Join"}
-          image={require('../../media/join.png')}
+          image={require('../../media/section_cover/join.png')}
           description={description}
           footer={
             <div className={styles.footer}>
@@ -74,7 +71,7 @@ class Contribute extends Component {
     return (
         <Event
           name={"Donate"}
-          image={require('../../media/donate.jpg')}
+          image={require('../../media/section_cover/donate.jpg')}
           description={description}
           footer={
             <div className={styles.footer}>
@@ -98,7 +95,7 @@ class Contribute extends Component {
     return (
         <Event
           name={"Volunteer"}
-          image={require('../../media/volunteer.jpg')}
+          image={require('../../media/section_cover/volunteer.jpg')}
           description={description}
           footer={
             <div className={styles.footer}>
@@ -108,41 +105,6 @@ class Contribute extends Component {
             </div>
           }
         />
-    );
-  }
-
-  renderMore() {
-    return (
-      <Section name="more-giving">
-        <h1>More Ways to Give</h1>
-        <p>
-          There are many ways you can donate to CRUX beyond one-time donations
-          and membership. All donations help bring climbing to more people
-
-        </p>
-        <div className={section.columns}>
-          <div className={section.row}>
-            <h5>Workplace Giving</h5>
-            <p>Get your employer involved through workplace giving.</p>
-          </div>
-          <div className={section.row}>
-            <h5>Fundraise on Facebook</h5>
-            <p></p>
-          </div>
-          <div className={section.row}>
-            <h5>Become a Partner</h5>
-            <p></p>
-          </div>
-        </div>
-      </Section>
-    );
-  }
-
-  renderFinancials() {
-    return (
-      <Section name="financials">
-        <h1>Financials</h1>
-      </Section>
     );
   }
 

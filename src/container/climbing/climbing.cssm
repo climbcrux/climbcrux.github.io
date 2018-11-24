@@ -10,6 +10,9 @@
 .events > div:last-child {
     margin-right: 0px;
 }
+.events > div > div:last-child {
+    max-height: 43px;
+}
 
 .centerImage img {
     object-position: bottom;

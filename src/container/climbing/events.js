@@ -39,7 +39,7 @@ export const EVENTS = [
          gym={{name: 'The Cliffs @ LIC', link: 'https://goo.gl/maps/LiDbcPRDMhk'}}
          freq='monthly'
          description={DESCRIPTIONS.newbieNight}
-         image={require('../../media/events.jpg')}
+         image={require('../../media/events/newbie.jpg')}
          key='newbie_night'
   />,
   <Event name='Monday Night Heights'
@@ -48,7 +48,7 @@ export const EVENTS = [
          gym={{name: 'The Cliffs @ LIC', link: 'https://goo.gl/maps/LiDbcPRDMhk'}}
          freq='weekly'
          description={DESCRIPTIONS.monday}
-         image={require('../../media/cliffsweekly.jpg')}
+         image={require('../../media/events/weekly.jpg')}
          key='monkey'
          className={styles.centerImage}
   />
