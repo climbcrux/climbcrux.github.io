@@ -59,9 +59,13 @@ class Footer extends Component {
 
   CRUXBlurb() {
     return (
-      <div>
-        <strong>CRUX Climbing is a 501(c)(3)</strong>
-        <span>EIN: 27-3868534</span>
+      <div className={styles.menu}>
+        <div>
+          <ul className={styles.menu}>
+            <li className={styles.title}>CRUX Climbing is a 501(c)(3)</li>
+            <li>EIN: 27-3868534</li>
+          </ul>
+        </div>
 
         <a href="https://www.guidestar.org/profile/27-3868534"
            target="_blank">
