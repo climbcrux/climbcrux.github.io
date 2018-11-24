@@ -6,23 +6,46 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    position: relative;
+}
+.layer {
+    height: unset;
+    margin-bottom: 54px;
 }
 
 .gallery {
-    width: 90%;
+    width: calc(100% - 48px);
     max-width: 120vh;
     flex: 1;
 }
+
 .quote {
     max-width: 680px;
-    text-align: center;
+
     font-family: "Alegreya", serif;
     font-size: 22px;
+    letter-spacing: 0.7px;
     line-height: 28px;
+    text-align: center;
     font-weight: 600;
-    font-style: italic;
+
     color: #5E396B;
     padding: 24px 32px;
+}
+.quote {
+    color: white;
+    text-shadow: -1px 0 #001140, 0 1px #001140, 1px 0 #001140, 0 -1px #001140;
+    background: rgba(0, 17, 64, 0.6);
+
+    position: absolute;
+    bottom: 12px;
+    left: 20%;
+    right: 24px;
+
+    z-index: 5;
+    padding: 12px;
+    max-width: 120vh;
 }
 
 
@@ -32,8 +55,13 @@
     .container .layer {
         height: calc(100% - 125px);
     }
-    .quote { font-size: 20px; }
-    .gallery { width: 100%; }
+    .quote {
+        font-size: 20px;
+        right: 0px;
+    }
+    .gallery {
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 630px) {
     .quote {

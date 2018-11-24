@@ -38,4 +38,7 @@
     .container.hasIPM {
         padding-top: 195px;
     }
+    .scrollContainer {
+        min-height: unset;
+    }
 }
