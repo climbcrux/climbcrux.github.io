@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	BrowserRouter,
+  HashRouter,
 	Redirect,
 	Route
 } from 'react-router-dom';
@@ -21,7 +22,7 @@ import MembershipForm from './container/get-involved/membershipForm/membershipFo
 
 
 export const Routes = (
-	<BrowserRouter>
+	<HashRouter>
 		<AppWrap>
 			<Route exact path="/" component={Home} />
 			<Route path="/home" render={() => {
@@ -62,5 +63,5 @@ export const Routes = (
 			}} />
 
 		</AppWrap>
-	</BrowserRouter>
+	</HashRouter>
 );
