@@ -5,8 +5,6 @@ const merge = require('lodash.merge');
 const webpack = require('webpack');
 
 // Loader Configurations
-const css = require('./loader-configurations/css');
-const cssModules = require('./loader-configurations/cssm');
 const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -16,39 +14,28 @@ const publicPath = '/';
 
 
 var config = merge({
+  entry: {
+    'index.js': path.join(__dirname, '../src/index.js')
+  }, 
   output: {
     path: path.join(__dirname, '../'),
     filename: 'index.js',
     publicPath: publicPath,
   },
+  devtool: 'eval',
   devServer: {
     publicPath: publicPath
   },
-  entry: [
-    path.join(__dirname, '../src/index')
-  ], 
   cache: false,
-  devtool: 'eval'
 }, baseConfig);
-
-// Add additional loaders
-config.module.rules = config.module.rules.concat([
-  {
-    test: /\.(js|jsx)$/,
-    loader: 'babel-loader',
-    include: [path.join(__dirname, '../src')]
-  },
-  css,
-  cssModules
-]);
 
 // Add additional plugins
 config.plugins = config.plugins.concat([
-  new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
     inject: true,
-    template: path.join(__dirname, '../public/index.html')
-  })
+    template: path.join(__dirname, '../public/index.html'),
+  }),
+  new webpack.HotModuleReplacementPlugin(),
 ]);
 
 module.exports = config;

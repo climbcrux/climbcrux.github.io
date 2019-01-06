@@ -5,7 +5,6 @@ let srcPath = path.join(__dirname, '../../src');
 
 module.exports = {
   test: /\.cssm$/,
-  include: [srcPath],
   use: [
     'style-loader',
     {
@@ -17,5 +16,5 @@ module.exports = {
       }
     },
     'postcss-loader'
-  ]
+  ],
 };

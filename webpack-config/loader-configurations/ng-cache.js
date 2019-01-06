@@ -7,5 +7,5 @@
 module.exports = {
   test: /\.html$/,
   exclude: /node_modules|bower_components/,
-  loader: 'ng-cache?prefix=frontend_ng:/**',
+  loader: 'ng-cache?prefix=/**',
 };
