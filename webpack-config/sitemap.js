@@ -8,37 +8,37 @@ module.exports = {
     priority: '0.1',
     changeFreq: 'monthly'
   }, {
-    path: '/about',
+    path: '/#/about',
     lastMod: '2018-11-19',
     priority: '0.3',
     changeFreq: 'monthly'
   }, {
-    path: '/climb',
+    path: '/#/climb',
     lastMod: '2018-09-30',
     priority: '0.3',
     changeFreq: 'monthly'
   }, {
-    path: '/events',
+    path: '/#/events',
     lastMod: '2018-09-30',
     priority: '0.8',
     changeFreq: 'daily'
   }, {
-    path: '/get-involved',
+    path: '/#/get-involved',
     lastMod: '2018-11-19',
     priority: '0.3',
     changeFreq: 'monthly'
   }, {
-    path: '/join',
+    path: '/#/join',
     lastMod: '2018-09-26',
     priority: '0.8',
     changeFreq: 'monthly'
   }, {
-    path: '/donate',
+    path: '/#/donate',
     lastMod: '2018-11-19',
     priority: '0.8',
     changeFreq: 'monthly'
   }, {
-    path: '/volunteer',
+    path: '/#/volunteer',
     lastMod: '2018-11-19',
     priority: '0.8',
     changeFreq: 'monthly'
