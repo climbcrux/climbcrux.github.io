@@ -33,10 +33,28 @@ class Events extends Component {
   }
 
   componentWillMount() {
-    var start = this.state.currentMonth.clone();
+    var {start, end} = this.getCalendarRange(this.state.currentMonth);
+    this.props.getEvents(start, end);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.currentMonth != prevState.currentMonth) {
+      var {start, end} = this.getCalendarRange(this.state.currentMonth);
+      this.props.getEvents(start, end);
+    }
+  }
+
+  getCalendarRange(date) {
+    var start = date.clone();
     start = start.subtract(2, 'M').format('YYYY-MM-DDThh:mm:ss');
 
-    this.props.getEvents(start);
+    var end = date.clone();
+    end = end.add(2, 'M').format('YYYY-MM-DDThh:mm:ss');
+    
+    return {
+      start: start,
+      end: end
+    };
   }
 
   nextMonth() {
