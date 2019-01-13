@@ -4,11 +4,6 @@ export const LEADERSHIP = [{
   position: 'Outdoor Coordinator',
   pronouns: 'he/him/his',
 }, {
-  name: 'Victor Manibo',
-  img: require('../media/leaders/VictorManibo.jpg'),
-  position: 'Indoor Coordinator',
-  pronouns: 'he/him/his',
-}, {
   name: 'Matt Mager',
   img: require('../media/leaders/MattMager.jpg'),
   position: 'Social Media',
@@ -21,18 +16,13 @@ export const LEADERSHIP = [{
 }, {
   name: 'Lyndon Cudlitz',
   img: require('../media/leaders/LyndonCudlitz.jpg'),
-  position: 'Vice President',
+  position: 'Liaison to NYS LGBT Network',
   pronouns: 'he/him OR they/them',
 }, {
   name: 'Traci Lawson',
   img: require('../media/leaders/TraciLawson.jpg'),
   position: 'Member At Large',
   pronouns: 'she/her/hers',
-}, {
-  name: 'Daniel Parker',
-  img: require('../media/leaders/DanielParker.jpg'),
-  position: 'Executive Director',
-  pronouns: 'he/him/his',
 }, {
   name: 'Julian Andrews',
   img: require('../media/leaders/JulianAndrews.jpg'),
