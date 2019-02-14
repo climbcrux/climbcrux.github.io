@@ -21,6 +21,9 @@
 .container.muted {
     background: #F4F4F4;
 }
+.container div {
+    padding-top: 8px;
+}
 
 .name {
     font-family: "Proxima Nova", sans-serif;

@@ -96,34 +96,40 @@ class Join extends Component {
         </Section>
         <Section name="level">
           <h1>Levels</h1>
-          {this.state.sale && 
+          { false && 
             <div className={styles.saleBadge}>
               <SVG src={SALE_ICON} />
             </div>
           }
           <div className={styles.levels}>
             <MemberLevel onClick={this.goToMembership}
-                         sale={this.state.sale} level="standard" />
+                         sale={this.state.sale} level="student" />
+            <MemberLevel onClick={this.goToMembership}
+                         sale={this.state.sale} level="climber" />
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="silver" />
             <MemberLevel onClick={this.goToMembership}
                          sale={this.state.sale} level="gold" />
             <MemberLevel onClick={this.goToMembership}
-                         sale={this.state.sale} level="platinum" />
-            <MemberLevel onClick={this.goToMembership}
-                         sale={false} level="hardship" />
+                         sale={this.state.sale} level="supporter" />
+            <div>
+              Those with financial concerns should email <a
+              href="mailto:membership@climbcrux.org">membership@climbcrux.org </a>
+              or shoot us a message on the <a href="/#/about#contact">
+              Contact Page </a>, just select “Member Info.”
+            </div>
           </div>
 
           <div className={styles.disclaimers}>
             <div>* CRUX memberships are for the current calendar year and
             expire December 31st of the year payment is received. Exceptions
-            apply. Membership registrations during our annual membership
-            renewal drive in December expire December 31st of the following
-            year.</div>
+            apply. Memberships started toward the end of the calendar year
+            can be extended to the following year.
+            </div>
 
             <div>** Membership fees are tax deductable. The amount you can
-            deduct excludes the monetary value of certain membership perks,
-            including swag and holiday party tickets.</div>
+            deduct excludes the monetary value of certain membership perks.
+            </div>
           </div>
         </Section>
       </div>
