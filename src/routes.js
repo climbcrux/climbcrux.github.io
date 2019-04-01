@@ -20,6 +20,8 @@ import Donate from './container/get-involved/donate';
 import Benefits from './container/get-involved/join/benefits';
 import MembershipForm from './container/get-involved/membershipForm/membershipForm';
 
+import AprilFools from './SINGLE_USE/aprilFools';
+
 
 export const Routes = (
 	<HashRouter>
@@ -58,10 +60,7 @@ export const Routes = (
 			<Route path="/benefits" component={Benefits} />
 			<Route path="/membership" component={MembershipForm} />
 
-			<Route path="/crux_goes_to_MtSunflower" render={() => {
-				return <Redirect to="/" />
-			}} />
-
+			<Route path="/CRUXupfront" component={AprilFools} />
 		</AppWrap>
 	</HashRouter>
 );
