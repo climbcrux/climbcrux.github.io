@@ -31,7 +31,7 @@ class AprilFools extends Component {
 				</p>
         <p>
           <a target="_blank" href="https://forms.gle/NvduJfGcNgABeids8">
-            Pride Committee Sign-Up
+            Pride Marching & Volunteer Sign-Up
           </a>
 				</p>
 			</Section></div>
