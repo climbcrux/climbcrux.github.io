@@ -23,7 +23,7 @@ website.
 committing code). `Instructions here
 <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_
 
-3. Access to CRUX's `credentials.js` file (you can find this in our ZoHo vault)
+3. Access to CRUX's :code:`credentials.js` file (you can find this in our ZoHo vault)
 
 
 Setup
