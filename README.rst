@@ -12,6 +12,20 @@ If see a bug on the site and would like a change to be made please leave
 an issue or contact website@climbcrux.org.
 
 
+Pre-reqs
+--------
+You need to have a few things configured before you can contribute to the
+website.
+
+1. Ask the site admins to add you as a contributor on this repo
+
+2. Setup SSH keys & add to your GitHub account (this is how we know it's you
+committing code). `Instructions here
+<https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_
+
+3. Access to CRUX's `credentials.js` file (you can find this in our ZoHo vault)
+
+
 Setup
 -----
 
