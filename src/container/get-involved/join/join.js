@@ -6,12 +6,14 @@ import SVG from 'react-inlinesvg';
 import Section from '../../../components/section/section';
 import Perk from '../../../components/perk/perks';
 import MemberLevel from '../../../components/level/level';
+import Modal from '../../../components/modal/modal';
 import { setPage, recordEvent } from '../../../virtualPage';
 
 
 import { MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
 
 import styles from './join.cssm';
+import { COVID } from '../COVID.js';
 
 export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
 
@@ -30,7 +32,7 @@ class Join extends Component {
     super(props);
 
     this.goToMembership = this.goToMembership.bind(this);
-    this.goToBenefits = this.goToBenefits.bind(this);
+    this.goTo = this.goTo.bind(this);
     this.state = {
       sale: MEMBERSHIP_ON_SALE
     };
@@ -46,8 +48,8 @@ class Join extends Component {
     return Number(price.slice(1));
   }
 
-  goToBenefits() {
-    this.props.history.push('benefits');
+  goTo(name) {
+    this.props.history.push(name);
   }
 
   goToMembership(level, price) {
@@ -71,6 +73,10 @@ class Join extends Component {
   render() {
     return (
       <div className={styles.container}>
+        <Modal visible={true} size={'small'}>
+          <COVID />
+        </Modal> 
+
         <Section name="perks">
           <h1>Membership Perks</h1>
           <div className={styles.perks}>
@@ -89,7 +95,7 @@ class Join extends Component {
                         and pride festivities" />
           </div>
           <div style={{textAlign: 'center', marginTop: '28px', fontSize: '16px'}}>
-            <a onClick={this.goToBenefits}>
+            <a onClick={() => this.goTo('benefits')}>
               Check out our full list of benefits here
             </a>
           </div>
@@ -137,3 +143,4 @@ class Join extends Component {
   }
 }
 export default withRouter(connect(null, null)(Join));
+
