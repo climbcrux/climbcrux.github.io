@@ -66,11 +66,6 @@ class Footer extends Component {
             <li>EIN: 27-3868534</li>
           </ul>
         </div>
-
-        <a href="https://www.guidestar.org/profile/27-3868534"
-           target="_blank">
-           <img src="https://widgets.guidestar.org/gximage2?o=9179921&l=v4" />
-        </a>
       </div>
     )
   }
