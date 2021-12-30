@@ -1,9 +1,5 @@
-'use strict';
-
-// Loader Configurations
-
 const path = require('path');
-const srcPath = path.join(__dirname, '../src');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const css = require('./loader-configurations/css');
 const cssModules = require('./loader-configurations/cssm');
@@ -12,10 +8,18 @@ const image = require('./loader-configurations/image');
 const json = require('./loader-configurations/json');
 
 module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    //clean: true
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      srcPath,
+      path.join(__dirname, './src'),
       'node_modules'
     ]
   },
@@ -28,5 +32,12 @@ module.exports = {
       json
     ]
   },
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'CRUX Climbing',
+      inject: true,
+      template: path.join(__dirname, '../public/index.html'),
+    })
+  ],
+  cache: false,
 };
