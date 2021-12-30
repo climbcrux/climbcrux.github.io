@@ -1,8 +1,6 @@
 import React from 'react';
 import es6PromisePolyfill from 'es6-promise';
 import { encodeData } from './utils';
-import { MEMBERSHIP_API, NEWSLETTER_API } from '../CONFIG_FILES/credentials';
-
 
 es6PromisePolyfill.polyfill();
 
@@ -21,7 +19,7 @@ const writeFailure = () => {
 
 export const writeMembership = (data) => {
 	return (dispatch) => {
-    var url = `${MEMBERSHIP_API}?${encodeData(data)}`;
+    var url = `${process.env.REACT_APP_MEMBERSHIP_LIST_API}?${encodeData(data)}`;
 
     return fetch(url, {method: 'GET'}).then(response => {
       if (response.status > 400) {
@@ -50,7 +48,7 @@ const newsletterWriteFailure = () => {
 
 export const newsletterSignup = (data) => {
 	return (dispatch) => {
-    var url = `${NEWSLETTER_API}?${encodeData(data)}`;
+    var url = `${process.env.REACT_APP_NEWSLETTER_SUBSCRIBTION_API}?${encodeData(data)}`;
 
     return fetch(url, {method: 'GET'}).then(response => {
       if (response.status > 400) {

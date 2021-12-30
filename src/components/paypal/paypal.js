@@ -9,18 +9,20 @@ import {
 } from '../../CONFIG_FILES/credentials';
 import styles from './paypal.cssm';
 
+const PayPalEnvs = {
+
+};
 
 const PayPalButton = ({price,
                        onError,
                        onSuccess,
                        valid=false}) => {
 
-  const environment = PAYPAL_ENVIRONMENT;
+  const environment = process.env.REACT_APP_PAYPAL_ENVIRONMENT;
+  const client = process.env.REACT_APP_PAYPAL_CLIENT;
   const currency = 'USD';
-  const client = {...PAYPAL};
 
-  function nullClick() {
-  }
+  function nullClick() {}
 
   return (
     <div className={classNames(styles.container, !valid && styles.invalid)}>

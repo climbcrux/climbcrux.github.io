@@ -1,8 +1,6 @@
-node_modules/
-*.swp
-/nbproject/private/
-nbproject/project.properties
-nbproject/project.xml
-*/.DS_Store
+/node_modules
+.env
+.env.*
 
-credentials.js
+*.swp
+*/.DS_Store
