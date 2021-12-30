@@ -3,10 +3,6 @@ import classNames from 'classnames';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import Button from '../button/button';
 
-import {
-  PAYPAL_ENVIRONMENT,
-  PAYPAL
-} from '../../CONFIG_FILES/credentials';
 import styles from './paypal.cssm';
 
 const PayPalEnvs = {
