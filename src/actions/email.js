@@ -1,7 +1,6 @@
 import 'isomorphic-fetch';
 import es6PromisePolyfill from 'es6-promise';
 import { encodeData } from './utils';
-import { EMAIL_API } from '../CONFIG_FILES/credentials';
 
 es6PromisePolyfill.polyfill();
 
@@ -24,7 +23,7 @@ const fetchSuccess = (data) => {
 
 export const sendEmail = (data) => {
   return (dispatch) => {
-		var url = `${EMAIL_API}?${encodeData(data)}`;
+		var url = `${process.env.REACT_APP_CONTACT_EMAIL_API}?${encodeData(data)}`;
 
     return fetch(url, {method: 'GET'}).then(response => {
 			if (response.status >= 400) {

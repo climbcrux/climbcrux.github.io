@@ -3,24 +3,25 @@ import classNames from 'classnames';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import Button from '../button/button';
 
-import {
-  PAYPAL_ENVIRONMENT,
-  PAYPAL
-} from '../../CONFIG_FILES/credentials';
 import styles from './paypal.cssm';
 
+const PayPalEnvs = {
+
+};
 
 const PayPalButton = ({price,
                        onError,
                        onSuccess,
                        valid=false}) => {
 
-  const environment = PAYPAL_ENVIRONMENT;
+  const environment = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox';
+  const client = {
+    'sandbox': process.env.REACT_APP_PAYPAL_CLIENT_PRODUCTION_TOKEN,
+    'production': process.env.REACT_APP_PAYPAL_CLIENT_SANDBOX_TOKEN
+  };
   const currency = 'USD';
-  const client = {...PAYPAL};
 
-  function nullClick() {
-  }
+  function nullClick() {}
 
   return (
     <div className={classNames(styles.container, !valid && styles.invalid)}>
