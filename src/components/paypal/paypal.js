@@ -14,8 +14,11 @@ const PayPalButton = ({price,
                        onSuccess,
                        valid=false}) => {
 
-  const environment = process.env.REACT_APP_PAYPAL_ENVIRONMENT;
-  const client = process.env.REACT_APP_PAYPAL_CLIENT;
+  const environment = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox';
+  const client = {
+    'sandbox': process.env.REACT_APP_PAYPAL_CLIENT_PRODUCTION_TOKEN,
+    'production': process.env.REACT_APP_PAYPAL_CLIENT_SANDBOX_TOKEN
+  };
   const currency = 'USD';
 
   function nullClick() {}
