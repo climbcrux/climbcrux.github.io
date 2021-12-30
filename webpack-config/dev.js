@@ -6,7 +6,7 @@ module.exports = merge(common, {
   // mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    publicPath: './dist'
+    publicPath: '../'
   },
   plugins: common.plugins.concat([
     new webpack.HotModuleReplacementPlugin()
