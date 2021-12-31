@@ -12,8 +12,9 @@ class Home extends Component {
     super(props);
 
     setPage('/', 'Home');
+    console.log(process.env);
   }
-  
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
