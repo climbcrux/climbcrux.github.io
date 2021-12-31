@@ -12,7 +12,6 @@ class Home extends Component {
     super(props);
 
     setPage('/', 'Home');
-    console.log(process.env);
   }
 
   componentDidMount() {
