@@ -8,12 +8,12 @@ cruxclimbing.org
 lgbtrockclimbing.com
 gayrockclimbing.com
 
-If see a bug on the site and would like a change to be made please leave
+If you see a bug on the site and would like a change to be made please leave
 an issue or contact website@climbcrux.org.
 
 
-Pre-reqs
---------
+Setup
+-----
 You need to have a few things configured before you can contribute to the
 website.
 
@@ -21,67 +21,49 @@ website.
 #. Setup SSH keys & add to your GitHub account (this is how we know it's you
 committing code). `Instructions here
 <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_
-#. Access to CRUX's `credentials.js` file (you can find this in our ZoHo vault)
+#. Install `node` and `npm` on your computer. `Instructions here
+<https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_
+#. Clone this GitHub repo ::
 
+    $ git clone git@github.com:climbcrux/climbcrux.github.io.git
 
-Setup
------
+#. Navigate to the cloned repo and install dependencies ::
 
-To develop locally you must have `npm` installed. To install `npm`:
+    $ cd climbcrux.github.io
+    $ npm install
 
-1. For Mac/Linux (via `Homebrew <https://brew.sh/>`_) ::
+#. Setup local environment variable files
 
-    >>> brew install node
+#. Sign in to Netlify ::
 
-2. For Windows:
+    $ netlify login
 
-    http://blog.teamtreehouse.com/install-node-js-npm-windows
+Making & Publishing Changes
+---------------------------
 
-Clone the repo ::
+You can make changes to the website by creating a new development branch and
+running the Netlify development server locally ::
 
-    >>> git clone git@github.com:climbcrux/climbcrux.github.io.git
+#. Create a new branch ::
 
-Install dependencies ::
+  $ git checkout -b [BRANCH_NAME]
 
-    >>> cd climbcrux.github.io
-    >>> npm install
+#. Run Netlify development server
 
+  $ netlify dev
 
-Local Development
------------------
+Once you're ready to publish your changes:
 
-To run the code locally and see changes in a local browser ::
+#. Commit your changes to GitHub ::
 
-    >>> npm start
+  $ git commit -am [COMMIT MESSAGE]
 
-Before Deploying
-----------------
+#. Open a PR in GitHub
+#. Be sure the Netlify build succeeds and generates a Preview site
+#. Have your PR changes reviewed
 
-Before deploying any code make sure that the following things have been done:
+Once your PR is approved, you'll be able to deploy your site changes by:
 
-1. If adding a new page
+#. Squash & Merging changes from your GitHub PR
 
-   - Make sure the page has GA tracking added
-   - Make sure the page has been added to the site structure & is preset in
-     the footer
-   - Make sure that the new route has been added to the sitemap
-
-2. Otherwise
-
-   - Make sure that the sitemap is updated with the last updated time
-
-Deploying
----------
-
-Before deploying code please have it reviewed in a branch.
-
-To build your code change and push it to a branch for review ::
-
-    >>> git checkout -b NEW_BRANCH_NAME
-    >>> npm build
-    >>> git add .
-    >>> git commit -am "INSERT APPROPRIATE COMMIT MESSAGE"
-    >>> git push origin NEW_BRANCH_NAME
-
-Once the code is reviewed we'll merge it into master and it will be
-served to the site within ~ 10 minutes.
+Netflify will automatically build and publish site changes.
