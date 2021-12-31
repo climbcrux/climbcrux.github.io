@@ -1,11 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const css = require('./loader-configurations/css');
-const cssModules = require('./loader-configurations/cssm');
-const babelStage1React = require('./loader-configurations/babel-stage1-react');
-const image = require('./loader-configurations/image');
-const json = require('./loader-configurations/json');
+const css = require('./webpack-config/loader-configurations/css');
+const cssModules = require('./webpack-config/loader-configurations/cssm');
+const babelStage1React = require('./webpack-config/loader-configurations/babel-stage1-react');
+const image = require('./webpack-config/loader-configurations/image');
+const json = require('./webpack-config/loader-configurations/json');
 
 module.exports = {
   entry: {
@@ -13,7 +14,7 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, '../build'),
+    path: path.resolve(__dirname, './build'),
     publicPath: '/',
     //clean: true
   },
@@ -37,8 +38,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'CRUX Climbing',
       inject: true,
-      template: path.join(__dirname, '../public/index.html'),
-    })
+      template: path.join(__dirname, './public/index.html'),
+    }),
   ],
-  cache: false,
+  cache: false
 };

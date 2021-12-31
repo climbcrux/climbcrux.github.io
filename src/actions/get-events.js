@@ -25,7 +25,7 @@ const fetchSuccess = (data) => {
 
 export const getEvents = (startDate, endDate) => {
   return (dispatch) => {
-    var url = `${EVENTS_URL}&token=${process.env.EVENTBRITE_TOKEN}&start_date.range_start=${startDate}&start_date.range_end=${endDate}`;
+    var url = `${EVENTS_URL}&token=${process.env.REACT_APP_EVENTBRITE_TOKEN}&start_date.range_start=${startDate}&start_date.range_end=${endDate}`;
 
     return fetch(url).then(response => {
       if (response.status >= 400) {

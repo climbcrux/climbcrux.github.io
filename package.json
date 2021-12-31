@@ -5,9 +5,8 @@
   "description": "CRUX Website",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --env=development --colors",
-    "serve:production": "webpack-dev-server --hot --env=production --colors",
-    "build": "webpack --config ./webpack-config/prod",
+    "start": "webpack-dev-server --hot --env development",
+    "build": "webpack --env production",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -54,6 +53,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "babel-register": "^6.26.0",
     "css-loader": "^1.0.0",
+    "dotenv": "^10.0.0",
     "eslint": "^5.7.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",

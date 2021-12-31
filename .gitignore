@@ -1,6 +1,12 @@
 /node_modules
+
+# Local Netlify folder
+.netlify
+
+# Local Environment files
 .env
 .env.*
 
+# Swamp files
 *.swp
 */.DS_Store

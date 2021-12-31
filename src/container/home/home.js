@@ -13,7 +13,7 @@ class Home extends Component {
 
     setPage('/', 'Home');
   }
-  
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }

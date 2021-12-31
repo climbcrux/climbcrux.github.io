@@ -14,10 +14,8 @@ import { Routes } from './routes';
 // Init GA
 ReactGA.initialize('UA-44939665-2');
 
-
 const store = createStoreMiddleware(rootReducer);
 const history = createBrowserHistory();
-
 
 ReactDOM.render(
   <Provider store={store}>
