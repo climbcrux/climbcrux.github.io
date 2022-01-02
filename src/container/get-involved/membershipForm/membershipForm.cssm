@@ -99,14 +99,10 @@
     height: unset;
     line-height: unset;
 }
-.waiver label {
+.waiver div:first-child {
     margin-right: 24px;
 }
-.waiver label,
-.waiver input {
-    border-bottom: 0px;
-}
-.waiver label span {
+.waiver label {
     display: none;
 }
 .waiver a:hover {

@@ -16,7 +16,7 @@ export const QUESTIONS = [{
 		</p>
 		<p>
       To figure out which of these events is right for you, check out our <a
-      href="#regular-events">REGULAR EVENTS</a> section for more details.
+      href="#/climb#regular-events">REGULAR EVENTS</a> section for more details.
 		</p>
 	</div>,
 }, {
@@ -79,7 +79,7 @@ export const QUESTIONS = [{
 	question: <span>How do I become a CRUX member?</span>,
 	answer: <div>
 		<p>
-      Becoming a member is simple, just head over <a href="/join">here</a>,
+      Becoming a member is simple, just head over <a href="#/join">here</a>,
       check out member benefits, and sign up!
 		</p>
 	</div>,
