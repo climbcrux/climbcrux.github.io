@@ -1,8 +1,6 @@
 const fs = require('fs')
 
-const environment = 'development'
 const vars = `
-NODE_ENV=${environment}
 REACT_APP_CONTACT_EMAIL_API=${process.env.REACT_APP_CONTACT_EMAIL_API}
 REACT_APP_EVENTBRITE_ORG_ID=${process.env.REACT_APP_EVENTBRITE_ORG_ID}
 REACT_APP_EVENTBRITE_TOKEN=${process.env.REACT_APP_EVENTBRITE_TOKEN}
