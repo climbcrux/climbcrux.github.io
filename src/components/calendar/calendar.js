@@ -1,98 +1,91 @@
-import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
-import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
+
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
-
-import { Glyphicon } from 'react-bootstrap';
-import styles from './calendar.cssm';
-
-const ISO8601 = 'YYYY-MM-DD';
 const moment = extendMoment(Moment);
 
+import { BsFillCaretLeftFill, BsFillCaretRightFill } from 'react-icons/bs';
 
-class Calendar extends Component {
-
-  static propTypes = {
-		variant: PropTypes.string,
-    events: PropTypes.array,
-    month: PropTypes.object,
-    nextMonth: PropTypes.func,
-    prevMonth: PropTypes.func,
-  };
-
-  static defaultProps = {
-		variant: 'light',
-    month: moment().startOf('month'),
-  };
+import Event from './event.js';
+import styles from './calendar.cssm';
 
 
-  renderHeader() {
-    const { month } = this.props;
+const ISO8601 = 'YYYY-MM-DD';
 
-    return (
-      <div className={styles.header}>
-        <span
-          className={classNames(styles.button, styles.back)}
-          onClick={this.props.prevMonth}>
-          <Glyphicon glyph="menu-left" />
-        </span>
 
-        <div className={styles.date}>
-          <span className={styles.year}>{month.format('YYYY')}</span>
-          <span className={styles.month}>{month.format('MMMM')}</span>
-        </div>
-
-        <span
-          className={classNames(styles.button, styles.forward)}
-          onClick={this.props.nextMonth}>
-          <Glyphicon glyph="menu-right" />
-        </span>
-      </div>
-    );
+export const Calendar = ({ events, month, onChange }) => {
+  const goToPrev = () => {
+    month.subtract(1, 'M');
+    onChange({month: month});
   }
 
-	renderWeeks() {
-		const { month, events } = this.props;
+  const goToNext = () => {
+    month.add(1, 'M');
+    onChange({ month: month });
+  }
 
-    var date = month.clone().startOf("month").day("Sunday");
-		var weeks = [];
-		var done = false;
+  const getSundaysInMonth = (date) => {
+    var sundays = [];
+    var sunday = date.clone().startOf("month").day("Sunday");
+    const month = date.month();
 
-    var monthIndex = date.month();
-    var count = 0;
-
-    while (!done) {
-      weeks.push(
-				<Week key={`week_${date.format(ISO8601)}`}
-              events={events}
-              date={date.clone()}
-              month={month} />
-			);
-
-      date.add(1, "w");
-      done = count++ > 2 && monthIndex !== date.month();
-      monthIndex = date.month();
+    while (month === sunday.month() || month === sunday.clone().endOf("week").month()) {
+        sundays.push(sunday.clone());
+        sunday.add(7, 'd');
     }
-
-    return weeks;
-	}
-
-  render() {
-    const { variant } = this.props;
-
-    return (
-      <div className={classNames(styles.container, styles[variant])}>
-        {this.renderHeader() }
-        <DayNames />
-				{ this.renderWeeks() }
-      </div>
-    );
+    return sundays;
   }
 
+  var sundays = getSundaysInMonth(month);
+  var weekList = sundays.map(date => (
+    <Week key={`week_${date.format(ISO8601)}`}
+          events={events}
+          date={date.clone()}
+          month={month} />
+  ));
+
+  return (
+    <div className={styles.container}>
+      <CalendarHeader month={month} goToPrev={goToPrev} goToNext={goToNext} />
+      <DayNames />
+			{ weekList }
+    </div>
+  );
+}
+
+Calendar.defaultProps = {
+  variant: 'light',
+  month: moment().startOf('month'),
 };
 
+
+///////////////////////////////////////
+//Calendar Header Components
+const HeaderButton = ({ dir, goTo }) => (
+  <span className={styles.button} onClick={goTo}>
+    { dir === 'left' && <BsFillCaretLeftFill /> }
+    { dir === 'right' && <BsFillCaretRightFill />}
+  </span>
+)
+
+const HeaderDate = ({ month }) => (
+  <div className={styles.date}>
+    <span className={styles.year}>{month.format('YYYY')}</span>
+    <span className={styles.month}>{month.format('MMMM')}</span>
+  </div>
+)
+
+const CalendarHeader = ({ month, goToPrev, goToNext }) => (
+  <div className={styles.header}>
+    <HeaderButton dir={'left'} goTo={goToPrev} />
+    <HeaderDate month={month} />
+    <HeaderButton dir={'right'} goTo={goToNext} />
+  </div>
+)
+
+///////////////////////////////////////
+// Calendar Week Components
 const DayNames = () => {
   return (
 		<div className={classNames(styles.week, styles.names)}>
@@ -123,14 +116,10 @@ const Week = ({date, month, events}) => {
   }
 
   function getDaysEvents(date) {
-    if (events) {
-      return events.filter(e => (
-        date >= moment(e.start).startOf('day') &&
-        date <= moment(e.end).endOf('day')
-      ));
-    } else {
-      return [];
-    }
+    return (events || []).filter(e => (
+      date >= moment(e.start).startOf('day') &&
+      date <= moment(e.end).endOf('day')
+    ));
   }
 
   function startsOnDate(e, date) {
@@ -178,37 +167,6 @@ const Week = ({date, month, events}) => {
 	}
 
 	var days = getDays();
-	return (<div key={days[0].toString()} className={styles.week}>{days}</div>);
-	
+
+	return <div className={styles.week} key={days[0].toString()}>{days}</div>;
 }
-
-const Event = ({title,
-                start,
-                end,
-                url,
-                classification,
-                firstDay=false,
-                lastDay=false,
-                past=false}) => {
-
-  function isFullDay() {
-    return !moment(start).isSame(moment(end), 'day');
-  }
-
-  return (
-    <a onClick={() => {
-      recordOutbound('Outbound', 'Eventbrite', {label: classification});
-    }} href={url} target="_blank">
-    <div className={classNames(styles.event,
-                               styles[classification],
-                               firstDay && styles.start,
-                               lastDay && styles.end,
-                               past && styles.past,
-                               isFullDay() && styles.fullDay)}>
-      { firstDay && title}
-    </div>
-    </a>
-  );
-};
-
-export default Calendar;

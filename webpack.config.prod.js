@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 
 module.exports =  {
-  // mode: 'production',
+  mode: 'production',
   devtool: 'source-map',
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
+    // new webpack.optimize.AggressiveMergingPlugin(),
   ]
 };

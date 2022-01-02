@@ -8,10 +8,6 @@
     justify-content: space-between;
     font-family: "Proxima Nova", sans-serif;
 }
-.container.dark {
-    color: white;
-    background-color: #6C4B78;
-}
 
 .header, .week {
     flex: 1;
@@ -47,9 +43,6 @@
     align-items: flex-start;
     text-transform: uppercase;
     border-bottom: 1px solid black;
-}
-.dark .names {
-    border-bottom: 3px solid #3C2545;
 }
 .names .day {
     align-items: center;
@@ -89,9 +82,6 @@
     align-items: center;
     justify-content: center;
 }
-.dark .day.today > span {
-    background-color: #3C2545;
-}
 .day .events {
     top: 0px;
     width: 100%;
@@ -102,6 +92,17 @@
     flex-direction: column;
 }
 
+/*************************
+ * Colors
+ */
+.default { --color: 58, 142, 232 }
+.indoor { --color: 102, 44, 145 }
+.outdoor { --color: 0, 129, 72 }
+.special { --color: 35, 68, 115 }
+
+/*************************
+ * Event Styling
+ */
 .event {
     max-height: 17px;
     width: inherit;
@@ -111,7 +112,6 @@
     font-weight: 600;
     padding-left: 24px;
     position: relative;
-
     white-space: nowrap;
 }
 .event:not(.fullDay)::before {
@@ -121,40 +121,20 @@
     left: 0px;
     height: 7px;
     width: 7px;
-    background: #3A8EE8;
     border-radius: 50%;
+    background: rgba(var(--color), 1);
 }
 .event:not(.fullDay) {
     margin-left: 8px;
     padding-left: 18px;
-
-    /*
-    max-height: unset;
-    white-space: unset;
-    */
+    color: rgba(var(--color), 1);
 }
-/*
-.event:not(.fullDay)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, white 80%, white 100%);
-    pointer-events: none;
-}
-*/
 
 .event.fullDay {
-    background: #3A8EE8;
+    background: rgba(var(--color), 1);
     color: white;
     padding-left: 0px;
     height: 17px;
-}
-.dark .event.fullDay {
-    background: white;
-    color: black;
 }
 .event.start.fullDay {
     border-top-left-radius: 3px;
@@ -168,35 +148,13 @@
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+
+.event.past:not(.fullDay) {
+    color: rgba(var(--color), 0.38);
+}
 .event.past.fullDay,
 .event.past:not(.fullDay)::before {
-    background: rgba(58, 142, 232, 0.38);
-}
-.event.past:not(.fullDay) {
-    color: #B2B2B2;
-}
-
-/**** Event Classification Colors ****/
-.event.indoor.fullDay, 
-.event.indoor:not(.fullDay)::before {
-    background: #662C91;
-}
-.event.indoor:not(.fullDay) {
-    color: #662C91;
-}
-.event.outdoor.fullDay, 
-.event.outdoor:not(.fullDay)::before {
-    background: #008148;
-}
-.event.outdoor:not(.fullDay) {
-    color: #008148;
-}
-.event.special.fullDay,
-.event.special:not(.fullDay)::before {
-    background: #234473;
-}
-.event.special:not(.fullDay) {
-    color: #234473;
+    background: rgba(var(--color), 0.38);
 }
 
 

@@ -2,23 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { Form, Field, field } from 'form-for';
-import { bindBootstrapFieldComponents } from "form-for-bootstrap-components";
+import { Form, Field } from 'form-for';
+import { connectFields } from "form-for-bootstrap-components";
 
 import { writeMembership,
          newsletterSignup } from '../../../actions/record-membership';
 import PayPalButton from '../../../components/paypal/paypal';
 import Modal from '../../../components/modal/modal';
 
-import { STATES } from './states';
 import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
 import { setPage, recordEvent } from '../../../virtualPage';
 
+import { schema } from './member.js';
 import styles from './membershipForm.cssm';
 
-const queryString = require('query-string');
-bindBootstrapFieldComponents();
+connectFields();
 
+const requiredFields = Object.entries(schema).filter(
+  ([field, schema]) => schema.required
+).map(
+  ([field, _]) => field
+)
 
 class MembershipForm extends Component {
   static propTypes = {
@@ -29,21 +33,14 @@ class MembershipForm extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      member: new Member(),
+      member: {},
       valid: false,
       showModal: false,
       modalType: 'small',
       modalContent: null,
       registered: false,
     };
-
-    this.submitForm = this.submitForm.bind(this);
-    this.showAggrement = this.showAggrement.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.formError = this.formError.bind(this);
-
     setPage('/membership', 'Membership');
   }
 
@@ -88,7 +85,7 @@ class MembershipForm extends Component {
     return Number(price.slice(1));
   }
 
-  submitForm(payment) {
+  submitForm = (payment) => {
     recordEvent('Membership', 'Paid', {
       label: this.props.level,
       value: this.getPrice(this.props.price),
@@ -120,40 +117,25 @@ class MembershipForm extends Component {
     return member;
   }
 
-  handleChange = mutator => {
-    this.setState({member: mutator(),
-                   valid: this.formIsValid()});
+  handleChange = (data) => {
+    this.setState({ valid: this.formIsValid(data) });
   }
 
-  formIsValid() {
-    return this.allRequiredFieldsPresent.bind(this)() && this.state.member.waived;
+  formIsValid(data) {
+    const allReqFields = requiredFields.map(field => data[field]).every(k => k);
+    return allReqFields && data.waived;
   }
 
-  allRequiredFieldsPresent() {
-    var required_fields = this.getRequiredFields.bind(this)();
-    return required_fields.map(k => this.state.member[k]).every(k => k);
-  }
-
-  getRequiredFields() {
-    var required = [];
-    Object.keys(this.state.member.schema).forEach(key => {
-      if (this.state.member.schema[key].required) {
-        required.push(key);
-      }
-    });
-    return required;
-  }
-
-  showAggrement() {
+  showAggrement = () => {
     recordEvent('Membership', 'Opened Waiver');
     this.setState({showModal: true, modalType: 'large', modalContent: WAIVER});
   }
 
-  closeModal() {
+  closeModal = () => {
     this.setState({showModal: false, modalContent: null, modalType: 'small'});
   }
 
-  formError() {
+  formError = () => {
     recordEvent('Membership', 'Payment Failed');
     this.setState({showModel: true, modalContent: REGISTER_FAILURE, modalType: 'small'});
   }
@@ -161,10 +143,7 @@ class MembershipForm extends Component {
   render() {
     return (
       <div className={styles.container}>
-      <Form for={this.state.member}
-            id="membership-form"
-            onChange={this.handleChange}>
-
+      <Form for={this.state.member} schema={schema} id="membership-form" onChange={this.handleChange}>
         <div className={styles.section}>
           <div className={styles.header}>Personal Info</div>
 
@@ -223,25 +202,6 @@ class MembershipForm extends Component {
     );
   }
 };
-
-class Member {
-  schema = {
-    name: {required: true},
-    pronoun: {},
-    email: {type: "email", required: true},
-    phone: {type: "tel"},
-    address: {required: true},
-    city: {required: true},
-    state: {type: "select", options: STATES, required: true},
-    zip: {required: true},
-
-    contact_name: {required: true},
-    contact_phone: {required: true},
-    contact_relation: {required: true},
-
-    waived: {required: true, type: "checkbox"},
-  };
-}
 
 export default connect(state => ({
   ...state.Membership,

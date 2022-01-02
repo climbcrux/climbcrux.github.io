@@ -19,9 +19,9 @@ module.exports = (env, args) => {
   }, {});
 
   var config = merge(configs.common, {
-    plugins: commonPlugins.concat([
+    plugins: [
       new webpack.DefinePlugin(envKeys)
-    ])
+    ]
   })
 
   switch(env) {
