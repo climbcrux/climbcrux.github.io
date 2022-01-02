@@ -6,7 +6,6 @@ const css = require('./webpack-config/loader-configurations/css');
 const cssModules = require('./webpack-config/loader-configurations/cssm');
 const babelStage1React = require('./webpack-config/loader-configurations/babel-stage1-react');
 const image = require('./webpack-config/loader-configurations/image');
-const json = require('./webpack-config/loader-configurations/json');
 
 module.exports = {
   entry: {
@@ -21,8 +20,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.join(__dirname, './src'),
-      'node_modules'
+      path.resolve(__dirname, './src'),
+      'node_modules',
+      path.resolve(__dirname, './node_modules'),
     ]
   },
   module: {
@@ -30,8 +30,7 @@ module.exports = {
       babelStage1React,
       css,
       cssModules,
-      image,
-      json
+      image
     ]
   },
   plugins: [
@@ -39,6 +38,7 @@ module.exports = {
       title: 'CRUX Climbing',
       inject: true,
       template: path.join(__dirname, './public/index.html'),
+      filename: './index.html'
     }),
   ],
   cache: false
