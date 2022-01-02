@@ -49,7 +49,9 @@ const EVENT_TYPE_MAP = {
   '109_9': 'outdoor', // Topic: Travel & Outdoors, Format: Class
   '109_18': 'outdoor', // Topic: Travel & Outdoors, Format: Trip
   '109_5': 'special', // Topic: Travel & Outdoors, Format: Festival
-  
+
   '109_100': 'outreach', // Topic: Travel & Outdoors, Format: Other
   '108_100': 'outreach', // Topic: Sport & Fitness, Format: Other
+
+  '113_9': 'indoor', // Topic: , Format: Class
 };
