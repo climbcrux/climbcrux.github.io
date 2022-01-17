@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Event from './event';
-var image = require('../../media/events.jpg');
+var image = require('../../media/events/crg.jpg');
 
 
 storiesOf('Event', module)

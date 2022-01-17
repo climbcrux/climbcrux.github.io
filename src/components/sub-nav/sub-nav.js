@@ -31,10 +31,6 @@ class SubNav extends Component {
 
   scrollTo(name) {
     this.props.history.push({hash: name});
-
-    //const scrollOptions = {offset: 0, smooth: true};
-    //var tab_idx = this.props.tabs.indexOf(name) + 1;
-    //scroller.scrollTo(name, {...scrollOptions, duration: tab_idx * 200});
   }
 
   render() {
@@ -42,7 +38,7 @@ class SubNav extends Component {
 
     return (
       <div className={styles.container}>
-        { tabs.map(tab => 
+        { tabs.map(tab =>
           <Button key={tab} onClick={this.scrollTo} name={tab}>
             {tab.split('-').join(' ')}
           </Button>

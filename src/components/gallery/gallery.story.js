@@ -5,8 +5,8 @@ import Gallery from './gallery';
 import styles from './gallery.cssm';
 
 const IMAGES = [
-  require('../../media/homepage/dumbo.jpg'),
-  require('../../media/homepage/pride16.jpg'),
+  require('../../media/homepage/dumbo_2017_2.jpg'),
+  require('../../media/homepage/pride_2016.jpg'),
 ];
 
 const GalleryWrapper = (props) => {

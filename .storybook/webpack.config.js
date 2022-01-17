@@ -1,6 +1,12 @@
-'use strict';
+const path = require('path');
+const config = require('../webpack.config.common.js');
 
-var path = require('path');
+config.module.rules = config.module.rules.concat([
+  {
+    test: /\.(js|jsx)$/,
+    loader: 'babel-loader',
+    include: [path.join(__dirname, '../src/')]
+  }
+])
 
-const config = require(path.join(__dirname, '../webpack-config/storybook'));
 module.exports = config;
