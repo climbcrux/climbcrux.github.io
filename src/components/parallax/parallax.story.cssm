@@ -1,6 +1,0 @@
-.bgImage1 {
-    background-image: url('../../media/homepage/dumbobridge.jpg');
-}
-.bgImage2 {
-    background-color: white;
-}
