@@ -10,11 +10,11 @@ module.exports = {
     {
       loader: 'css-loader',
       options: {
-        modules: true,
         importLoaders: 1,
-        localIdentName: '[name]--[local]--[hash:base64:5]'
+        modules: {
+          localIdentName: '[name]--[local]--[hash:base64:5]'
+        }
       }
-    },
-    'postcss-loader'
+    }
   ],
 };

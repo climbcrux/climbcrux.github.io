@@ -1,6 +1,6 @@
 [dev]
   framework = "create-react-app"
-  command = "webpack-dev-server --hot --env development --config webpack.config.js"
+  command = "webpack serve --env NODE_ENV=development --config webpack.config.js"
 
 
 [build.processing]

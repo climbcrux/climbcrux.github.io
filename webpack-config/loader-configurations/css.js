@@ -4,9 +4,8 @@
  */
 module.exports = {
   test: /\.css$/,
-  loaders: [
+  use: [
     'style-loader',
     'css-loader'
   ]
 };
-

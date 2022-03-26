@@ -1,0 +1,19 @@
+/**
+ * Webpack loader used to load image files.
+ * see: https://github.com/webpack/url-loader for details.
+ *
+ * "If the file is greater than the limit the file-loader is used and all query
+ * parameters are passed to it." - docs
+ * @dependencies url-loader, file-loader
+ */
+
+module.exports = {
+  test: /\.svg$/,
+  type: 'asset/inline',
+  use: {
+    loader: 'svg-url-loader',
+    options: {
+      limit: 10000,
+    },
+  }
+};
