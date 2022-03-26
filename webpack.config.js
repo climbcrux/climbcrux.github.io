@@ -11,8 +11,8 @@ var configs = {
 
 module.exports = (env, args) => {
   const commonPlugins = configs.common.plugins;
-
   const denv = dotenv.config().parsed;
+
   const envKeys = Object.keys(denv).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(denv[next]);
     return prev;
@@ -24,7 +24,7 @@ module.exports = (env, args) => {
     ]
   })
 
-  switch(env) {
+  switch(env.NODE_ENV) {
     case 'development':
       return  merge(config, configs.development);
     case 'production':

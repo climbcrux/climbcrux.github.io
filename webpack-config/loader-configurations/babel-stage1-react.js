@@ -3,15 +3,17 @@
 const path = require('path');
 
 module.exports = {
-  test: /\.js$/,
-  include: [path.join(__dirname, '../../src')],
-  loader: 'babel-loader',
-  query: {
-    cacheDirectory: '',
-    presets: [
-      'es2015',
-      'react',
-      'stage-1'
-    ]
+  test: /\.(js|jsx)$/,
+  include: [
+    path.resolve(__dirname, '../..', './src')
+  ],
+  use: {
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          '@babel/preset-env',
+          '@babel/preset-react'
+        ]
+      }
   }
 };
