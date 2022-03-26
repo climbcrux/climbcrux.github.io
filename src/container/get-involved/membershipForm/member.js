@@ -1,22 +1,34 @@
 import { STATES } from './states';
 
 export const schema = {
-  name: {required: true},
-  pronoun: {},
-  email: {required: true, type: 'email'},
-  phone: {type: 'tel'},
+  title: "Membership Form",
+  type: "object",
+  properties: {
+    name: { type: "string" },
+    pronoun: { type: "string" },
+    email: { type: "email" },
+    phone: { type: "tel" },
 
-  // Address
-  address: {required: true},
-  city: {required: true},
-  state: {required: true, type: 'select', options: STATES},
-  zip: {required: true},
+    // Address
+    address: { type: "string" },
+    city: { type: "string" },
+    state: { type: "string", enum: STATES},
+    zip: { type: "string" },
 
-  // Emergency Contact Info
-  contact_name: {required: true},
-  contact_phone: {required: true},
-  contact_relation: {required: true},
+    // Emergency Contact Info
+    contact_name: { type: "string" },
+    contact_phone: { type: "string" },
+    contact_relation: { type: "string" },
 
-  // Waiver Agreed To
-  waived: {required: true, type: 'checkbox'},
+    // Waiver Agreed To
+    waived: { type: "boolean", default: false },
+  },
+  required: [
+    "name",
+    "email",
+    "address",
+    "city",
+    "state",
+    "zip",
+  ]
 };
