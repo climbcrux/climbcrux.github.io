@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-export const MEMBERSHIP_ON_SALE = true;
+export const COVID_MEMBER_FREEZE = false; // FIXME: Renable before committing
+export const MEMBERSHIP_ON_SALE = false;
 
 
 export const LEVELS = {

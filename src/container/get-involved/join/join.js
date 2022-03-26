@@ -10,7 +10,7 @@ import Modal from '../../../components/modal/modal';
 import { setPage, recordEvent } from '../../../virtualPage';
 
 
-import { MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
+import { COVID_MEMBER_FREEZE, MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
 
 import styles from './join.cssm';
 import { COVID } from '../COVID.js';
@@ -70,12 +70,18 @@ class Join extends Component {
     this.props.history.push('membership');
   }
 
+  renderCOVIDModal = () => {
+    return (
+      <Modal visible={true} size={'small'}>
+        <COVID />
+      </Modal>
+    );
+  }
+
   render() {
     return (
       <div className={styles.container}>
-        <Modal visible={true} size={'small'}>
-          <COVID />
-        </Modal> 
+        {COVID_MEMBER_FREEZE && this.renderCOVIDModal()}
 
         <Section name="perks">
           <h1>Membership Perks</h1>
@@ -102,7 +108,7 @@ class Join extends Component {
         </Section>
         <Section name="level">
           <h1>Levels</h1>
-          { false && 
+          { false &&
             <div className={styles.saleBadge}>
               <SVG src={SALE_ICON} />
             </div>
@@ -143,4 +149,3 @@ class Join extends Component {
   }
 }
 export default withRouter(connect(null, null)(Join));
-
