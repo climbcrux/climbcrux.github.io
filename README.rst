@@ -47,7 +47,7 @@ running the Netlify development server locally
 
 #. Run Netlify development server ::
 
-    $ netlify dev
+    $ npm start
 
 Getting Changes Reviewed
 ++++++++++++++++++++++++

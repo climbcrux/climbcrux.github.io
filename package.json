@@ -5,7 +5,7 @@
   "description": "CRUX Website",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --env development --config webpack.config.js",
+    "start": "netlify dev",
     "build": "webpack --env production --config webpack.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
