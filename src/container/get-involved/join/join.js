@@ -9,14 +9,12 @@ import MemberLevel from '../../../components/level/level';
 import Modal from '../../../components/modal/modal';
 import { setPage, recordEvent } from '../../../virtualPage';
 
-
 import { COVID_MEMBER_FREEZE, MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
 
 import styles from './join.cssm';
 import { COVID } from '../COVID.js';
 
-export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
-
+export const UPDATE_MEMBERSHIP = 'MEMBERSHIP::UPDATE';
 const PERKS = {
   ropes: require('../../../media/perks/rope_red.png'),
   harness: require('../../../media/perks/harness_orange.png'),
@@ -61,11 +59,8 @@ class Join extends Component {
       });
 
     this.props.dispatch({
-      type: CHANGE_LEVEL,
-      payload: {
-        level: level,
-        price: price,
-      }
+      type: UPDATE_MEMBERSHIP,
+      payload: { level: level, price: price }
     });
     this.props.history.push('membership');
   }

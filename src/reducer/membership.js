@@ -1,4 +1,4 @@
-import { CHANGE_LEVEL } from '../container/get-involved/join/join';
+import { UPDATE_MEMBERSHIP } from '../container/get-involved/join/join';
 
 
 const initState = {
@@ -9,11 +9,15 @@ const initState = {
 };
 
 export default function Membership(state=initState, action) {
+  console.log(action);
+
   switch(action.type) {
-    case CHANGE_LEVEL:
+    case UPDATE_MEMBERSHIP:
       return {
         ...state,
-        ...action.payload,
+        MemberInfo: {
+          ...action.payload,
+        }
       }
     default:
       return state;
