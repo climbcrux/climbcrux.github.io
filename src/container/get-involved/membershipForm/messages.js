@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const WAIVER = (<div>
   <h3 style={{textTransform: 'uppercase', fontWeight: 900}}>
     Release of Liability, Indemnity Aggrement and Assumption of Risk
@@ -131,26 +130,4 @@ export const WAIVER = (<div>
      present at our events. Please speak to them if you do not wish to
      participate in things like group photos.
   </p>
-</div>);
-
-
-export const REGISTER_SUCCESS = (<div>
-	<h3>Welcome!</h3>
-	<p>
-		Your membership has been successfully processed. You’ll receive an email
-		shortly explaining what will happen next.
-	</p>
-  <p>
-    We’ll see you on the wall soon!
-  </p>
-</div>);
-
-
-export const REGISTER_FAILURE = (<div>
-	<h3>Oh No!</h3>
-	<p>
-    Looks like something when wrong processing your membership. Try giving us a
-    few minutes. If you see this message again please contact, <a
-    href="mailto:site@climbcrux.org">site (at) climbcrux (dot) org</a>.
-	</p>
 </div>);

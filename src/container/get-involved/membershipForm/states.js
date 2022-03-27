@@ -1,53 +1,103 @@
-export const STATES = {
-    AL: 'Alabama',
-    AK: 'Alaska',
-    AZ: 'Arizona',
-    AR: 'Arkansas',
-    CA: 'California',
-    CO: 'Colorado',
-    CT: 'Connecticut',
-    DE: 'Delaware',
-    DC: 'District Of Columbia',
-    FL: 'Florida',
-    GA: 'Georgia',
-    HI: 'Hawaii',
-    ID: 'Idaho',
-    IL: 'Illinois',
-    IN: 'Indiana',
-    IA: 'Iowa',
-    KS: 'Kansas',
-    KY: 'Kentucky',
-    LA: 'Louisiana',
-    ME: 'Maine',
-    MD: 'Maryland',
-    MA: 'Massachusetts',
-    MI: 'Michigan',
-    MN: 'Minnesota',
-    MS: 'Mississippi',
-    MO: 'Missouri',
-    MT: 'Montana',
-    NE: 'Nebraska',
-    NV: 'Nevada',
-    NH: 'New Hampshire',
-    NJ: 'New Jersey',
-    NM: 'New Mexico',
-    NY: 'New York',
-    NC: 'North Carolina',
-    ND: 'North Dakota',
-    OH: 'Ohio',
-    OK: 'Oklahoma',
-    OR: 'Oregon',
-    PA: 'Pennsylvania',
-    RI: 'Rhode Island',
-    SC: 'South Carolina',
-    SD: 'South Dakota',
-    TN: 'Tennessee',
-    TX: 'Texas',
-    UT: 'Utah',
-    VT: 'Vermont',
-    VA: 'Virginia',
-    WA: 'Washington',
-    WV: 'West Virginia',
-    WI: 'Wisconsin',
-    WY: 'Wyoming',
-};
+export const STATES = [{
+  state: 'Alabama',
+},{
+   state : 'Alaska',
+},{
+   state : 'Arizona',
+},{
+   state : 'Arkansas',
+},{
+   state : 'California',
+},{
+   state : 'Colorado',
+},{
+   state : 'Connecticut',
+},{
+   state : 'Delaware',
+},{
+   state : 'District Of Columbia',
+},{
+   state : 'Florida',
+},{
+   state : 'Georgia',
+},{
+   state : 'Hawaii',
+},{
+   state : 'Idaho',
+},{
+   state : 'Illinois',
+},{
+   state : 'Indiana',
+},{
+   state : 'Iowa',
+},{
+   state : 'Kansas',
+},{
+   state : 'Kentucky',
+},{
+   state : 'Louisiana',
+},{
+   state : 'Maine',
+},{
+   state : 'Maryland',
+},{
+   state : 'Massachusetts',
+},{
+   state : 'Michigan',
+},{
+   state : 'Minnesota',
+},{
+   state : 'Mississippi',
+},{
+   state : 'Missouri',
+},{
+   state : 'Montana',
+},{
+   state : 'Nebraska',
+},{
+   state : 'Nevada',
+},{
+   state : 'New Hampshire',
+},{
+   state : 'New Jersey',
+},{
+   state : 'New Mexico',
+},{
+   state : 'New York',
+},{
+   state : 'North Carolina',
+},{
+   state : 'North Dakota',
+},{
+   state : 'Ohio',
+},{
+   state : 'Oklahoma',
+},{
+   state : 'Oregon',
+},{
+   state : 'Pennsylvania',
+},{
+   state : 'Rhode Island',
+},{
+   state : 'South Carolina',
+},{
+   state : 'South Dakota',
+},{
+   state : 'Tennessee',
+},{
+   state : 'Texas',
+},{
+   state : 'Utah',
+},{
+   state : 'Vermont',
+},{
+   state : 'Virginia',
+},{
+   state : 'Washington',
+},{
+   state : 'West Virginia',
+},{
+   state : 'Wisconsin',
+},{
+   state : 'Wyoming',
+}];

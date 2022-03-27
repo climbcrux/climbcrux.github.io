@@ -1,18 +1,29 @@
 import React from 'react';
 import classNames from 'classnames';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
-import Button from '../button/button';
+import styled from 'styled-components'
 
-import styles from './paypal.cssm';
+const ButtonWrapper = styled.div`
+  position: relative;
+  z-index: 2;
 
-const PayPalEnvs = {
+  &:hover {
+    cursor: pointer;
+  }
 
-};
+  &.invalid {
+    opacity: 0.3;
+  }
+  &.invalid div, &.invalid a {
+    pointer-events: none;
+    text-decoration: none;
+  }
+  &.invalid:hover {
+    cursor: not-allowed;
+  }
+`
 
-const PayPalButton = ({price,
-                       onError,
-                       onSuccess,
-                       valid=false}) => {
+const PaypalButton = ({price, onError, onSuccess, valid=false}) => {
 
   const environment = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox';
   const client = {
@@ -21,19 +32,22 @@ const PayPalButton = ({price,
   };
   const currency = 'USD';
 
-  function nullClick() {}
+  const PaypalExpress = (
+    <PaypalExpressBtn
+      currency={currency}
+      client={client}
+      env={environment}
+      total={Number(price) || 0.01}
+      onSuccess={onSuccess}
+      onError={onError}
+    />
+  )
 
   return (
-    <div className={classNames(styles.container, !valid && styles.invalid)}>
-      <PaypalExpressBtn
-        currency={currency}
-        client={client}
-        env={environment}
-        total={Number(price) || 0.01}
-        onSuccess={onSuccess}
-        onError={onError}
-      />
-    </div>
+    <ButtonWrapper className={!valid && 'invalid'}>
+      {PaypalExpress}
+    </ButtonWrapper>
   );
 }
-export default PayPalButton;
+
+export default PaypalButton;

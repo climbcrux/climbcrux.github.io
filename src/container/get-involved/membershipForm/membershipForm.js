@@ -1,211 +1,240 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useReducer, useContext, useState } from 'react';
 import classNames from 'classnames';
+import styled from 'styled-components'
 import { connect } from 'react-redux';
-import { Form, Field } from 'form-for';
-import { connectFields } from "form-for-bootstrap-components";
+import Form from "@rjsf/bootstrap-4";
 
-import { writeMembership,
-         newsletterSignup } from '../../../actions/record-membership';
 import PayPalButton from '../../../components/paypal/paypal';
 import Modal from '../../../components/modal/modal';
-
-import { WAIVER, REGISTER_SUCCESS, REGISTER_FAILURE } from './messages';
+import { encodeData } from '../../../actions/utils';
 import { setPage, recordEvent } from '../../../virtualPage';
 
-import { schema } from './member.js';
-import styles from './membershipForm.cssm';
+import { WAIVER, REGISTER_FAILURE } from './messages';
+import { newsletterSignup } from './actions';
+import { REGISTER_MEMBERSHIP, reducer } from './reducer';
+import { MemberFormV2, MemberFormUISchema } from './member.js';
+import styles from './form.cssm';
 
-connectFields();
+const Container = styled.div`
+  margin: 0px 10rem;
+  padding: 2.5rem 0px 10rem;
+`
+const Link = styled.a``
 
-const requiredFields = Object.entries(schema).filter(
-  ([field, schema]) => schema.required
-).map(
-  ([field, _]) => field
-)
+const ModalContext = React.createContext()
+let membershipForm;
 
-class MembershipForm extends Component {
-  static propTypes = {
-    level: PropTypes.string,
-    price: PropTypes.string,
-    writeSuccess: PropTypes.bool,
-  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      member: {},
-      valid: false,
-      showModal: false,
-      modalType: 'small',
-      modalContent: null,
-      registered: false,
-    };
+const MembershipForm = (props) => {
+  if (process.env.NODE_ENV === "production") {
     setPage('/membership', 'Membership');
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
-  componentWillReceiveProps(nextProps, nextState) {
-    if (nextProps.writeSuccess != this.props.writeSuccess) {
-      if (nextProps.writeSuccess === true) {
-        this.setState({
-          showModal: true,
-          modalType: 'small',
-          modalContent: REGISTER_SUCCESS,
-        });
-      } else if (nextProps.writeSuccess === false ){
-        this.setState({
-          showModal: true,
-          modalType: 'small',
-          modalContent: REGISTER_FAILURE,
-        });
-      } else {
-        this.setState({
-          showModal: false,
-          modalType: 'small',
-          modalContent: null
-        });
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    if (!this.state.registered) {
-      recordEvent('Membership', 'Lost', {
-        label: this.props.level,
-        value: this.props.price,
-      });
-    }
-  }
-
-  getPrice(price) {
+  const toNumber = (price) => {
     return Number(price.slice(1));
   }
+  const { price, level } = props.MemberInfo;
+  let numeric_price = toNumber(price);
+  const formInit = {
+    membership_info: { level: level, price: numeric_price }
+  }
+  console.log(price, level);
 
-  submitForm = (payment) => {
-    recordEvent('Membership', 'Paid', {
-      label: this.props.level,
-      value: this.getPrice(this.props.price),
-    })
+  const [formValid, updateValidity] = useState(false);
+  const [formData, updateForm] = useState(formInit);
+  const [state, dispatch] = useReducer(reducer);
 
-    this.props.writeMembership({
-      ...this.fillNullValues(this.state.member),
-      level: this.props.level,
-      price: this.getPrice(this.props.price),
-      paymentID: payment ? payment.paymentID: undefined,
-    });
-
-    // Write name & email to newsletter list
-    var namePart = this.state.member.name.split(' ');
-    this.props.newsletterSignup({
-      first: namePart[0],
-      last: namePart[namePart.length - 1],
-      email: this.state.member.email,
-    });
-
-    this.setState({registered: true});
+  const onChange = (data) => {
+    updateForm(data.formData);
+    updateValidity(data.errors.length === 0)
   }
 
-  fillNullValues(data) {
-    var member = new Object();
-    Object.keys(data.schema).forEach(key => {
-      member[key] = data[key] || '';
-    });
-    return member;
+  const registerMembership = (payment) => {
+    if (process.env.NODE_ENV === "production") {
+      recordEvent('Membership', 'Paid', { label: level, value: numeric_price })
+      // var { name, email } = formData.personal_information;
+      // var [firstName, lastName] = name.split(' ');
+      // props.newsletterSignup({ first: firstName, last: lastName, email: email });
+    }
+
+    writeMembership({
+      ...formData,
+      paymentID: payment ? payment.paymentID: undefined
+    }, dispatch)
   }
 
-  handleChange = (data) => {
-    this.setState({ valid: this.formIsValid(data) });
+  // Form Customization
+  const widgets = {
+    WaiverWidget: WaiverWidget
   }
+  return (
+    <Container className={styles.formContainer}>
+      <ModalContext.Provider value={{ state, dispatch }} >
+        <Form
+          id="membership-form"
+          className={styles.membershipForm}
+          schema={ MemberFormV2 }
+          uiSchema={ MemberFormUISchema }
+          formData={formData}
+          liveValidate
+          onChange={onChange}
+          showErrorList={false}
+          ObjectFieldTemplate={ObjectFieldTemplate}
+          widgets={widgets}
+          ref={(form) => { membershipForm = form }}
 
-  formIsValid(data) {
-    const allReqFields = requiredFields.map(field => data[field]).every(k => k);
-    return allReqFields && data.waived;
-  }
+          // Only enable for debugging purposes
+          // onSubmit={registerMembership}
+        />
 
-  showAggrement = () => {
-    recordEvent('Membership', 'Opened Waiver');
-    this.setState({showModal: true, modalType: 'large', modalContent: WAIVER});
-  }
+        <PayPalButton
+          price={numeric_price}
+          valid={formValid}
+          onSuccess={() => registerMembership}
+          onError={() => dispatch({ type: 'PAYMENT::FAILED'})}
+        />
 
-  closeModal = () => {
-    this.setState({showModal: false, modalContent: null, modalType: 'small'});
-  }
+        { state && state.Modal.open && state.Modal.type === "waiver" && <WaiverModal /> }
+        { state && state.Modal.open && state.Modal.type === "payment::success" && <PaymentSuccess /> }
+        { state && state.Modal.open && state.Modal.type === "payment::failed" && <PaymentFailed /> }
 
-  formError = () => {
-    recordEvent('Membership', 'Payment Failed');
-    this.setState({showModel: true, modalContent: REGISTER_FAILURE, modalType: 'small'});
-  }
-
-  render() {
-    return (
-      <div className={styles.container}>
-      <Form for={this.state.member} schema={schema} id="membership-form" onChange={this.handleChange}>
-        <div className={styles.section}>
-          <div className={styles.header}>Personal Info</div>
-
-          <div className={styles.fieldGroup}>
-            <Field name="name" />
-            <Field name="pronoun" />
-          </div>
-          <div className={styles.fieldGroup}>
-            <Field name="email" />
-            <Field name="phone" />
-          </div>
-
-          <div className={styles.fieldGroup}>
-            <Field name="address" />
-            <Field name="city" />
-          </div>
-          <div className={styles.fieldGroup}>
-            <Field name="state" />
-            <Field name="zip" />
-          </div>
-        </div>
-        <div className={styles.section}>
-          <div className={styles.header}>Emergency Contact</div>
-          <div className={styles.fieldGroup}>
-            <Field name="contact_name" />
-            <Field name="contact_phone" />
-          </div>
-          <Field name="contact_relation" />
-        </div>
-
-        <div className={styles.waiver}>
-          <Field name="waived" />
-          <div>
-            By checking this box I, being of lawful age (18 or over), certify
-            that I have read, understand, and accept all terms and conditions
-            in the CRUX <a onClick={this.showAggrement}>Release of Liability,
-            Indemnity Agreement and Assumption of Risk</a>.
-          </div>
-        </div>
-
-        <div className={styles.button}>
-          <PayPalButton price={Number(this.props.price.slice(1))}
-                        valid={this.state.valid}
-                        onSuccess={this.submitForm}
-                        onError={this.formError} />
-        </div>
-      </Form>
-
-      <Modal visible={this.state.showModal}
-             onClose={this.closeModal}
-             size={this.state.modalType}>
-          {this.state.modalContent}
-      </Modal>
-
-      </div>
-    );
-  }
+      </ModalContext.Provider>
+    </Container>
+  )
 };
 
+/***************************
+ * Fields & Widgets
+ */
+const WaiverWidget = (props) => {
+
+  const { _, dispatch } = useContext(ModalContext);
+  const checkboxStyle = {
+    margin: 0,
+    borderTopRightRadius: "unset",
+    borderBottomRightRadius: "unset"
+  };
+  const descriptionStyle = {
+    height: "unset",
+    borderTopLeftRadius: "unset",
+    borderBottomLeftRadius: "unset"
+  };
+
+  return (
+    <div className="input-group mb-3">
+      <div className="input-group-prepend">
+        <div className="input-group-text" style={{ height: "100%" }}>
+          <input type="checkbox" aria-label="Agree to waiver" style={checkboxStyle}
+            onClick={() => props.onChange(!props.value)} />
+        </div>
+      </div>
+      <div className="form-control" style={descriptionStyle}>
+        By checking this box I, being of lawful age (18 or over), certify
+        that I have read, understand, and accept all terms and conditions
+        in the CRUX <Link onClick={() => dispatch({ type: "OpenWaiver" })}>
+        Release of Liability, Indemnity Agreement and Assumption of Risk</Link>
+      </div>
+    </div>
+  );
+}
+
+const ObjectFieldTemplate = ({ TitleField, properties, title, description, uiSchema }) => {
+  const hidden = uiSchema["ui:widget"] === "hidden";
+  const uiTitle = uiSchema["ui:title"];
+
+  return (
+    <div className={hidden ? styles.hidden : styles.visible }>
+      { uiTitle && <TitleField className={styles.title} title={uiTitle} /> }
+      <div className={styles[uiSchema["ui:classNames"]]}>
+        {properties.map(prop => (
+          <div key={prop.content.key}>{prop.content}</div>
+        ))}
+      </div>
+      {description}
+    </div>
+  );
+}
+
+
+/***************************
+ * Modals
+ */
+const WaiverModal = (props) => {
+
+  recordEvent('Membership', 'Opened Waiver');
+  const { _, dispatch } = useContext(ModalContext);
+  return (
+    <Modal visible={true} size={"large"} onClose={() => dispatch({ type: 'closeModal' })}>
+      { WAIVER }
+    </Modal>
+  );
+}
+
+const PaymentSuccess = (props) => {
+  const { _, dispatch } = useContext(ModalContext);
+  return (
+    <Modal visible={true} size={"small"} onClose={() => dispatch({ type: "closeModal" })}>
+      <div>
+        <h3>Welcome!</h3>
+        <p>
+          Your membership has been successfully processed. You’ll receive an email
+          shortly explaining what will happen next.
+        </p>
+        <p>
+          We’ll see you on the wall soon!
+        </p>
+      </div>
+    </Modal>
+  )
+}
+
+const PaymentFailed = (props) => {
+
+  recordEvent('Membership', 'Payment Failed');
+  const { _, dispatch } = useContext(ModalContext);
+  return (
+    <Modal visible={true} size={"small"} onClose={() => dispatch({ type: "closeModal" })}>
+      <div>
+      	<h3>Oh No!</h3>
+      	<p>
+          Looks like something when wrong processing your membership. Try giving us a
+          few minutes. If you see this message again please contact, <a
+          href="mailto:site@climbcrux.org">site@climbcrux.org</a>.
+      	</p>
+      </div>
+    </Modal>
+  )
+}
+
+/***************************
+ * Actions
+ */
+const MEMBERSHIP_API = process.env.NODE_ENV === "production" ? process.env.REACT_APP_MEMBERSHIP_PROD_API : process.env.REACT_APP_MEMBERSHIP_DEV_API;
+const writeMembership = (data, dispatch) => {
+
+	const flattenData = (data, dispatch) => {
+		var formValues = {};
+		Object.keys(data).forEach((key) => {
+			formValues = { ...data[key], ...formValues };
+		})
+		return formValues;
+	}
+
+  var url = `${MEMBERSHIP_API}?${encodeData(flattenData(data))}`;
+  return fetch(url, {method: 'GET'}).then(response => {
+    if (response.status > 400) {
+      dispatch({type: `${REGISTER_MEMBERSHIP}::FAILED`});
+    } else {
+      dispatch({type: `${REGISTER_MEMBERSHIP}::SUCCESS`});
+    }
+  }).catch(error => {
+    dispatch({type: `${REGISTER_MEMBERSHIP}::FAILED`});
+  });
+}
+
+
 export default connect(state => ({
-  ...state.Membership,
+  ...state.Membership
 }), {
-  writeMembership,
   newsletterSignup,
 })(MembershipForm);
