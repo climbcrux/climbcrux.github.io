@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@rjsf/antd": "^4.1.0",
     "@rjsf/bootstrap-4": "^4.1.0",
     "@rjsf/core": "^4.1.0",
     "antd": "^4.19.3",

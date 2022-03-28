@@ -2,7 +2,7 @@ import React, { useReducer, useContext, useState } from 'react';
 import classNames from 'classnames';
 import styled from 'styled-components'
 import { connect } from 'react-redux';
-import Form from "@rjsf/bootstrap-4";
+import Form from "@rjsf/core";
 
 import PayPalButton from '../../../components/paypal/paypal';
 import Modal from '../../../components/modal/modal';
@@ -38,7 +38,6 @@ const MembershipForm = (props) => {
   const formInit = {
     membership_info: { level: level, price: numeric_price }
   }
-  console.log(price, level);
 
   const [formValid, updateValidity] = useState(false);
   const [formData, updateForm] = useState(formInit);
@@ -68,7 +67,7 @@ const MembershipForm = (props) => {
     WaiverWidget: WaiverWidget
   }
   return (
-    <Container className={styles.formContainer}>
+    <Container className={process.env.NODE_ENV === "production" ? styles.prodContainer : styles.devContainer}>
       <ModalContext.Provider value={{ state, dispatch }} >
         <Form
           id="membership-form"
@@ -84,7 +83,7 @@ const MembershipForm = (props) => {
           ref={(form) => { membershipForm = form }}
 
           // Only enable for debugging purposes
-          // onSubmit={registerMembership}
+          onSubmit={registerMembership}
         />
 
         <PayPalButton

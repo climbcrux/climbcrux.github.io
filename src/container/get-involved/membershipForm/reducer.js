@@ -7,8 +7,6 @@ const initState = {
 
 export const REGISTER_MEMBERSHIP = 'RegisterMember';
 export const reducer = (state=initState, action) => {
-  console.log(action);
-
   switch(action.type) {
     case `${REGISTER_MEMBERSHIP}::SUCCESS`:
       return {
