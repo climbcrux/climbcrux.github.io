@@ -5,7 +5,8 @@
   font-size: 16px;
 }
 
-.membershipForm input {
+.membershipForm input,
+.membershipForm select {
   font-size: 14px;
 }
 
