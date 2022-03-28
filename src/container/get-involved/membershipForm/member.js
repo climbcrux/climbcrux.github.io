@@ -150,6 +150,6 @@ export const MemberFormUISchema = {
     "ui:title": "Emergency Contact"
   },
   waived: {
-    "ui:widget": "WaiverWidget"
+    "ui:widget": "WaiverWidget",
   },
 }

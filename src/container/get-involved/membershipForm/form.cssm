@@ -1,4 +1,8 @@
-.formContainer h5 {
+.formContainer input {
+  font-size: 14px;
+}
+
+.membershipForm h5 {
   text-transform: uppercase;
   color: #1D4E72;
   font-size: 16px;
@@ -31,4 +35,10 @@
     flex-grow: 1;
     margin: 0 0.5em;
   }
+}
+
+.membershipForm .checkbox {
+  margin: 0px;
+  border-top-right-radius: "unset";
+  border-bottom-right-radius: "unset";
 }

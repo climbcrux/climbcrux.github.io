@@ -109,22 +109,21 @@ const MembershipForm = (props) => {
 const WaiverWidget = (props) => {
 
   const { _, dispatch } = useContext(ModalContext);
-  const checkboxStyle = {
-    margin: 0,
-    borderTopRightRadius: "unset",
-    borderBottomRightRadius: "unset"
-  };
   const descriptionStyle = {
-    height: "unset",
+    height: "32px",
+    lineHeight: "28px",
+    paddingTop: "unset",
+    paddingBottom: "unset",
+    fontSize: "11px",
     borderTopLeftRadius: "unset",
-    borderBottomLeftRadius: "unset"
+    borderBottomLeftRadius: "unset",
   };
 
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend">
         <div className="input-group-text" style={{ height: "100%" }}>
-          <input type="checkbox" aria-label="Agree to waiver" style={checkboxStyle}
+          <input type="checkbox" aria-label="Agree to waiver" className={styles.checkbox}
             onClick={() => props.onChange(!props.value)} />
         </div>
       </div>
