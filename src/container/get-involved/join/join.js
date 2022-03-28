@@ -9,14 +9,12 @@ import MemberLevel from '../../../components/level/level';
 import Modal from '../../../components/modal/modal';
 import { setPage, recordEvent } from '../../../virtualPage';
 
-
-import { MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
+import { COVID_MEMBER_FREEZE, MEMBERSHIP_ON_SALE } from '../../../CONFIG_FILES/membership';
 
 import styles from './join.cssm';
 import { COVID } from '../COVID.js';
 
-export const CHANGE_LEVEL = 'CHANGE_MEMBER_LEVEL';
-
+export const UPDATE_MEMBERSHIP = 'MEMBERSHIP::UPDATE';
 const PERKS = {
   ropes: require('../../../media/perks/rope_red.png'),
   harness: require('../../../media/perks/harness_orange.png'),
@@ -61,21 +59,24 @@ class Join extends Component {
       });
 
     this.props.dispatch({
-      type: CHANGE_LEVEL,
-      payload: {
-        level: level,
-        price: price,
-      }
+      type: UPDATE_MEMBERSHIP,
+      payload: { level: level, price: price }
     });
     this.props.history.push('membership');
+  }
+
+  renderCOVIDModal = () => {
+    return (
+      <Modal visible={true} size={'small'}>
+        <COVID />
+      </Modal>
+    );
   }
 
   render() {
     return (
       <div className={styles.container}>
-        <Modal visible={true} size={'small'}>
-          <COVID />
-        </Modal> 
+        {COVID_MEMBER_FREEZE && this.renderCOVIDModal()}
 
         <Section name="perks">
           <h1>Membership Perks</h1>
@@ -102,7 +103,7 @@ class Join extends Component {
         </Section>
         <Section name="level">
           <h1>Levels</h1>
-          { false && 
+          { false &&
             <div className={styles.saleBadge}>
               <SVG src={SALE_ICON} />
             </div>
@@ -143,4 +144,3 @@ class Join extends Component {
   }
 }
 export default withRouter(connect(null, null)(Join));
-

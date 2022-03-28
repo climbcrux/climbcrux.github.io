@@ -1,0 +1,44 @@
+.formContainer input {
+  font-size: 14px;
+}
+
+.membershipForm h5 {
+  text-transform: uppercase;
+  color: #1D4E72;
+  font-size: 16px;
+}
+
+.membershipForm button {
+  display: none;
+  margin-bottom: 1em;
+}
+
+.membershipForm .hidden {
+  display: none;
+}
+
+.membershipForm .halfWidth {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.membershipForm .halfWidth > div {
+  width: calc(50% - 1em);
+  flex-grow: 1;
+  margin: 0 0.5em;
+}
+
+@media only screen and (max-width: 768px) {
+  .membershipForm .halfWidth > div {
+    width: 100%;
+    flex-grow: 1;
+    margin: 0 0.5em;
+  }
+}
+
+.membershipForm .checkbox {
+  margin: 0px;
+  border-top-right-radius: "unset";
+  border-bottom-right-radius: "unset";
+}

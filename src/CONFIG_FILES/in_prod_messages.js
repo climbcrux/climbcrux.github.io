@@ -11,7 +11,7 @@ const OLD_MESSAGES = [(
 ), (
   <div>
     Are you a 2018 member yet? <a href="join/">JOIN TODAY</a> during our
-    membership drive to get $10 off your membership. Support our programming 
+    membership drive to get $10 off your membership. Support our programming
     and gain access to exclusive member perks and events.
   </div>
 )];

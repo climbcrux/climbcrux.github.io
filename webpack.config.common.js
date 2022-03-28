@@ -1,21 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const css = require('./webpack-config/loader-configurations/css');
 const cssModules = require('./webpack-config/loader-configurations/cssm');
-const babelStage1React = require('./webpack-config/loader-configurations/babel-stage1-react');
-const image = require('./webpack-config/loader-configurations/image');
+const babel = require('./webpack-config/loader-configurations/babel');
+const assets = require('./webpack-config/loader-configurations/assets');
+const svg = require('./webpack-config/loader-configurations/svg');
+
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-  },
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, './build'),
-    publicPath: '/',
-    //clean: true
+    app: path.resolve(__dirname, './src/index.js'),
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -27,19 +24,26 @@ module.exports = {
   },
   module: {
     rules: [
-      babelStage1React,
+      babel,
       css,
       cssModules,
-      image
+      assets,
+      svg
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'CRUX Climbing',
       inject: true,
-      template: path.join(__dirname, './public/index.html'),
+      template: path.resolve(__dirname, './public/index.html'),
       filename: './index.html'
     }),
   ],
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, './build'),
+    publicPath: '/',
+    assetModuleFilename:  "[name][ext]"
+  },
   cache: false
 };

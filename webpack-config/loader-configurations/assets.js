@@ -8,8 +8,6 @@
  */
 
 module.exports = {
-  test: /\.(png|svg|jpg|gif|woff|woff2)$/,
-  loaders: [
-    'url-loader'
-  ]
+  test: /\.(png|jpg|gif|woff|woff2)$/,
+  type: 'asset/resource'
 };
