@@ -1,8 +1,8 @@
 {
-  "name": "y",
+  "name": "crux_website",
   "description": "CRUX Website",
   "homepage": "http://cruxclimbing.org",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "start": "netlify dev",
