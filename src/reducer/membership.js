@@ -3,8 +3,8 @@ import { UPDATE_MEMBERSHIP } from '../container/get-involved/join/join';
 
 const initState = {
   MemberInfo: {
-    level: 'standard',
-    price: '$50',
+    level: 'custom',
+    price: '$0.01',
   },
 };
 

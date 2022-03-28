@@ -45,5 +45,8 @@ module.exports = {
     publicPath: '/',
     assetModuleFilename:  "[name][ext]"
   },
+  performance: {
+    hints: false,
+  },
   cache: false
 };
