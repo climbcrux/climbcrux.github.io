@@ -48,9 +48,9 @@ export const EVENTS = [
          gym={{name: 'The Cliffs @ LIC', link: 'https://goo.gl/maps/LiDbcPRDMhk'}}
          freq='weekly'
          description={DESCRIPTIONS.monday}
-         image={require('../../media/events/cliffs_nn.jpg')}
+         image={require('../../media/events/cliffs_nn.png')}
          key='monkey'
          className={styles.centerImage}
   />
-         
+
 ];
