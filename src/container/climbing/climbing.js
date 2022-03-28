@@ -30,7 +30,7 @@ class Climbing extends Component {
       <div className={styles.container}>
         <SubNav tabs={[
           'getting-started',
-          'regular-events',
+          'indoor-events',
           'outdoor'
         ]} />
 
@@ -86,10 +86,38 @@ class Climbing extends Component {
   }
 
   renderEvents() {
-    return (
+    const EventCardsView = (
       <Section name="regular-events">
         <h1>Events</h1>
         <div className={styles.events}>{EVENTS}</div>
+      </Section>
+    );
+
+    const regualarEventsList = (
+      <div>
+        <h4>Regular Events include:</h4>
+        <ul>
+          <li>Monday's @ 7PM - The Cliffs @ LIC</li>
+          <li>2nd & 4th Fridays @ 6PM - Central Rock Gym</li>
+          <li>3rd Friday New Climber Night @ 6:30PM - The Cliffs @ LIC</li>
+        </ul>
+      </div>
+    );
+
+    return (
+      <Section name="indoor-events">
+        <h1>Indoor Events</h1>
+        <p>
+          CRUX runs a robust schedule of weekly, bi-weekly, and monthly events
+          throughout NYC and the NY Metro Area. If you're interested in climbing
+          with us, regardless of your current experience level, we've go an
+          event for you.
+        </p>
+        <p>
+          For a full and up-to-date list of our current events, check out
+          our <a onClick={() => this.goTo({pathname: '/events'})} className={styles.link}>
+          Event Calendar</a>.
+        </p>
       </Section>
     );
   }
