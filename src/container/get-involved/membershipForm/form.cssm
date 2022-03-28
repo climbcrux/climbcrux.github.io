@@ -1,14 +1,16 @@
-.formContainer input {
-  font-size: 14px;
-}
-
-.membershipForm h5 {
+.membershipForm h5,
+.membershipForm legend {
   text-transform: uppercase;
   color: #1D4E72;
   font-size: 16px;
 }
 
-.membershipForm button {
+.membershipForm input,
+.membershipForm select {
+  font-size: 14px;
+}
+
+.prodContainer .membershipForm button {
   display: none;
   margin-bottom: 1em;
 }

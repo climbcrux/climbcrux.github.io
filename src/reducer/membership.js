@@ -9,8 +9,6 @@ const initState = {
 };
 
 export default function Membership(state=initState, action) {
-  console.log(action);
-
   switch(action.type) {
     case UPDATE_MEMBERSHIP:
       return {

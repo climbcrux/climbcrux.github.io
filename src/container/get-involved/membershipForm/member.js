@@ -100,36 +100,39 @@ export const MemberFormV2 = {
         "contact_relation"
       ]
     },
-    // climbing_info: {
-    //   type: "object",
-    //   properties: {
-    //     preferred_gym: {
-    //       type: "string"
-    //     },
-    //     volunteer_interest: {
-    //       type: "array",
-    //       title: "Volunteer Interests",
-    //       description: "Interested in helping out? Choose any areas that you'd like to lend a hand.",
-    //       uniqueItems: true,
-    //       items: {
-    //         type: "string",
-    //         enum: [
-    //           "Indoor Hosting",
-    //           "Outdoor Leads",
-    //           "Outreach & Advocacy",
-    //           "Administrative",
-    //           "Creative"
-    //         ]
-    //       }
-    //     }
-    //   }
-    // },
-    waived: {
+    climbing_info: {
+      type: "object",
+      properties: {
+        climbing_gym: {
+          type: "string",
+          title: "Climbing Gym",
+          description: "Where do you usually climbing?"
+        },
+        volunteer_interests: {
+          type: "array",
+          title: "Volunteer Interests",
+          description: "Interested in volunteering? Let us know how you'd like to contribute.",
+          uniqueItems: true,
+          items: {
+            type: "string",
+            enum: [
+              "Indoor Hosting",
+              "Outdoor Leads",
+              "Outreach & Advocacy",
+              "Administrative",
+              "Creative"
+            ]
+          }
+        }
+      }
+    },
+    waiver: {
       type: "boolean",
+      title: "Agree to Waiver"
     }
   },
   required: [
-    "waived"
+    "waiver"
   ]
 };
 
@@ -149,7 +152,10 @@ export const MemberFormUISchema = {
     "ui:classNames": "halfWidth",
     "ui:title": "Emergency Contact"
   },
-  waived: {
+  climbing_info: {
+    "ui:title": "Climbing Interests"
+  },
+  waiver: {
     "ui:widget": "WaiverWidget",
   },
 }
