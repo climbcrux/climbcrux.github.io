@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const COVID_MEMBER_FREEZE = false; // FIXME: Renable before committing
+export const COVID_MEMBER_FREEZE = true; // FIXME: Renable before committing
 export const MEMBERSHIP_ON_SALE = false;
 
 
